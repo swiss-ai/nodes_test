@@ -1,0 +1,50 @@
+INFO 08-22 00:12:58 [serve.py:123] Defaulting api_server_count to data_parallel_size (4).
+INFO 08-22 00:12:58 [api_utils.py:345] 
+INFO 08-22 00:12:58 [api_utils.py:345]        █     █     █▄   ▄█
+INFO 08-22 00:12:58 [api_utils.py:345]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.27.1
+INFO 08-22 00:12:58 [api_utils.py:345]   █▄█▀ █     █     █     █  model   Qwen/Qwen3-30B-A3B
+INFO 08-22 00:12:58 [api_utils.py:345]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+INFO 08-22 00:12:58 [api_utils.py:345] 
+INFO 08-22 00:12:58 [api_utils.py:273] non-default args: {'model_tag': 'Qwen/Qwen3-30B-A3B', 'api_server_count': 4, 'host': '127.0.0.1', 'port': 23247, 'model': 'Qwen/Qwen3-30B-A3B', 'tensor_parallel_size': 4, 'data_parallel_size': 4, 'data_parallel_backend': 'ray', 'enable_expert_parallel': True, 'disable_custom_all_reduce': True}
+INFO 08-22 00:12:58 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+INFO 08-22 00:12:58 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+INFO 08-22 00:12:58 [model.py:1883] Using max model len 40960
+INFO 08-22 00:12:58 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+INFO 08-22 00:12:58 [network_utils.py:205] Port 23247 is already in use, trying port 23248
+INFO 08-22 00:12:58 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+INFO 08-22 00:12:58 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-22 00:12:58 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+INFO 08-22 00:12:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+INFO 08-22 00:13:04 [compilation.py:329] Enabled custom fusions: allreduce_rms
+INFO 08-22 00:13:12 [utils.py:1108] Started DP Coordinator process (PID: 275607)
+INFO 08-22 00:13:12 [utils.py:1113] Starting ray-based data parallel backend
+INFO 08-22 00:13:12 [ray_env.py:101] Env var prefixes to copy: ['FLASH_ATTENTION_', 'HF_', 'HUGGING_FACE_', 'LMCACHE_', 'NCCL_', 'UCX_', 'VLLM_']
+INFO 08-22 00:13:12 [ray_env.py:102] Copying the following environment variables to DPMoEEngineCoreActor: ['HF_DATASETS_OFFLINE', 'HF_HOME', 'HF_HUB_OFFLINE', 'HF_TOKEN', 'LD_LIBRARY_PATH', 'NCCL_CROSS_NIC', 'NCCL_NCHANNELS_PER_NET_PEER', 'NCCL_NET', 'NCCL_NET_GDR_C2C', 'NCCL_NET_GDR_LEVEL', 'NCCL_NET_GDR_READ', 'NCCL_NET_PLUGIN', 'NCCL_P2P_LEVEL', 'NCCL_PROTO', 'NCCL_PXN_DISABLE', 'NCCL_SOCKET_IFNAME', 'VLLM_ALLREDUCE_USE_SYMM_MEM', 'VLLM_BUILD_COMMIT', 'VLLM_BUILD_PIPELINE', 'VLLM_BUILD_URL', 'VLLM_CACHE_ROOT', 'VLLM_ENABLE_CUDA_COMPATIBILITY', 'VLLM_IMAGE_TAG', 'VLLM_PORT', 'VLLM_USAGE_SOURCE', 'VLLM_WORKER_MULTIPROC_METHOD']
+INFO 08-22 00:13:12 [ray_env.py:112] To exclude env vars from copying, add them to /users/mvasilev/.config/vllm/ray_non_carry_over_env_vars.json
+2026-08-22 00:13:13,010	INFO worker.py:1833 -- Connecting to existing Ray cluster at address: 172.28.43.112:30247...
+2026-08-22 00:13:13,184	INFO worker.py:2024 -- Connected to Ray cluster.
+INFO 08-22 00:13:13 [utils.py:528] Creating placement groups for data parallel
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 103, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+    run_multi_api_server(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 329, in run_multi_api_server
+    with launch_core_engines(vllm_config, executor_class, log_stats, addresses) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1115, in launch_core_engines
+    engine_actor_manager = CoreEngineActorManager(
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 452, in __init__
+    CoreEngineActorManager.create_dp_placement_groups(vllm_config)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 654, in create_dp_placement_groups
+    raise ValueError(
+ValueError: Not enough resources to allocate 4 DP ranks on DP master node 172.28.43.112, possible to fit 1 DP ranks.
+INFO 08-22 00:13:14 [utils.py:612] [shutdown] Process manager: send sigterm to process VLLM_DP_Coordinator

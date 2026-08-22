@@ -1,0 +1,15 @@
+START TIME : 2026-08-21T22:31:29+02:00
+nodes      : nid[007432,007437] (head nid007432:29390)
+model      : Qwen/Qwen3-30B-A3B  TP=8 +expert-parallel via ray
+tasks      : piqa,arc_challenge,arc_easy,hellaswag,winogrande,xcopa,xnli,xwinograd,pawsx,mmlu (LIMIT=32)
+output     : /iopsstor/scratch/cscs/mvasilev/vllm-play/qwen3-std-results/prewarm-3144390
+0: /iopsstor/scratch/cscs/mvasilev/tmp/qwen3std-3144390/inner.sh: line 12: /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/ray: No such file or directory
+srun: error: nid007432: task 0: Exited with exit code 1
+srun: Terminating StepId=3144390.0
+1: [2026-08-21T22:31:32.845] error: pyxis: container start error: Interrupted system call
+1: [2026-08-21T22:31:32.845] error: pyxis: printing engine log file:
+1: [2026-08-21T22:31:32.845] error: pyxis: couldn't start container
+1: [2026-08-21T22:31:32.845] error: spank: required plugin spank_pyxis.so: task_init() failed with rc=-1
+1: [2026-08-21T22:31:32.845] error: Failed to invoke spank plugin stack
+srun: error: nid007437: task 1: Exited with exit code 1
+END TIME   : 2026-08-21T22:31:33+02:00  rc=1

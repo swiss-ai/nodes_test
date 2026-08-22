@@ -1,0 +1,1354 @@
+START TIME: Fri Aug 21 22:17:14 CEST 2026
+0: === container versions (system) ===
+0: Python 3.12.13
+0: vllm 0.27.1 | torch 2.13.0+cu130
+0: no system ray CLI
+0: === venv + stock lm-eval ===
+0: Collecting lm_eval
+0:   Downloading lm_eval-0.4.12-py3-none-any.whl.metadata (58 kB)
+0: Requirement already satisfied: datasets>=2.16.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from lm_eval) (5.0.1)
+0: Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from lm_eval) (2.2.6)
+0: Requirement already satisfied: evaluate>=0.4.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from lm_eval) (0.4.6)
+0: Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from lm_eval) (3.1.6)
+0: Collecting pytablewriter (from lm_eval)
+0:   Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+0: Collecting rouge-score>=0.0.4 (from lm_eval)
+0:   Downloading rouge_score-0.1.2.tar.gz (17 kB)
+0:   Installing build dependencies ... [?25l-
+0:  \
+0:  done
+0: [?25h  Getting requirements to build wheel ... [?25l-
+0:  done
+0: [?25h  Preparing metadata (pyproject.toml) ... [?25l-
+0:  done
+0: [?25hCollecting sacrebleu>=1.5.0 (from lm_eval)
+0:   Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+0: Requirement already satisfied: scikit-learn>=0.24.1 in ./lmeval-std-venv/lib/python3.12/site-packages (from lm_eval) (1.9.0)
+0: Collecting sqlitedict (from lm_eval)
+0:   Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+0:   Installing build dependencies ... [?25l-
+0:  \
+0:  done
+0: [?25h  Getting requirements to build wheel ... [?25l-
+0:  done
+0: [?25h  Preparing metadata (pyproject.toml) ... [?25l-
+0:  done
+0: [?25hRequirement already satisfied: dill in /usr/local/lib/python3.12/dist-packages (from lm_eval) (0.4.1)
+0: Collecting word2number (from lm_eval)
+0:   Downloading word2number-1.1.zip (9.7 kB)
+0:   Installing build dependencies ... [?25l-
+0:  \
+0:  done
+0: [?25h  Getting requirements to build wheel ... [?25l-
+0:  done
+0: [?25h  Preparing metadata (pyproject.toml) ... [?25l-
+0:  done
+0: [?25hRequirement already satisfied: more_itertools in /usr/lib/python3/dist-packages (from lm_eval) (8.10.0)
+0: Requirement already satisfied: typing_extensions in /usr/local/lib/python3.12/dist-packages (from lm_eval) (4.16.0)
+0: Requirement already satisfied: tqdm>=4.59.0 in /usr/local/lib/python3.12/dist-packages (from lm_eval) (4.70.0)
+0: Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (3.32.2)
+0: Requirement already satisfied: pyarrow>=21.0.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from datasets>=2.16.0->lm_eval) (25.0.1)
+0: Requirement already satisfied: pandas in ./lmeval-std-venv/lib/python3.12/site-packages (from datasets>=2.16.0->lm_eval) (3.0.5)
+0: Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (2.34.2)
+0: Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (0.28.1)
+0: Requirement already satisfied: xxhash in ./lmeval-std-venv/lib/python3.12/site-packages (from datasets>=2.16.0->lm_eval) (4.0.1)
+0: Requirement already satisfied: multiprocess<0.70.20 in ./lmeval-std-venv/lib/python3.12/site-packages (from datasets>=2.16.0->lm_eval) (0.70.19)
+0: Requirement already satisfied: fsspec<=2026.6.0,>=2023.1.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (2026.6.0)
+0: Requirement already satisfied: huggingface-hub<2.0,>=0.25.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (1.27.0)
+0: Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (26.3)
+0: Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (6.0.3)
+0: Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (3.14.3)
+0: Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (4.14.2)
+0: Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (2026.7.22)
+0: Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (1.0.9)
+0: Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (3.18)
+0: Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm_eval) (0.16.0)
+0: Requirement already satisfied: click<9.0.0,>=8.4.2 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm_eval) (8.4.2)
+0: Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm_eval) (1.6.0)
+0: Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (2.7.1)
+0: Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.4.0)
+0: Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (26.1.0)
+0: Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.8.0)
+0: Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (6.7.1)
+0: Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (0.5.2)
+0: Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.24.5)
+0: Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval) (3.4.9)
+0: Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval) (2.7.0)
+0: Requirement already satisfied: absl-py in ./lmeval-std-venv/lib/python3.12/site-packages (from rouge-score>=0.0.4->lm_eval) (2.5.0)
+0: Collecting nltk (from rouge-score>=0.0.4->lm_eval)
+0:   Downloading nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+0: Requirement already satisfied: six>=1.14.0 in /usr/local/lib/python3.12/dist-packages (from rouge-score>=0.0.4->lm_eval) (1.17.0)
+0: Collecting portalocker (from sacrebleu>=1.5.0->lm_eval)
+0:   Downloading portalocker-4.1.0-py3-none-any.whl.metadata (11 kB)
+0: Requirement already satisfied: regex in /usr/local/lib/python3.12/dist-packages (from sacrebleu>=1.5.0->lm_eval) (2026.7.19)
+0: Requirement already satisfied: tabulate>=0.8.9 in /usr/local/lib/python3.12/dist-packages (from sacrebleu>=1.5.0->lm_eval) (0.10.0)
+0: Collecting colorama (from sacrebleu>=1.5.0->lm_eval)
+0:   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+0: Collecting lxml (from sacrebleu>=1.5.0->lm_eval)
+0:   Downloading lxml-6.1.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl.metadata (3.3 kB)
+0: Requirement already satisfied: scipy>=1.10.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from scikit-learn>=0.24.1->lm_eval) (1.18.0)
+0: Requirement already satisfied: joblib>=1.4.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from scikit-learn>=0.24.1->lm_eval) (1.5.3)
+0: Requirement already satisfied: narwhals>=2.0.1 in ./lmeval-std-venv/lib/python3.12/site-packages (from scikit-learn>=0.24.1->lm_eval) (2.25.0)
+0: Requirement already satisfied: threadpoolctl>=3.5.0 in ./lmeval-std-venv/lib/python3.12/site-packages (from scikit-learn>=0.24.1->lm_eval) (3.6.0)
+0: Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2->lm_eval) (3.0.3)
+0: Requirement already satisfied: defusedxml in ./lmeval-std-venv/lib/python3.12/site-packages (from nltk->rouge-score>=0.0.4->lm_eval) (0.7.1)
+0: Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas->datasets>=2.16.0->lm_eval) (2.9.0.post0)
+0: Requirement already satisfied: setuptools>=38.3.0 in /usr/local/lib/python3.12/dist-packages (from pytablewriter->lm_eval) (80.10.2)
+0: Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm_eval)
+0:   Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+0: Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm_eval)
+0:   Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+0: Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm_eval)
+0:   Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+0: Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm_eval)
+0:   Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+0: Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm_eval)
+0:   Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+0: Collecting typepy<2,>=1.3.2 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval)
+0:   Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+0: Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm_eval)
+0:   Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+0: Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval)
+0:   Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+0: Downloading lm_eval-0.4.12-py3-none-any.whl (8.9 MB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/8.9 MB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;249;38;114m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.1/8.9 MB[0m [31m11.9 MB/s[0m eta [36m0:00:01[0m
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m [32m7.9/8.9 MB[0m [31m20.8 MB/s[0m eta [36m0:00:01[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.9/8.9 MB[0m [31m19.6 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+0: Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+0: Downloading lxml-6.1.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (5.0 MB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/5.0 MB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m42.5 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/1.8 MB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.8/1.8 MB[0m [31m33.7 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading portalocker-4.1.0-py3-none-any.whl (65 kB)
+0: Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+0: Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+0: Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+0: Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/627.2 kB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m627.2/627.2 kB[0m [31m12.2 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+0: Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+0: Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+0: Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+0: Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+0: Building wheels for collected packages: rouge-score, sqlitedict, word2number
+0:   Building wheel for rouge-score (pyproject.toml) ... [?25l-
+0:  done
+0: [?25h  Created wheel for rouge-score: filename=rouge_score-0.1.2-py3-none-any.whl size=24987 sha256=3e5dde9d939c21e51861efe4a66e907415732df173f708adc6736a4b56cb7b60
+0:   Stored in directory: /users/mvasilev/.cache/pip/wheels/85/9d/af/01feefbe7d55ef5468796f0c68225b6788e85d9d0a281e7a70
+0:   Building wheel for sqlitedict (pyproject.toml) ... [?25l-
+0:  done
+0: [?25h  Created wheel for sqlitedict: filename=sqlitedict-2.1.0-py3-none-any.whl size=16958 sha256=5c78126e69de62559839389826f513866a07615b0271dab6be506bee80340368
+0:   Stored in directory: /users/mvasilev/.cache/pip/wheels/7a/6f/21/fc016aef45ffcabe27129a2252f061387cbf278d2086225a64
+0:   Building wheel for word2number (pyproject.toml) ... [?25l-
+0:  done
+0: [?25h  Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5658 sha256=3d317e0b4dd9209c4442dbce3baa43759ab2034eaf9115054ccd5b8e24535c4c
+0:   Stored in directory: /users/mvasilev/.cache/pip/wheels/5b/79/fb/d25928e599c7e11fe4e00d32048cd74933f34a74c633d2aea6
+0: Successfully built rouge-score sqlitedict word2number
+0: Installing collected packages: word2number, sqlitedict, pytz, tcolorpy, portalocker, pathvalidate, nltk, lxml, colorama, chardet, sacrebleu, rouge-score, mbstrdecoder, typepy, DataProperty, tabledata, pytablewriter, lm_eval
+0: [?25l
+0: [2K   [38;2;249;38;114m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/18[0m [pytz]
+0: [2K   [38;2;249;38;114m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/18[0m [pytz]
+0: [2K   [38;2;249;38;114m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/18[0m [pytz]
+0: [2K   [38;2;249;38;114m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/18[0m [pytz]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/18[0m [portalocker]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/18[0m [nltk]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 7/18[0m [lxml]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 7/18[0m [lxml]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 9/18[0m [chardet]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 9/18[0m [chardet]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 9/18[0m [chardet]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 9/18[0m [chardet]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 9/18[0m [chardet]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m [32m10/18[0m [sacrebleu]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━[0m [32m12/18[0m [mbstrdecoder]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m13/18[0m [typepy]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━[0m [32m16/18[0m [pytablewriter]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━[0m [32m16/18[0m [pytablewriter]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━[0m [32m17/18[0m [lm_eval]
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m18/18[0m [lm_eval]
+0: [?25h[1A[2K
+0: Successfully installed DataProperty-1.1.1 chardet-6.0.0.post1 colorama-0.4.6 lm_eval-0.4.12 lxml-6.1.2 mbstrdecoder-1.1.5 nltk-3.10.3 pathvalidate-3.3.1 portalocker-4.1.0 pytablewriter-1.2.1 pytz-2026.3.post1 rouge-score-0.1.2 sacrebleu-2.6.0 sqlitedict-2.1.0 tabledata-1.3.5 tcolorpy-0.1.7 typepy-1.3.5 word2number-1.1
+0: Name: lm_eval
+0: Version: 0.4.12
+0: OK: lm_eval 0.4.12 | vllm 0.27.1 | torch 2.13.0+cu130
+0: === model download: Qwen/Qwen3-30B-A3B ===
+0: Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]
+0: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+0: Fetching 26 files:   4%|▍         | 1/26 [00:00<00:03,  6.72it/s]
+0: Fetching 26 files:  27%|██▋       | 7/26 [00:19<00:54,  2.89s/it]
+0: Fetching 26 files:  31%|███       | 8/26 [00:19<00:43,  2.40s/it]
+0: Fetching 26 files:  35%|███▍      | 9/26 [00:19<00:32,  1.94s/it]
+0: Fetching 26 files:  38%|███▊      | 10/26 [00:19<00:24,  1.55s/it]
+0: Fetching 26 files:  42%|████▏     | 11/26 [00:20<00:19,  1.32s/it]
+0: Fetching 26 files:  50%|█████     | 13/26 [00:20<00:11,  1.12it/s]
+0: Fetching 26 files:  54%|█████▍    | 14/26 [00:22<00:11,  1.05it/s]
+0: Fetching 26 files:  58%|█████▊    | 15/26 [00:27<00:23,  2.13s/it]
+0: Fetching 26 files:  62%|██████▏   | 16/26 [00:28<00:16,  1.63s/it]
+0: Fetching 26 files:  65%|██████▌   | 17/26 [00:29<00:14,  1.60s/it]
+0: Fetching 26 files:  69%|██████▉   | 18/26 [00:29<00:09,  1.19s/it]
+0: Fetching 26 files:  73%|███████▎  | 19/26 [00:29<00:06,  1.11it/s]
+0: Fetching 26 files:  77%|███████▋  | 20/26 [00:31<00:06,  1.13s/it]
+0: Fetching 26 files:  81%|████████  | 21/26 [00:33<00:06,  1.32s/it]
+0: Fetching 26 files:  85%|████████▍ | 22/26 [00:33<00:04,  1.06s/it]
+0: Fetching 26 files:  88%|████████▊ | 23/26 [00:35<00:03,  1.13s/it]
+0: Fetching 26 files:  92%|█████████▏| 24/26 [00:35<00:02,  1.04s/it]
+0: Fetching 26 files:  96%|█████████▌| 25/26 [00:36<00:00,  1.13it/s]
+0: Fetching 26 files: 100%|██████████| 26/26 [00:36<00:00,  1.47it/s]
+0: Fetching 26 files: 100%|██████████| 26/26 [00:36<00:00,  1.41s/it]
+0: snapshot at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39
+0: === dataset prefetch: piqa,arc_challenge,arc_easy,hellaswag,winogrande,xcopa,xnli,xwinograd,pawsx,mmlu ===
+0: /tmp/prefetch.py:4: DeprecationWarning: get_task_dict is deprecated. Use TaskManager.load() instead.
+0:   td = get_task_dict(names, TaskManager())
+0: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+0: Generating train split:   0%|          | 0/16113 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 16113/16113 [00:00<00:00, 1135998.46 examples/s]
+0: Generating validation split:   0%|          | 0/1838 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 1838/1838 [00:00<00:00, 514696.94 examples/s]
+0: Generating test split:   0%|          | 0/3084 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 3084/3084 [00:00<00:00, 867030.87 examples/s]
+0: Generating train split:   0%|          | 0/1119 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 1119/1119 [00:00<00:00, 283505.05 examples/s]
+0: Generating test split:   0%|          | 0/1172 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 1172/1172 [00:00<00:00, 306734.32 examples/s]
+0: Generating validation split:   0%|          | 0/299 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 299/299 [00:00<00:00, 111218.24 examples/s]
+0: Generating train split:   0%|          | 0/2251 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 2251/2251 [00:00<00:00, 424694.27 examples/s]
+0: Generating test split:   0%|          | 0/2376 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2376/2376 [00:00<00:00, 584496.56 examples/s]
+0: Generating validation split:   0%|          | 0/570 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 570/570 [00:00<00:00, 209402.93 examples/s]
+0: Generating train split:   0%|          | 0/39905 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 39905/39905 [00:00<00:00, 953680.00 examples/s]
+0: Generating test split:   0%|          | 0/10003 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 10003/10003 [00:00<00:00, 794012.55 examples/s]
+0: Generating validation split:   0%|          | 0/10042 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 10042/10042 [00:00<00:00, 797621.50 examples/s]
+0: Map:   0%|          | 0/39905 [00:00<?, ? examples/s]
+0: Map:   5%|▌         | 2194/39905 [00:00<00:01, 21528.78 examples/s]
+0: Map:  12%|█▏        | 4715/39905 [00:00<00:02, 13847.50 examples/s]
+0: Map:  18%|█▊        | 7000/39905 [00:00<00:02, 16296.11 examples/s]
+0: Map:  23%|██▎       | 9286/39905 [00:00<00:01, 18344.79 examples/s]
+0: Map:  29%|██▉       | 11647/39905 [00:00<00:01, 19968.77 examples/s]
+0: Map:  35%|███▌      | 13996/39905 [00:00<00:01, 21044.68 examples/s]
+0: Map:  42%|████▏     | 16928/39905 [00:00<00:01, 16599.61 examples/s]
+0: Map:  48%|████▊     | 19000/39905 [00:01<00:01, 16988.53 examples/s]
+0: Map:  53%|█████▎    | 21000/39905 [00:01<00:01, 17485.10 examples/s]
+0: Map:  58%|█████▊    | 23044/39905 [00:01<00:00, 18103.87 examples/s]
+0: Map:  63%|██████▎   | 25000/39905 [00:01<00:00, 15106.46 examples/s]
+0: Map:  68%|██████▊   | 27045/39905 [00:01<00:00, 16368.58 examples/s]
+0: Map:  73%|███████▎  | 29173/39905 [00:01<00:00, 17610.39 examples/s]
+0: Map:  78%|███████▊  | 31319/39905 [00:01<00:00, 18630.23 examples/s]
+0: Map:  84%|████████▍ | 33445/39905 [00:01<00:00, 19351.34 examples/s]
+0: Map:  89%|████████▉ | 35555/39905 [00:01<00:00, 19842.67 examples/s]
+0: Map:  95%|█████████▌| 38000/39905 [00:02<00:00, 15879.76 examples/s]
+0: Map: 100%|██████████| 39905/39905 [00:02<00:00, 17420.93 examples/s]
+0: Map:   0%|          | 0/10042 [00:00<?, ? examples/s]
+0: Map:  22%|██▏       | 2223/10042 [00:00<00:00, 22055.23 examples/s]
+0: Map:  46%|████▌     | 4620/10042 [00:00<00:00, 13205.39 examples/s]
+0: Map:  67%|██████▋   | 6690/10042 [00:00<00:00, 15624.05 examples/s]
+0: Map:  88%|████████▊ | 8844/10042 [00:00<00:00, 17489.85 examples/s]
+0: Map: 100%|██████████| 10042/10042 [00:00<00:00, 16770.70 examples/s]
+0: Generating train split:   0%|          | 0/40398 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 40398/40398 [00:00<00:00, 3300122.57 examples/s]
+0: Generating test split:   0%|          | 0/1767 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 1767/1767 [00:00<00:00, 576488.42 examples/s]
+0: Generating validation split:   0%|          | 0/1267 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 1267/1267 [00:00<00:00, 472120.04 examples/s]
+0: [Task: xcopa_et] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_et] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Traceback (most recent call last):
+0:   File "/tmp/prefetch.py", line 4, in <module>
+0:     td = get_task_dict(names, TaskManager())
+0:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/typing_extensions.py", line 3140, in wrapper
+0:     return arg(*args, **kwargs)
+0:            ^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/__init__.py", line 167, in get_task_dict
+0:     result = task_manager.load_task_or_group(specs) if specs else {}
+0:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/typing_extensions.py", line 3140, in wrapper
+0:     return arg(*args, **kwargs)
+0:            ^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/manager.py", line 279, in load_task_or_group
+0:     collections.ChainMap(*[_to_nested(self._load_spec(s)) for s in task_list])
+0:                                       ^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/manager.py", line 154, in _load_spec
+0:     return self._factory.build(
+0:            ^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/_factory.py", line 58, in build
+0:     return self._build_group(entry.name, raw_cfg, overrides, registry)
+0:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/_factory.py", line 120, in _build_group
+0:     for child in self._build_group_members(
+0:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/_factory.py", line 224, in _build_group_members
+0:     child_obj = self.build(
+0:                 ^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/_factory.py", line 61, in build
+0:     return self._build_task(entry, overrides)
+0:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/tasks/_factory.py", line 81, in _build_task
+0:     obj = ConfigurableTask(config=cfg)
+0:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/api/task.py", line 753, in __init__
+0:     self.download(self.config.dataset_kwargs)
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/lm_eval/api/task.py", line 869, in download
+0:     self.dataset = datasets.load_dataset(
+0:                    ^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/load.py", line 1696, in load_dataset
+0:     builder_instance = load_dataset_builder(
+0:                        ^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/load.py", line 1323, in load_dataset_builder
+0:     dataset_module = dataset_module_factory(
+0:                      ^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/load.py", line 1215, in dataset_module_factory
+0:     raise e1 from None
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/load.py", line 1190, in dataset_module_factory
+0:     ).get_module()
+0:       ^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/load.py", line 608, in get_module
+0:     standalone_yaml_path = cached_path(
+0:                            ^^^^^^^^^^^^
+0:   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/datasets/utils/file_utils.py", line 180, in cached_path
+0:     ).resolve_path(url_or_filename)
+0:       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_file_system.py", line 305, in resolve_path
+0:     parsed = parse_hf_uri(f"{constants.HF_PROTOCOL}{path}")
+0:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_hf_uris.py", line 319, in parse_hf_uri
+0:     return _parse_repo_body(location, type_, raw=raw)
+0:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_hf_uris.py", line 617, in _parse_repo_body
+0:     raise HfUriError(uri=raw, msg=f"Repository id must be 'namespace/name', got '{repo_id}'.")
+0: huggingface_hub.errors.HfUriError: Invalid HF URI 'hf://datasets/xcopa@042f78955ba48e6404616762fa6e05e839c3907a/.huggingface.yaml'. Repository id must be 'namespace/name', got 'xcopa'.
+0: attempt 1 failed (HF rate limit?), retrying in 150 s
+0: /tmp/prefetch.py:4: DeprecationWarning: get_task_dict is deprecated. Use TaskManager.load() instead.
+0:   td = get_task_dict(names, TaskManager())
+0: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+0: [Task: xcopa_et] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_et] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 21724.27 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 166997.29 examples/s]
+0: [Task: xcopa_ht] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_ht] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 31681.43 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 198499.95 examples/s]
+0: [Task: xcopa_id] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_id] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 33471.42 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 202271.60 examples/s]
+0: [Task: xcopa_it] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_it] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 8402.56 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 175435.17 examples/s]
+0: [Task: xcopa_qu] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_qu] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 32966.31 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 188186.65 examples/s]
+0: [Task: xcopa_sw] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_sw] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 32829.56 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 187849.52 examples/s]
+0: [Task: xcopa_ta] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_ta] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 32071.45 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 190304.17 examples/s]
+0: [Task: xcopa_th] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_th] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 31455.71 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 192806.10 examples/s]
+0: [Task: xcopa_tr] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_tr] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 31722.16 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 189942.22 examples/s]
+0: [Task: xcopa_vi] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_vi] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 33645.95 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 192877.03 examples/s]
+0: [Task: xcopa_zh] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_zh] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 33188.04 examples/s]
+0: Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 500/500 [00:00<00:00, 182790.20 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  78%|███████▊  | 306000/392702 [00:00<00:00, 3033732.70 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3079006.73 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1310393.06 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 789523.51 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  70%|██████▉   | 273000/392702 [00:00<00:00, 2696475.86 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 2822421.51 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1230296.43 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 776088.06 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  85%|████████▌ | 334000/392702 [00:00<00:00, 3302477.01 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3325449.11 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1223633.79 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 787083.95 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  65%|██████▍   | 254000/392702 [00:00<00:00, 2511038.34 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 2611635.61 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1183723.70 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 732539.59 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  90%|████████▉ | 352000/392702 [00:00<00:00, 3479478.71 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3494055.14 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1304697.82 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 837179.72 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  87%|████████▋ | 342000/392702 [00:00<00:00, 3389104.34 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3412323.66 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1317293.32 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 811548.45 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  84%|████████▎ | 328000/392702 [00:00<00:00, 3249486.17 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3280575.94 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1245906.74 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 814650.31 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  67%|██████▋   | 264000/392702 [00:00<00:00, 2595004.62 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 2671627.15 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1114004.30 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 734290.72 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  68%|██████▊   | 268000/392702 [00:00<00:00, 2643989.13 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 2735197.92 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1193811.10 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 761377.63 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  95%|█████████▌| 375000/392702 [00:00<00:00, 3720263.11 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3694707.23 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1217889.36 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 826447.49 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  61%|██████    | 239000/392702 [00:00<00:00, 2373321.19 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 2488771.93 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1169038.28 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 770932.09 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  95%|█████████▌| 374000/392702 [00:00<00:00, 3707834.17 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3681617.68 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1328536.58 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 831712.75 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  89%|████████▉ | 349000/392702 [00:00<00:00, 3463996.31 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3456288.51 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1236740.81 examples/s]
+0: 
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 768097.15 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  79%|███████▉  | 312000/392702 [00:00<00:00, 3084192.43 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3126137.00 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1251695.44 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 820990.25 examples/s]
+0: Generating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+0: Generating train split:  93%|█████████▎| 366000/392702 [00:00<00:00, 3628264.93 examples/s]
+0: Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 3613307.06 examples/s]
+0: Generating test split:   0%|          | 0/5010 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 5010/5010 [00:00<00:00, 1306644.88 examples/s]
+0: Generating validation split:   0%|          | 0/2490 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2490/2490 [00:00<00:00, 782015.50 examples/s]
+0: Generating test split:   0%|          | 0/2325 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2325/2325 [00:00<00:00, 384124.03 examples/s]
+0: Generating test split:   0%|          | 0/83 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 83/83 [00:00<00:00, 30117.42 examples/s]
+0: Generating test split:   0%|          | 0/959 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 959/959 [00:00<00:00, 327391.95 examples/s]
+0: Generating test split:   0%|          | 0/263 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 263/263 [00:00<00:00, 44546.38 examples/s]
+0: Generating test split:   0%|          | 0/315 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 315/315 [00:00<00:00, 107040.89 examples/s]
+0: Generating test split:   0%|          | 0/504 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 504/504 [00:00<00:00, 170409.45 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2356264.28 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 588756.88 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 636030.63 examples/s]
+0: Filter:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 49401/49401 [00:00<00:00, 954209.66 examples/s]
+0: Map:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Map:   5%|▍         | 2281/49401 [00:00<00:02, 22702.58 examples/s]
+0: Map:  10%|▉         | 4866/49401 [00:00<00:01, 24543.79 examples/s]
+0: Map:  17%|█▋        | 8573/49401 [00:00<00:01, 24625.41 examples/s]
+0: Map:  24%|██▍       | 12001/49401 [00:00<00:02, 14831.02 examples/s]
+0: Map:  29%|██▉       | 14301/49401 [00:00<00:02, 16527.81 examples/s]
+0: Map:  34%|███▍      | 16766/49401 [00:00<00:01, 18386.80 examples/s]
+0: Map:  39%|███▉      | 19262/49401 [00:01<00:01, 19697.69 examples/s]
+0: Map:  44%|████▍     | 21761/49401 [00:01<00:01, 21058.34 examples/s]
+0: Map:  51%|█████     | 25304/49401 [00:01<00:01, 21965.98 examples/s]
+0: Map:  56%|█████▋    | 27835/49401 [00:01<00:00, 22810.87 examples/s]
+0: Map:  61%|██████    | 30233/49401 [00:01<00:00, 22929.27 examples/s]
+0: Map:  66%|██████▌   | 32713/49401 [00:01<00:00, 23438.47 examples/s]
+0: Map:  73%|███████▎  | 36238/49401 [00:01<00:00, 23459.21 examples/s]
+0: Map:  78%|███████▊  | 38744/49401 [00:01<00:00, 23875.19 examples/s]
+0: Map:  86%|████████▌ | 42280/49401 [00:01<00:00, 23763.92 examples/s]
+0: Map:  91%|█████████ | 44773/49401 [00:02<00:00, 24058.78 examples/s]
+0: Map:  96%|█████████▌| 47238/49401 [00:02<00:00, 23905.14 examples/s]
+0: Map: 100%|██████████| 49401/49401 [00:02<00:00, 21792.70 examples/s]
+0: Filter:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 2000/2000 [00:00<00:00, 292785.87 examples/s]
+0: Map:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Map: 100%|██████████| 2000/2000 [00:00<00:00, 22545.72 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2713819.23 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 582582.68 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 649373.59 examples/s]
+0: Filter:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 49401/49401 [00:00<00:00, 877171.46 examples/s]
+0: Map:   0%|          | 0/49129 [00:00<?, ? examples/s]
+0: Map:   5%|▍         | 2430/49129 [00:00<00:01, 24197.05 examples/s]
+0: Map:  10%|█         | 5000/49129 [00:00<00:01, 24803.09 examples/s]
+0: Map:  16%|█▌        | 7615/49129 [00:00<00:01, 25410.60 examples/s]
+0: Map:  23%|██▎       | 11409/49129 [00:00<00:01, 25349.63 examples/s]
+0: Map:  28%|██▊       | 14000/49129 [00:00<00:01, 25222.81 examples/s]
+0: Map:  34%|███▍      | 16620/49129 [00:00<00:01, 25524.77 examples/s]
+0: Map:  41%|████▏     | 20340/49129 [00:00<00:01, 25231.01 examples/s]
+0: Map:  47%|████▋     | 22955/49129 [00:00<00:01, 25482.28 examples/s]
+0: Map:  54%|█████▍    | 26690/49129 [00:01<00:00, 25262.70 examples/s]
+0: Map:  62%|██████▏   | 30465/49129 [00:01<00:00, 25225.99 examples/s]
+0: Map:  67%|██████▋   | 33000/49129 [00:01<00:00, 24990.19 examples/s]
+0: Map:  72%|███████▏  | 35577/49129 [00:01<00:00, 25191.94 examples/s]
+0: Map:  80%|████████  | 39322/49129 [00:01<00:00, 25109.39 examples/s]
+0: Map:  86%|████████▌ | 42213/49129 [00:01<00:00, 16861.60 examples/s]
+0: Map:  90%|█████████ | 44316/49129 [00:01<00:00, 17652.67 examples/s]
+0: Map:  95%|█████████▌| 46726/49129 [00:02<00:00, 19028.00 examples/s]
+0: Map: 100%|█████████▉| 49060/49129 [00:02<00:00, 20034.51 examples/s]
+0: Map: 100%|██████████| 49129/49129 [00:02<00:00, 22506.64 examples/s]
+0: Filter:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 2000/2000 [00:00<00:00, 280771.43 examples/s]
+0: Map:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Map: 100%|██████████| 2000/2000 [00:00<00:00, 22725.84 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2441011.40 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 593169.85 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 646321.60 examples/s]
+0: Filter:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 49401/49401 [00:00<00:00, 835838.98 examples/s]
+0: Map:   0%|          | 0/49129 [00:00<?, ? examples/s]
+0: Map:   5%|▍         | 2276/49129 [00:00<00:02, 22656.04 examples/s]
+0: Map:  10%|▉         | 4810/49129 [00:00<00:01, 24224.21 examples/s]
+0: Map:  15%|█▍        | 7274/49129 [00:00<00:01, 24187.51 examples/s]
+0: Map:  20%|██        | 9866/49129 [00:00<00:01, 24863.09 examples/s]
+0: Map:  28%|██▊       | 13621/49129 [00:00<00:01, 24879.90 examples/s]
+0: Map:  35%|███▌      | 17260/49129 [00:00<00:01, 24612.63 examples/s]
+0: Map:  40%|████      | 19813/49129 [00:00<00:01, 24859.85 examples/s]
+0: Map:  48%|████▊     | 23523/49129 [00:00<00:01, 24695.16 examples/s]
+0: Map:  53%|█████▎    | 26000/49129 [00:01<00:00, 24516.78 examples/s]
+0: Map:  58%|█████▊    | 28543/49129 [00:01<00:00, 24761.46 examples/s]
+0: Map:  66%|██████▌   | 32253/49129 [00:01<00:00, 24559.36 examples/s]
+0: Map:  71%|███████   | 34749/49129 [00:01<00:00, 24659.24 examples/s]
+0: Map:  78%|███████▊  | 38315/49129 [00:01<00:00, 24339.84 examples/s]
+0: Map:  83%|████████▎ | 40809/49129 [00:01<00:00, 24488.91 examples/s]
+0: Map:  91%|█████████ | 44507/49129 [00:01<00:00, 24399.22 examples/s]
+0: Map:  96%|█████████▌| 47000/49129 [00:02<00:00, 16694.62 examples/s]
+0: Map: 100%|██████████| 49129/49129 [00:02<00:00, 17001.72 examples/s]
+0: Map: 100%|██████████| 49129/49129 [00:02<00:00, 22088.43 examples/s]
+0: Filter:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 2000/2000 [00:00<00:00, 280668.09 examples/s]
+0: Map:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Map: 100%|██████████| 2000/2000 [00:00<00:00, 22553.84 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2426660.25 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 584571.99 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 652759.16 examples/s]
+0: Filter:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 49401/49401 [00:00<00:00, 797262.00 examples/s]
+0: Map:   0%|          | 0/49129 [00:00<?, ? examples/s]
+0: Map:   5%|▍         | 2236/49129 [00:00<00:02, 22256.49 examples/s]
+0: Map:  10%|▉         | 4748/49129 [00:00<00:01, 23930.03 examples/s]
+0: Map:  17%|█▋        | 8413/49129 [00:00<00:01, 24205.55 examples/s]
+0: Map:  22%|██▏       | 11000/49129 [00:00<00:01, 24410.07 examples/s]
+0: Map:  28%|██▊       | 13585/49129 [00:00<00:01, 24879.33 examples/s]
+0: Map:  35%|███▌      | 17259/49129 [00:00<00:01, 24698.90 examples/s]
+0: Map:  40%|████      | 19796/49129 [00:00<00:01, 24885.49 examples/s]
+0: Map:  48%|████▊     | 23556/49129 [00:00<00:01, 24775.67 examples/s]
+0: Map:  55%|█████▌    | 27258/49129 [00:01<00:00, 24695.10 examples/s]
+0: Map:  61%|██████    | 29791/49129 [00:01<00:00, 24850.78 examples/s]
+0: Map:  68%|██████▊   | 33480/49129 [00:01<00:00, 24594.02 examples/s]
+0: Map:  73%|███████▎  | 36000/49129 [00:01<00:00, 24515.44 examples/s]
+0: Map:  78%|███████▊  | 38511/49129 [00:01<00:00, 24668.92 examples/s]
+0: Map:  83%|████████▎ | 41000/49129 [00:01<00:00, 24438.91 examples/s]
+0: Map:  88%|████████▊ | 43464/49129 [00:01<00:00, 24484.50 examples/s]
+0: Map:  94%|█████████▎| 45954/49129 [00:01<00:00, 24598.15 examples/s]
+0: Map: 100%|██████████| 49129/49129 [00:02<00:00, 24039.29 examples/s]
+0: Map: 100%|██████████| 49129/49129 [00:02<00:00, 24425.29 examples/s]
+0: Filter:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Filter: 100%|██████████| 2000/2000 [00:00<00:00, 283504.28 examples/s]
+0: Map:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Map: 100%|██████████| 2000/2000 [00:00<00:00, 23259.18 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2244568.07 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 554325.51 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 602370.24 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2634425.21 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 552245.42 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 625362.16 examples/s]
+0: Generating train split:   0%|          | 0/49401 [00:00<?, ? examples/s]
+0: Generating train split: 100%|██████████| 49401/49401 [00:00<00:00, 2600404.26 examples/s]
+0: Generating test split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 2000/2000 [00:00<00:00, 545033.33 examples/s]
+0: Generating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 612799.18 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 28495.85 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4032.63 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1979.19 examples/s]
+0: Generating test split:   0%|          | 0/135 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 135/135 [00:00<00:00, 41055.03 examples/s]
+0: Generating validation split:   0%|          | 0/14 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 14/14 [00:00<00:00, 5150.45 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2008.19 examples/s]
+0: Generating test split:   0%|          | 0/152 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 152/152 [00:00<00:00, 25944.50 examples/s]
+0: Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 5746.11 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1979.75 examples/s]
+0: Generating test split:   0%|          | 0/144 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 144/144 [00:00<00:00, 45849.83 examples/s]
+0: Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 5888.29 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1943.79 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 31068.92 examples/s]
+0: Generating validation split:   0%|          | 0/8 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 8/8 [00:00<00:00, 2835.43 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1990.84 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17399.42 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3927.25 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2023.69 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 32498.87 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4066.04 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1864.47 examples/s]
+0: Generating test split:   0%|          | 0/102 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 102/102 [00:00<00:00, 31111.85 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3923.91 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1739.22 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 19135.47 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4003.59 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1935.36 examples/s]
+0: Generating test split:   0%|          | 0/235 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 235/235 [00:00<00:00, 73909.83 examples/s]
+0: Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 9431.92 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1837.35 examples/s]
+0: Generating test split:   0%|          | 0/145 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 145/145 [00:00<00:00, 46238.43 examples/s]
+0: Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 5677.09 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1859.51 examples/s]
+0: Generating test split:   0%|          | 0/378 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 378/378 [00:00<00:00, 111856.00 examples/s]
+0: Generating validation split:   0%|          | 0/41 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 41/41 [00:00<00:00, 15033.35 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1957.03 examples/s]
+0: Generating test split:   0%|          | 0/310 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 310/310 [00:00<00:00, 64946.77 examples/s]
+0: Generating validation split:   0%|          | 0/32 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 32/32 [00:00<00:00, 12179.47 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2006.65 examples/s]
+0: Generating test split:   0%|          | 0/203 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 203/203 [00:00<00:00, 64916.42 examples/s]
+0: Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 7879.32 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1975.84 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 17349.76 examples/s]
+0: Generating validation split:   0%|          | 0/9 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 9/9 [00:00<00:00, 3227.49 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1917.31 examples/s]
+0: Generating test split:   0%|          | 0/270 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 270/270 [00:00<00:00, 82679.57 examples/s]
+0: Generating validation split:   0%|          | 0/29 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 29/29 [00:00<00:00, 10272.34 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1905.81 examples/s]
+0: Generating test split:   0%|          | 0/151 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 151/151 [00:00<00:00, 26690.54 examples/s]
+0: Generating validation split:   0%|          | 0/17 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 17/17 [00:00<00:00, 6172.90 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2000.91 examples/s]
+0: Generating test split:   0%|          | 0/216 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 216/216 [00:00<00:00, 67483.77 examples/s]
+0: Generating validation split:   0%|          | 0/23 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 23/23 [00:00<00:00, 8430.39 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1727.62 examples/s]
+0: Generating test split:   0%|          | 0/112 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 112/112 [00:00<00:00, 37780.44 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4332.55 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2048.00 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 15451.48 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4044.65 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1938.58 examples/s]
+0: Generating test split:   0%|          | 0/265 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 265/265 [00:00<00:00, 83551.87 examples/s]
+0: Generating validation split:   0%|          | 0/29 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 29/29 [00:00<00:00, 10686.59 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2026.63 examples/s]
+0: Generating test split:   0%|          | 0/173 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 173/173 [00:00<00:00, 50035.48 examples/s]
+0: Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 3016.79 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1869.79 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 32147.65 examples/s]
+0: Generating validation split:   0%|          | 0/10 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 10/10 [00:00<00:00, 3701.29 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1935.36 examples/s]
+0: Generating test split:   0%|          | 0/223 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 223/223 [00:00<00:00, 67900.53 examples/s]
+0: Generating validation split:   0%|          | 0/23 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 23/23 [00:00<00:00, 8135.35 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1913.63 examples/s]
+0: Generating test split:   0%|          | 0/103 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 103/103 [00:00<00:00, 34172.86 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3891.80 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1877.15 examples/s]
+0: Generating test split:   0%|          | 0/234 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 234/234 [00:00<00:00, 56728.93 examples/s]
+0: Generating validation split:   0%|          | 0/25 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 25/25 [00:00<00:00, 9125.99 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1968.05 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 31536.12 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3950.12 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1902.18 examples/s]
+0: Generating test split:   0%|          | 0/783 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 783/783 [00:00<00:00, 244301.13 examples/s]
+0: Generating validation split:   0%|          | 0/86 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 86/86 [00:00<00:00, 29922.04 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1941.81 examples/s]
+0: Generating test split:   0%|          | 0/306 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 306/306 [00:00<00:00, 77998.00 examples/s]
+0: Generating validation split:   0%|          | 0/33 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 33/33 [00:00<00:00, 10699.76 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1905.81 examples/s]
+0: Generating test split:   0%|          | 0/282 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 282/282 [00:00<00:00, 52815.08 examples/s]
+0: Generating validation split:   0%|          | 0/31 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 31/31 [00:00<00:00, 11229.24 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1972.68 examples/s]
+0: Generating test split:   0%|          | 0/272 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 272/272 [00:00<00:00, 82425.45 examples/s]
+0: Generating validation split:   0%|          | 0/31 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 31/31 [00:00<00:00, 11088.47 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1961.05 examples/s]
+0: Generating test split:   0%|          | 0/166 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 166/166 [00:00<00:00, 53068.18 examples/s]
+0: Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 6712.08 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2046.40 examples/s]
+0: Generating test split:   0%|          | 0/114 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 114/114 [00:00<00:00, 23216.83 examples/s]
+0: Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 4461.63 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2032.71 examples/s]
+0: Generating test split:   0%|          | 0/198 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 198/198 [00:00<00:00, 60109.45 examples/s]
+0: Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 8068.79 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1955.57 examples/s]
+0: Generating test split:   0%|          | 0/193 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 193/193 [00:00<00:00, 59909.76 examples/s]
+0: Generating validation split:   0%|          | 0/21 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 21/21 [00:00<00:00, 7466.34 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1925.41 examples/s]
+0: Generating test split:   0%|          | 0/390 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 390/390 [00:00<00:00, 69893.12 examples/s]
+0: Generating validation split:   0%|          | 0/43 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 43/43 [00:00<00:00, 15012.08 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1824.88 examples/s]
+0: Generating test split:   0%|          | 0/238 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 238/238 [00:00<00:00, 68195.41 examples/s]
+0: Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 8928.43 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1904.42 examples/s]
+0: Generating test split:   0%|          | 0/545 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 545/545 [00:00<00:00, 96361.84 examples/s]
+0: Generating validation split:   0%|          | 0/60 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 60/60 [00:00<00:00, 21911.91 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2002.44 examples/s]
+0: Generating test split:   0%|          | 0/131 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 131/131 [00:00<00:00, 40300.27 examples/s]
+0: Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 4312.54 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1924.17 examples/s]
+0: Generating test split:   0%|          | 0/612 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 612/612 [00:00<00:00, 183442.72 examples/s]
+0: Generating validation split:   0%|          | 0/69 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 69/69 [00:00<00:00, 25480.45 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2026.63 examples/s]
+0: Generating test split:   0%|          | 0/110 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 110/110 [00:00<00:00, 20571.31 examples/s]
+0: Generating validation split:   0%|          | 0/12 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 12/12 [00:00<00:00, 4301.12 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2005.31 examples/s]
+0: Generating test split:   0%|          | 0/245 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 245/245 [00:00<00:00, 72244.41 examples/s]
+0: Generating validation split:   0%|          | 0/27 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 27/27 [00:00<00:00, 9896.55 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1979.38 examples/s]
+0: Generating test split:   0%|          | 0/201 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 201/201 [00:00<00:00, 54376.62 examples/s]
+0: Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 7051.41 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1835.74 examples/s]
+0: Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 100/100 [00:00<00:00, 31609.80 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3959.61 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1896.67 examples/s]
+0: Generating test split:   0%|          | 0/126 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 126/126 [00:00<00:00, 24803.22 examples/s]
+0: Generating validation split:   0%|          | 0/14 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 14/14 [00:00<00:00, 4932.40 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1938.04 examples/s]
+0: Generating test split:   0%|          | 0/165 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 165/165 [00:00<00:00, 48733.20 examples/s]
+0: Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 6404.60 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1895.47 examples/s]
+0: Generating test split:   0%|          | 0/204 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 204/204 [00:00<00:00, 35623.38 examples/s]
+0: Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 7704.32 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1973.79 examples/s]
+0: Generating test split:   0%|          | 0/237 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 237/237 [00:00<00:00, 65848.57 examples/s]
+0: Generating validation split:   0%|          | 0/26 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 26/26 [00:00<00:00, 9309.54 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2027.80 examples/s]
+0: Generating test split:   0%|          | 0/121 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 121/121 [00:00<00:00, 35158.35 examples/s]
+0: Generating validation split:   0%|          | 0/13 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 13/13 [00:00<00:00, 4734.80 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1932.68 examples/s]
+0: Generating test split:   0%|          | 0/108 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 108/108 [00:00<00:00, 31970.13 examples/s]
+0: Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 4035.45 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1978.07 examples/s]
+0: Generating test split:   0%|          | 0/163 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 163/163 [00:00<00:00, 31146.77 examples/s]
+0: Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 6390.51 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1935.71 examples/s]
+0: Generating test split:   0%|          | 0/346 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 346/346 [00:00<00:00, 104585.56 examples/s]
+0: Generating validation split:   0%|          | 0/38 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 38/38 [00:00<00:00, 13934.56 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1990.65 examples/s]
+0: Generating test split:   0%|          | 0/895 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 895/895 [00:00<00:00, 270337.18 examples/s]
+0: Generating validation split:   0%|          | 0/100 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 100/100 [00:00<00:00, 35818.14 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2067.79 examples/s]
+0: Generating test split:   0%|          | 0/311 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 311/311 [00:00<00:00, 93266.73 examples/s]
+0: Generating validation split:   0%|          | 0/34 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 34/34 [00:00<00:00, 12181.29 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1924.17 examples/s]
+0: Generating test split:   0%|          | 0/324 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 324/324 [00:00<00:00, 100655.84 examples/s]
+0: Generating validation split:   0%|          | 0/35 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 35/35 [00:00<00:00, 12423.89 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2021.16 examples/s]
+0: Generating test split:   0%|          | 0/1534 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 1534/1534 [00:00<00:00, 266079.25 examples/s]
+0: Generating validation split:   0%|          | 0/170 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 170/170 [00:00<00:00, 58589.29 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1983.50 examples/s]
+0: Generating test split:   0%|          | 0/171 [00:00<?, ? examples/s]
+0: Generating test split: 100%|██████████| 171/171 [00:00<00:00, 53002.22 examples/s]
+0: Generating validation split:   0%|          | 0/19 [00:00<?, ? examples/s]
+0: Generating validation split: 100%|██████████| 19/19 [00:00<00:00, 7049.87 examples/s]
+0: Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]
+0: Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2018.43 examples/s]
+0: prefetched tasks: 101
+0: === offline verification ===
+0: <stdin>:4: DeprecationWarning: get_task_dict is deprecated. Use TaskManager.load() instead.
+0: Using the latest cached version of the dataset since baber/piqa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'default' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/baber___piqa/default/0.0.0/142f6d7367fd9877f0fb3b5734ea6a545f54cdd1 (last modified on Fri Aug 21 22:19:00 2026).
+0: Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ARC-Challenge' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Fri Aug 21 22:19:04 2026).
+0: Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ARC-Easy' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Fri Aug 21 22:19:09 2026).
+0: Using the latest cached version of the dataset since Rowan/hellaswag couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'default' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Rowan___hellaswag/default/0.0.0/218ec52e09a7e7462a5400043bb9a69a41d06b76 (last modified on Fri Aug 21 22:19:18 2026).
+0: Using the latest cached version of the dataset since allenai/winogrande couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'winogrande_xl' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/allenai___winogrande/winogrande_xl/0.0.0/01e74176c63542e6b0bcb004dcdea22d94fb67b5 (last modified on Fri Aug 21 22:19:22 2026).
+0: [Task: xcopa_et] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_et] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'et' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/et/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:26 2026).
+0: [Task: xcopa_ht] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_ht] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ht' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/ht/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:28 2026).
+0: [Task: xcopa_id] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_id] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'id' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/id/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:31 2026).
+0: [Task: xcopa_it] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_it] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'it' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/it/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:34 2026).
+0: [Task: xcopa_qu] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_qu] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'qu' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/qu/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:37 2026).
+0: [Task: xcopa_sw] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_sw] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'sw' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/sw/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:39 2026).
+0: [Task: xcopa_ta] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_ta] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ta' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/ta/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:42 2026).
+0: [Task: xcopa_th] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_th] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'th' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/th/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:45 2026).
+0: [Task: xcopa_tr] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_tr] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'tr' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/tr/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:48 2026).
+0: [Task: xcopa_vi] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_vi] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'vi' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/vi/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:50 2026).
+0: [Task: xcopa_zh] metric acc is defined, but aggregation is not. using default aggregation=mean
+0: [Task: xcopa_zh] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+0: Using the latest cached version of the dataset since cambridgeltl/xcopa couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'zh' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cambridgeltl___xcopa/zh/0.0.0/042f78955ba48e6404616762fa6e05e839c3907a (last modified on Fri Aug 21 22:22:53 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ar' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/ar/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:00 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'bg' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/bg/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:11 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'de' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/de/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:22 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'el' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/el/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:32 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'en' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/en/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:44 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'es' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/es/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:23:54 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'fr' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/fr/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:04 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'hi' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/hi/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:13 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ru' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/ru/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:24 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'sw' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/sw/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:33 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'th' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/th/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:45 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'tr' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/tr/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:24:54 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ur' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/ur/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:25:04 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'vi' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/vi/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:25:15 2026).
+0: Using the latest cached version of the dataset since facebook/xnli couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'zh' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/facebook___xnli/zh/0.0.0/b8dd5d7af51114dbda02c0e3f6133f332186418e (last modified on Fri Aug 21 22:25:25 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'en' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/en/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:32 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'fr' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/fr/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:34 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'jp' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/jp/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:36 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'pt' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/pt/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:38 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ru' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/ru/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:39 2026).
+0: Using the latest cached version of the dataset since Muennighoff/xwinograd couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'zh' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/Muennighoff___xwinograd/zh/0.0.0/90b619ef5278605cd4f572e3e8506ab16afd44f2 (last modified on Fri Aug 21 22:25:41 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'en' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/en/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:25:49 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'de' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/de/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:25:57 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'es' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/es/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:26:04 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'fr' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/fr/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:26:12 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ja' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/ja/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:26:17 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'ko' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/ko/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:26:22 2026).
+0: Using the latest cached version of the dataset since google-research-datasets/paws-x couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'zh' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/google-research-datasets___paws-x/zh/0.0.0/4cd8187c404bda33cb1f62b49b001115862acf37 (last modified on Fri Aug 21 22:26:27 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'abstract_algebra' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/abstract_algebra/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:32 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'anatomy' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/anatomy/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:35 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'astronomy' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/astronomy/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:39 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_biology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_biology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:42 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_chemistry' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_chemistry/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:46 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_computer_science' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_computer_science/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:49 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_mathematics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_mathematics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:53 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_physics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_physics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:26:57 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'computer_security' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/computer_security/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:00 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'conceptual_physics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/conceptual_physics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:03 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'electrical_engineering' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/electrical_engineering/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:07 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'elementary_mathematics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/elementary_mathematics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:10 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_biology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_biology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:14 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_chemistry' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_chemistry/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:17 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_computer_science' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_computer_science/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:21 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_mathematics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_mathematics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:25 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_physics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_physics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:28 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_statistics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_statistics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:32 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'machine_learning' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/machine_learning/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:35 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'business_ethics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/business_ethics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:39 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'clinical_knowledge' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/clinical_knowledge/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:42 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'college_medicine' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/college_medicine/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:46 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'global_facts' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/global_facts/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:50 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'human_aging' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/human_aging/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:53 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'management' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/management/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:27:56 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'marketing' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/marketing/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:00 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'medical_genetics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/medical_genetics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:03 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'miscellaneous' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/miscellaneous/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:07 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'nutrition' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/nutrition/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:10 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'professional_accounting' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/professional_accounting/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:14 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'professional_medicine' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/professional_medicine/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:17 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'virology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/virology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:21 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'econometrics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/econometrics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:24 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_geography' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_geography/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:28 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_government_and_politics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_government_and_politics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:31 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_macroeconomics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_macroeconomics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:35 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_microeconomics' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_microeconomics/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:38 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_psychology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_psychology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:42 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'human_sexuality' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/human_sexuality/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:45 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'professional_psychology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/professional_psychology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:49 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'public_relations' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/public_relations/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:52 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'security_studies' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/security_studies/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:56 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'sociology' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/sociology/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:28:59 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'us_foreign_policy' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/us_foreign_policy/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:03 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'formal_logic' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/formal_logic/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:06 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_european_history' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_european_history/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:10 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_us_history' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_us_history/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:13 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'high_school_world_history' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/high_school_world_history/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:17 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'international_law' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/international_law/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:20 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'jurisprudence' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/jurisprudence/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:24 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'logical_fallacies' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/logical_fallacies/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:28 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'moral_disputes' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/moral_disputes/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:31 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'moral_scenarios' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/moral_scenarios/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:35 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'philosophy' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/philosophy/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:38 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'prehistory' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/prehistory/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:41 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'professional_law' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/professional_law/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:45 2026).
+0: Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+0: Found the latest cached dataset configuration 'world_religions' at /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/datasets/cais___mmlu/world_religions/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Fri Aug 21 22:29:49 2026).
+0: OFFLINE OK: tasks + model resolve without network
+0: SETUP_COMPLETE
+60G	/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std
+END TIME: Fri Aug 21 22:31:12 CEST 2026

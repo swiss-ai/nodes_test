@@ -1,0 +1,26 @@
+# Untouched upstream vllm/vllm-openai:v0.27.1 (imported by
+# import_vllm_standard.sbatch) for the standard-stack cluster-health repro.
+# Hooks + NCCL env are identical to vllm-v0260-eval-multinode.toml so network
+# conditions match every other measurement in the study; the hook is the
+# standard CSCS way to give ANY container Slingshot NCCL performance.
+
+image = "/iopsstor/scratch/cscs/${USER}/.edf_imagestore/vllm+vllm-openai+v0.27.1.aarch64.sqsh"
+mounts = ["/capstor:/capstor", "/users:/users", "/iopsstor:/iopsstor"]
+workdir = "/iopsstor/scratch/cscs/${USER}/vllm-play"
+writable = true
+
+[env]
+PMIX_MCA_psec = "native"
+HF_HOME = "/iopsstor/scratch/cscs/${USER}/vllm-play/hf_home_std"
+# ~/.local carries a stray lm_eval 0.4.12 that shadows the venv (job 3144227)
+PYTHONNOUSERSITE = "1"
+# symm-mem allreduce rendezvous hangs when the TP group spans nodes (job
+# 3144552, py-spy: torch _symmetric_memory rendezvous, all GPUs idle)
+VLLM_ALLREDUCE_USE_SYMM_MEM = "0"
+NCCL_PXN_DISABLE = "1"
+NCCL_CROSS_NIC = "0"
+
+[annotations]
+com.hooks.aws_ofi_nccl.enabled = "true"
+com.hooks.aws_ofi_nccl.variant = "cuda13"
+com.hooks.netstack.source = "artifact"

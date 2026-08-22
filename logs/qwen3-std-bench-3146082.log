@@ -1,0 +1,12 @@
+START TIME : 2026-08-22T01:28:12+02:00
+nodes      : nid[006857,007195] (head nid006857, ray 31082, serve 24082)
+model      : Qwen/Qwen3-30B-A3B  TP=1 DP=8 EP=8 via ray (8 GPUs, 4 replicas/node)
+bench      : random dataset seed=42, in=1024 out=1, 6000 prompts x 2 passes
+output     : /iopsstor/scratch/cscs/mvasilev/vllm-play/qwen3-std-results/bench-prefill-sick-7195-3146082
+0: [2026-08-22T01:28:14.816] error: *** STEP 3146082.0 ON nid006857 CANCELLED AT 2026-08-22T01:28:14 DUE to SIGNAL Terminated ***
+0: [2026-08-22T01:28:14.816] error: pyxis: container start error: Interrupted system call
+0: [2026-08-22T01:28:14.816] error: pyxis: printing engine log file:
+0: [2026-08-22T01:28:14.816] error: pyxis: couldn't start container
+0: [2026-08-22T01:28:14.816] error: spank: required plugin spank_pyxis.so: task_init() failed with rc=-1
+0: [2026-08-22T01:28:14.816] error: Failed to invoke spank plugin stack
+[2026-08-22T01:28:14.816] error: *** JOB 3146082 ON nid006857 CANCELLED AT 2026-08-22T01:28:14 DUE to SIGNAL Terminated ***

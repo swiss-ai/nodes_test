@@ -1,0 +1,419 @@
+START TIME : 2026-08-22T00:27:03+02:00
+nodes      : nid[006856-006857,007195,007432] (head nid006856, ray 30399, serve 23399)
+model      : Qwen/Qwen3-30B-A3B  TP=4 DP=4 EP=16 via ray (16 GPUs)
+bench      : random dataset seed=42, in=1024 out=512, 3000 prompts x 2 passes
+output     : /iopsstor/scratch/cscs/mvasilev/vllm-play/qwen3-std-results/bench-sick-7195-3145399
+0: 2026-08-22 00:27:11,818	INFO usage_lib.py:448 -- Usage stats collection is disabled.
+0: 2026-08-22 00:27:11,818	INFO scripts.py:1042 -- [37mLocal node IP[39m: [1m172.28.35.240[22m
+0: 2026-08-22 00:27:15,260	SUCC scripts.py:1081 -- [32m--------------------[39m
+0: 2026-08-22 00:27:15,260	SUCC scripts.py:1082 -- [32mRay runtime started.[39m
+0: 2026-08-22 00:27:15,260	SUCC scripts.py:1083 -- [32m--------------------[39m
+0: 2026-08-22 00:27:15,260	INFO scripts.py:1085 -- [36mNext steps[39m
+0: 2026-08-22 00:27:15,261	INFO cli_output_helpers.py:16 -- [2mNote: The following commands are intended for use on[22m
+0: 2026-08-22 00:27:15,261	INFO cli_output_helpers.py:17 -- [2mthe head node or within the cluster network.[22m
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1089 -- To add another node to this Ray cluster, run
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1092 -- [1m  ray start --address='172.28.35.240:30399'[22m
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1103 -- To connect to this Ray cluster:
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1105 -- [35mimport[39m[26m ray
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1106 -- ray[35m.[39m[26minit()
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1139 -- To terminate the Ray runtime, run
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1140 -- [1m  ray stop[22m
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1143 -- To view the status of the cluster, use
+0: 2026-08-22 00:27:15,261	INFO scripts.py:1144 --   [1mray status[22m[26m
+0: [0m
+3: 2026-08-22 00:27:17,493	INFO scripts.py:1231 -- [37mLocal node IP[39m: [1m172.28.43.168[22m
+1: 2026-08-22 00:27:18,554	INFO scripts.py:1231 -- [37mLocal node IP[39m: [1m172.28.35.244[22m
+3: 2026-08-22 00:27:20,080	SUCC scripts.py:1247 -- [32m--------------------[39m
+3: 2026-08-22 00:27:20,081	SUCC scripts.py:1248 -- [32mRay runtime started.[39m
+3: 2026-08-22 00:27:20,081	SUCC scripts.py:1249 -- [32m--------------------[39m
+3: 2026-08-22 00:27:20,081	INFO scripts.py:1251 -- To terminate the Ray runtime, run
+3: 2026-08-22 00:27:20,081	INFO scripts.py:1252 -- [1m  ray stop[22m
+3: [0m
+1: 2026-08-22 00:27:21,164	SUCC scripts.py:1247 -- [32m--------------------[39m
+1: 2026-08-22 00:27:21,164	SUCC scripts.py:1248 -- [32mRay runtime started.[39m
+1: 2026-08-22 00:27:21,164	SUCC scripts.py:1249 -- [32m--------------------[39m
+1: 2026-08-22 00:27:21,164	INFO scripts.py:1251 -- To terminate the Ray runtime, run
+1: 2026-08-22 00:27:21,164	INFO scripts.py:1252 -- [1m  ray stop[22m
+1: [0m
+2: 2026-08-22 00:27:32,137	INFO scripts.py:1231 -- [37mLocal node IP[39m: [1m172.28.40.124[22m
+2: 2026-08-22 00:27:36,945	SUCC scripts.py:1247 -- [32m--------------------[39m
+2: 2026-08-22 00:27:36,945	SUCC scripts.py:1248 -- [32mRay runtime started.[39m
+2: 2026-08-22 00:27:36,945	SUCC scripts.py:1249 -- [32m--------------------[39m
+2: 2026-08-22 00:27:36,945	INFO scripts.py:1251 -- To terminate the Ray runtime, run
+2: 2026-08-22 00:27:36,945	INFO scripts.py:1252 -- [1m  ray stop[22m
+2: [0m
+0: ray cluster up: 16 GPUs
+0: SERVE HEALTHY after startup (attempt 1)
+0: ===== BENCH PASS 1 =====
+0: Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x4005c6b21c60>, trust_remote_code=False, seed=42, num_prompts=3000, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=1024, random_output_len=512, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False
+0: , random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai', base_url=None, host='127.0.0.1', port=23399, endpoint='/v1/completions', header=None, max_concurrency=512, model='Qwen/Qwen3-30B-A3B', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir='/iopsst
+0: or/scratch/cscs/mvasilev/vllm-play/qwen3-std-results/bench-sick-7195-3145399', result_filename='bench_pass1.json', ignore_eos=False, self_timed=None, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, request_id_prefix='bench-09545d15-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False)
+0: [32mINFO[0m [90m08-22 00:31:41[0m [90m[utils.py:90][0m Sampling input_len from [1024, 1024] and output_len from [512, 512]
+0: WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+0: Starting initial single prompt test run...
+0: Skipping endpoint ready check.
+0: Starting main benchmark run...
+0: Traffic request rate: inf
+0: Burstiness factor: 1.0 (Poisson process)
+0: Maximum request concurrency: 512
+0:   0%|          | 0/3000 [00:00<?, ?it/s]
+0:   0%|          | 1/3000 [00:35<29:46:57, 35.75s/it]
+0:   0%|          | 2/3000 [00:36<12:41:05, 15.23s/it]
+0:   1%|          | 25/3000 [00:36<37:29,  1.32it/s]  
+0:   2%|▏         | 47/3000 [00:36<16:22,  3.01it/s]
+0:   3%|▎         | 77/3000 [00:37<07:56,  6.14it/s]
+0:   4%|▎         | 109/3000 [00:37<04:32, 10.62it/s]
+0:   5%|▍         | 141/3000 [00:37<02:55, 16.33it/s]
+0:   6%|▌         | 173/3000 [00:38<02:00, 23.46it/s]
+0:   7%|▋         | 205/3000 [00:38<01:26, 32.23it/s]
+0:   8%|▊         | 237/3000 [00:38<01:06, 41.55it/s]
+0:   9%|▉         | 269/3000 [00:38<00:52, 51.87it/s]
+0:  10%|█         | 301/3000 [00:39<00:43, 62.42it/s]
+0:  11%|█         | 333/3000 [00:39<00:37, 72.04it/s]
+0:  12%|█▏        | 365/3000 [00:39<00:32, 80.68it/s]
+0:  13%|█▎        | 397/3000 [00:40<00:29, 88.41it/s]
+0:  14%|█▍        | 429/3000 [00:40<00:27, 93.95it/s]
+0:  15%|█▌        | 461/3000 [00:40<00:25, 98.78it/s]
+0:  16%|█▋        | 493/3000 [00:40<00:24, 102.74it/s]
+0:  17%|█▋        | 512/3000 [01:00<00:24, 102.74it/s]
+0:  17%|█▋        | 513/3000 [01:11<13:48,  3.00it/s] 
+0:  17%|█▋        | 514/3000 [01:12<14:06,  2.94it/s]
+0:  18%|█▊        | 537/3000 [01:12<09:27,  4.34it/s]
+0:  19%|█▊        | 558/3000 [01:12<06:37,  6.14it/s]
+0:  19%|█▉        | 583/3000 [01:12<04:25,  9.10it/s]
+0:  20%|██        | 613/3000 [01:13<02:55, 13.63it/s]
+0:  22%|██▏       | 645/3000 [01:13<01:57, 19.97it/s]
+0:  23%|██▎       | 677/3000 [01:13<01:24, 27.48it/s]
+0:  24%|██▎       | 709/3000 [01:14<01:03, 36.06it/s]
+0:  25%|██▍       | 741/3000 [01:14<00:49, 46.01it/s]
+0:  26%|██▌       | 773/3000 [01:14<00:39, 56.34it/s]
+0:  27%|██▋       | 805/3000 [01:14<00:33, 66.39it/s]
+0:  28%|██▊       | 837/3000 [01:15<00:28, 75.82it/s]
+0:  29%|██▉       | 869/3000 [01:15<00:25, 83.94it/s]
+0:  30%|██▉       | 897/3000 [01:15<00:23, 89.17it/s]
+0:  31%|███       | 929/3000 [01:16<00:22, 92.88it/s]
+0:  32%|███▏      | 962/3000 [01:16<00:21, 96.03it/s]
+0:  33%|███▎      | 994/3000 [01:16<00:19, 102.23it/s]
+0:  34%|███▍      | 1023/3000 [01:16<00:19, 100.80it/s]
+0:  34%|███▍      | 1024/3000 [01:30<00:19, 100.80it/s]
+0:  34%|███▍      | 1025/3000 [01:47<13:52,  2.37it/s] 
+0:  34%|███▍      | 1026/3000 [01:48<14:06,  2.33it/s]
+0:  35%|███▍      | 1042/3000 [01:48<09:50,  3.31it/s]
+0:  36%|███▌      | 1069/3000 [01:48<05:40,  5.67it/s]
+0:  36%|███▋      | 1094/3000 [01:48<03:39,  8.67it/s]
+0:  37%|███▋      | 1122/3000 [01:48<02:24, 13.00it/s]
+0:  38%|███▊      | 1152/3000 [01:49<01:37, 18.87it/s]
+0:  39%|███▉      | 1183/3000 [01:49<01:08, 26.42it/s]
+0:  40%|████      | 1215/3000 [01:49<00:50, 35.01it/s]
+0:  42%|████▏     | 1247/3000 [01:50<00:39, 44.71it/s]
+0:  43%|████▎     | 1279/3000 [01:50<00:31, 54.84it/s]
+0:  44%|████▎     | 1311/3000 [01:50<00:25, 66.22it/s]
+0:  45%|████▍     | 1343/3000 [01:50<00:22, 74.93it/s]
+0:  46%|████▌     | 1375/3000 [01:51<00:19, 83.31it/s]
+0:  47%|████▋     | 1406/3000 [01:51<00:17, 88.83it/s]
+0:  48%|████▊     | 1436/3000 [01:51<00:16, 94.64it/s]
+0:  49%|████▉     | 1467/3000 [01:52<00:16, 92.65it/s]
+0:  50%|█████     | 1500/3000 [01:52<00:15, 95.86it/s]
+0:  51%|█████     | 1530/3000 [01:52<00:14, 98.86it/s]
+0:  51%|█████     | 1536/3000 [02:10<00:14, 98.86it/s]
+0:  51%|█████     | 1537/3000 [02:23<09:34,  2.55it/s]
+0:  51%|█████▏    | 1538/3000 [02:24<09:43,  2.50it/s]
+0:  52%|█████▏    | 1554/3000 [02:24<06:54,  3.49it/s]
+0:  52%|█████▎    | 1575/3000 [02:24<04:28,  5.31it/s]
+0:  53%|█████▎    | 1601/3000 [02:24<02:45,  8.44it/s]
+0:  54%|█████▍    | 1628/3000 [02:24<01:47, 12.72it/s]
+0:  55%|█████▌    | 1658/3000 [02:24<01:11, 18.77it/s]
+0:  56%|█████▋    | 1690/3000 [02:25<00:49, 26.66it/s]
+0:  57%|█████▋    | 1721/3000 [02:25<00:36, 35.48it/s]
+0:  58%|█████▊    | 1753/3000 [02:25<00:28, 44.50it/s]
+0:  60%|█████▉    | 1785/3000 [02:26<00:22, 54.01it/s]
+0:  61%|██████    | 1817/3000 [02:26<00:18, 64.50it/s]
+0:  62%|██████▏   | 1849/3000 [02:26<00:15, 75.37it/s]
+0:  63%|██████▎   | 1881/3000 [02:27<00:13, 81.86it/s]
+0:  64%|██████▍   | 1913/3000 [02:27<00:12, 89.12it/s]
+0:  65%|██████▍   | 1944/3000 [02:27<00:11, 94.97it/s]
+0:  66%|██████▌   | 1974/3000 [02:27<00:10, 96.74it/s]
+0:  67%|██████▋   | 2007/3000 [02:28<00:10, 97.83it/s]
+0:  68%|██████▊   | 2038/3000 [02:28<00:09, 97.55it/s]
+0:  68%|██████▊   | 2048/3000 [02:40<00:09, 97.55it/s]
+0:  68%|██████▊   | 2049/3000 [02:59<06:00,  2.64it/s]
+0:  68%|██████▊   | 2050/3000 [03:00<06:06,  2.59it/s]
+0:  69%|██████▉   | 2066/3000 [03:00<04:22,  3.55it/s]
+0:  70%|██████▉   | 2087/3000 [03:00<02:51,  5.33it/s]
+0:  70%|███████   | 2112/3000 [03:00<01:47,  8.24it/s]
+0:  71%|███████▏  | 2138/3000 [03:01<01:10, 12.24it/s]
+0:  72%|███████▏  | 2165/3000 [03:01<00:47, 17.41it/s]
+0:  73%|███████▎  | 2195/3000 [03:01<00:32, 24.77it/s]
+0:  74%|███████▎  | 2212/3000 [03:01<00:25, 30.57it/s]
+0:  74%|███████▍  | 2227/3000 [03:02<00:21, 35.50it/s]
+0:  75%|███████▌  | 2258/3000 [03:02<00:15, 47.11it/s]
+0:  76%|███████▋  | 2290/3000 [03:02<00:12, 58.57it/s]
+0:  77%|███████▋  | 2322/3000 [03:02<00:09, 69.91it/s]
+0:  78%|███████▊  | 2354/3000 [03:03<00:08, 80.35it/s]
+0:  80%|███████▉  | 2386/3000 [03:03<00:06, 87.78it/s]
+0:  81%|████████  | 2418/3000 [03:03<00:06, 93.76it/s]
+0:  82%|████████▏ | 2449/3000 [03:04<00:05, 97.28it/s]
+0:  83%|████████▎ | 2479/3000 [03:04<00:05, 99.73it/s]
+0:  84%|████████▎ | 2511/3000 [03:04<00:04, 100.09it/s]
+0:  85%|████████▍ | 2543/3000 [03:05<00:04, 99.84it/s] 
+0:  85%|████████▌ | 2560/3000 [03:20<00:04, 99.84it/s]
+0:  85%|████████▌ | 2561/3000 [03:28<01:54,  3.83it/s]
+0:  85%|████████▌ | 2562/3000 [03:28<01:56,  3.76it/s]
+0:  86%|████████▋ | 2590/3000 [03:28<01:07,  6.04it/s]
+0:  88%|████████▊ | 2649/3000 [03:28<00:27, 12.79it/s]
+0:  91%|█████████ | 2735/3000 [03:28<00:09, 26.52it/s]
+0:  95%|█████████▍| 2847/3000 [03:29<00:02, 51.33it/s]
+0:  99%|█████████▉| 2966/3000 [03:29<00:00, 87.01it/s]
+0: 100%|██████████| 3000/3000 [03:29<00:00, 14.34it/s]
+0: tip: install termplotlib and gnuplot to plot the metrics
+0: ============ Serving Benchmark Result ============
+0: Successful requests:                     3000      
+0: Failed requests:                         0         
+0: Maximum request concurrency:             512       
+0: Benchmark duration (s):                  209.19    
+0: Total input tokens:                      3072000   
+0: Total generated tokens:                  1536000   
+0: Request throughput (req/s):              14.34     
+0: Output token throughput (tok/s):         7342.53   
+0: Peak output token throughput (tok/s):    9899.00   
+0: Peak concurrent requests:                664.00    
+0: Total token throughput (tok/s):          22027.59  
+0: ---------------Time to First Token----------------
+0: Mean TTFT (ms):                          1316.78   
+0: Median TTFT (ms):                        892.60    
+0: P99 TTFT (ms):                           5534.75   
+0: -----Time per Output Token (excl. 1st token)------
+0: Mean TPOT (ms):                          66.06     
+0: Median TPOT (ms):                        68.34     
+0: P99 TPOT (ms):                           70.35     
+0: ---------------Inter-token Latency----------------
+0: Mean ITL (ms):                           66.08     
+0: Median ITL (ms):                         60.92     
+0: P99 ITL (ms):                            293.91    
+0: ----------------End-to-end Latency----------------
+0: Mean E2EL (ms):                          35072.91  
+0: Median E2EL (ms):                        35812.34  
+0: P99 E2EL (ms):                           40574.77  
+0: ==================================================
+0: BENCH_PASS_1_WALL_SECONDS 239
+0: ===== BENCH PASS 2 =====
+0: Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x4005b7aac680>, trust_remote_code=False, seed=42, num_prompts=3000, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=1024, random_output_len=512, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False
+0: , random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai', base_url=None, host='127.0.0.1', port=23399, endpoint='/v1/completions', header=None, max_concurrency=512, model='Qwen/Qwen3-30B-A3B', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir='/iopsst
+0: or/scratch/cscs/mvasilev/vllm-play/qwen3-std-results/bench-sick-7195-3145399', result_filename='bench_pass2.json', ignore_eos=False, self_timed=None, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, request_id_prefix='bench-34ee01f5-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False)
+0: [32mINFO[0m [90m08-22 00:35:40[0m [90m[utils.py:90][0m Sampling input_len from [1024, 1024] and output_len from [512, 512]
+0: WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+0: Starting initial single prompt test run...
+0: Skipping endpoint ready check.
+0: Starting main benchmark run...
+0: Traffic request rate: inf
+0: Burstiness factor: 1.0 (Poisson process)
+0: Maximum request concurrency: 512
+0:   0%|          | 0/3000 [00:00<?, ?it/s]
+0:   0%|          | 1/3000 [00:33<28:17:16, 33.96s/it]
+0:   0%|          | 2/3000 [00:35<12:20:02, 14.81s/it]
+0:   0%|          | 8/3000 [00:35<2:03:09,  2.47s/it] 
+0:   2%|▏         | 46/3000 [00:35<14:20,  3.43it/s] 
+0:   3%|▎         | 85/3000 [00:35<06:14,  7.78it/s]
+0:   4%|▍         | 123/3000 [00:35<03:34, 13.42it/s]
+0:   6%|▌         | 166/3000 [00:36<02:11, 21.60it/s]
+0:   7%|▋         | 211/3000 [00:36<01:26, 32.35it/s]
+0:   9%|▊         | 256/3000 [00:36<01:02, 44.23it/s]
+0:  10%|▉         | 298/3000 [00:37<00:47, 57.08it/s]
+0:  11%|█         | 335/3000 [00:37<00:39, 68.06it/s]
+0:  12%|█▏        | 374/3000 [00:37<00:32, 79.89it/s]
+0:  14%|█▍        | 416/3000 [00:38<00:28, 90.24it/s]
+0:  15%|█▌        | 455/3000 [00:38<00:25, 100.99it/s]
+0:  16%|█▋        | 492/3000 [00:38<00:24, 102.23it/s]
+0:  17%|█▋        | 512/3000 [00:50<00:24, 102.23it/s]
+0:  17%|█▋        | 513/3000 [01:09<11:39,  3.56it/s] 
+0:  17%|█▋        | 514/3000 [01:10<12:16,  3.38it/s]
+0:  17%|█▋        | 524/3000 [01:10<10:26,  3.95it/s]
+0:  18%|█▊        | 542/3000 [01:10<07:29,  5.46it/s]
+0:  19%|█▊        | 562/3000 [01:10<05:12,  7.80it/s]
+0:  20%|██        | 601/3000 [01:11<02:51, 14.02it/s]
+0:  22%|██▏       | 652/3000 [01:11<01:34, 24.87it/s]
+0:  23%|██▎       | 695/3000 [01:11<01:05, 35.17it/s]
+0:  25%|██▍       | 738/3000 [01:11<00:46, 48.41it/s]
+0:  26%|██▌       | 780/3000 [01:12<00:36, 60.88it/s]
+0:  28%|██▊       | 828/3000 [01:12<00:28, 76.21it/s]
+0:  29%|██▉       | 867/3000 [01:12<00:23, 88.88it/s]
+0:  30%|███       | 903/3000 [01:13<00:22, 94.70it/s]
+0:  31%|███▏      | 941/3000 [01:13<00:20, 101.09it/s]
+0:  33%|███▎      | 980/3000 [01:13<00:18, 108.13it/s]
+0:  34%|███▍      | 1019/3000 [01:14<00:17, 111.96it/s]
+0:  34%|███▍      | 1024/3000 [01:30<00:17, 111.96it/s]
+0:  34%|███▍      | 1025/3000 [01:44<10:42,  3.07it/s] 
+0:  34%|███▍      | 1026/3000 [01:46<11:16,  2.92it/s]
+0:  35%|███▍      | 1036/3000 [01:46<09:22,  3.49it/s]
+0:  35%|███▍      | 1049/3000 [01:46<07:07,  4.57it/s]
+0:  37%|███▋      | 1100/3000 [01:46<02:58, 10.62it/s]
+0:  37%|███▋      | 1122/3000 [01:46<02:15, 13.87it/s]
+0:  38%|███▊      | 1143/3000 [01:47<01:41, 18.30it/s]
+0:  39%|███▉      | 1184/3000 [01:47<01:02, 29.15it/s]
+0:  41%|████      | 1234/3000 [01:47<00:38, 45.48it/s]
+0:  42%|████▏     | 1252/3000 [01:47<00:33, 52.34it/s]
+0:  42%|████▏     | 1273/3000 [01:47<00:29, 58.50it/s]
+0:  44%|████▍     | 1315/3000 [01:48<00:21, 76.67it/s]
+0:  45%|████▌     | 1360/3000 [01:48<00:17, 95.02it/s]
+0:  47%|████▋     | 1397/3000 [01:48<00:15, 102.25it/s]
+0:  48%|████▊     | 1437/3000 [01:49<00:13, 113.31it/s]
+0:  49%|████▉     | 1478/3000 [01:49<00:12, 119.94it/s]
+0:  51%|█████     | 1516/3000 [01:49<00:12, 122.30it/s]
+0:  51%|█████     | 1534/3000 [01:49<00:14, 104.61it/s]
+0:  51%|█████     | 1536/3000 [02:00<00:13, 104.61it/s]
+0:  51%|█████     | 1537/3000 [02:20<09:38,  2.53it/s] 
+0:  51%|█████▏    | 1538/3000 [02:21<10:06,  2.41it/s]
+0:  52%|█████▏    | 1547/3000 [02:21<08:13,  2.94it/s]
+0:  52%|█████▏    | 1571/3000 [02:21<04:45,  5.00it/s]
+0:  53%|█████▎    | 1584/3000 [02:21<03:38,  6.49it/s]
+0:  54%|█████▎    | 1607/3000 [02:22<02:17, 10.12it/s]
+0:  55%|█████▍    | 1635/3000 [02:22<01:23, 16.29it/s]
+0:  56%|█████▌    | 1674/3000 [02:22<00:49, 26.57it/s]
+0:  57%|█████▋    | 1714/3000 [02:22<00:32, 40.03it/s]
+0:  58%|█████▊    | 1755/3000 [02:23<00:23, 53.84it/s]
+0:  60%|█████▉    | 1795/3000 [02:23<00:17, 67.85it/s]
+0:  61%|██████▏   | 1838/3000 [02:23<00:14, 80.43it/s]
+0:  63%|██████▎   | 1880/3000 [02:24<00:11, 93.76it/s]
+0:  64%|██████▍   | 1921/3000 [02:24<00:10, 100.82it/s]
+0:  65%|██████▌   | 1964/3000 [02:24<00:09, 113.26it/s]
+0:  67%|██████▋   | 2004/3000 [02:24<00:08, 119.23it/s]
+0:  68%|██████▊   | 2040/3000 [02:25<00:08, 118.25it/s]
+0:  68%|██████▊   | 2048/3000 [02:40<00:08, 118.25it/s]
+0:  68%|██████▊   | 2049/3000 [02:55<04:53,  3.24it/s] 
+0:  68%|██████▊   | 2050/3000 [02:56<05:08,  3.08it/s]
+0:  69%|██████▊   | 2060/3000 [02:57<04:16,  3.67it/s]
+0:  69%|██████▉   | 2073/3000 [02:57<03:14,  4.76it/s]
+0:  70%|██████▉   | 2093/3000 [02:57<02:07,  7.14it/s]
+0:  72%|███████▏  | 2146/3000 [02:57<00:54, 15.62it/s]
+0:  73%|███████▎  | 2180/3000 [02:57<00:35, 22.78it/s]
+0:  74%|███████▍  | 2221/3000 [02:57<00:23, 33.05it/s]
+0:  75%|███████▌  | 2264/3000 [02:58<00:16, 45.34it/s]
+0:  77%|███████▋  | 2300/3000 [02:58<00:12, 56.77it/s]
+0:  78%|███████▊  | 2338/3000 [02:58<00:09, 69.05it/s]
+0:  79%|███████▉  | 2381/3000 [02:59<00:07, 81.25it/s]
+0:  81%|████████  | 2419/3000 [02:59<00:06, 91.99it/s]
+0:  82%|████████▏ | 2462/3000 [02:59<00:05, 101.92it/s]
+0:  83%|████████▎ | 2504/3000 [03:00<00:04, 110.79it/s]
+0:  85%|████████▍ | 2542/3000 [03:00<00:03, 114.98it/s]
+0:  85%|████████▌ | 2560/3000 [03:20<00:03, 114.98it/s]
+0:  85%|████████▌ | 2561/3000 [03:28<01:54,  3.82it/s] 
+0:  85%|████████▌ | 2562/3000 [03:30<02:00,  3.63it/s]
+0:  86%|████████▌ | 2572/3000 [03:30<01:41,  4.23it/s]
+0:  87%|████████▋ | 2618/3000 [03:30<00:45,  8.40it/s]
+0:  91%|█████████ | 2718/3000 [03:30<00:13, 21.15it/s]
+0:  95%|█████████▌| 2853/3000 [03:30<00:03, 45.14it/s]
+0: 100%|█████████▉| 2999/3000 [03:30<00:00, 80.57it/s]
+0: 100%|██████████| 3000/3000 [03:30<00:00, 14.23it/s]
+0: tip: install termplotlib and gnuplot to plot the metrics
+0: ============ Serving Benchmark Result ============
+0: Successful requests:                     3000      
+0: Failed requests:                         0         
+0: Maximum request concurrency:             512       
+0: Benchmark duration (s):                  210.82    
+0: Total input tokens:                      3072000   
+0: Total generated tokens:                  1536000   
+0: Request throughput (req/s):              14.23     
+0: Output token throughput (tok/s):         7285.98   
+0: Peak output token throughput (tok/s):    8704.00   
+0: Peak concurrent requests:                697.00    
+0: Total token throughput (tok/s):          21857.93  
+0: ---------------Time to First Token----------------
+0: Mean TTFT (ms):                          1251.72   
+0: Median TTFT (ms):                        946.21    
+0: P99 TTFT (ms):                           4356.57   
+0: -----Time per Output Token (excl. 1st token)------
+0: Mean TPOT (ms):                          66.45     
+0: Median TPOT (ms):                        67.04     
+0: P99 TPOT (ms):                           68.93     
+0: ---------------Inter-token Latency----------------
+0: Mean ITL (ms):                           66.45     
+0: Median ITL (ms):                         61.03     
+0: P99 ITL (ms):                            287.82    
+0: ----------------End-to-end Latency----------------
+0: Mean E2EL (ms):                          35207.35  
+0: Median E2EL (ms):                        35399.81  
+0: P99 E2EL (ms):                           38310.07  
+0: ==================================================
+0: BENCH_PASS_2_WALL_SECONDS 240
+0: 2026-08-22 00:39:31,073	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/core/src/ray/raylet/raylet --raylet_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --store_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --object_manager_port=0 --min_worker_port=10002 --max_worker_port=19999 --node_manager_port=0 --node_id=adfa7d858f44a9d99380389fe2b9a2b5e82a4f7b518855215602599c --node_ip_address=172.28.35.240 --maximum_startup_concurrency=288 --static_resource_list=node:172.28.35.240,1.0,node:__internal_head__,1.0,accelerator_type:GH200,1,CPU,288,GPU,4,memory,336164152935,object_store_memory,144070351257 "--python_worker_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/workers/setup_worker.py -s /iopsstor/scratch/cscs/mvasilev
+0: /vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/workers/default_worker.py --node-ip-address=172.28.35.240 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --redis-address=None --metrics-agent-port=0 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --runtime-env-agent-port=0 --gcs-address=172.28.35.240:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 --temp-dir=/tmp/ray --webui= --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER" --java_worker_command= --cpp_worker_command= --native_library_path=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/cpp/lib --temp_dir=/tmp/ray --session_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_1
+0: 27226/logs --resource_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --metrics-agent-port=0 --metrics_export_port=0 --runtime_env_agent_port=0 --object_store_memory=144070351257 --plasma_directory=/dev/shm --fallback_directory=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --ray-debugger-external=0 --gcs-address=172.28.35.240:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 "--labels={\"ray.io/accelerator-type\": \"GH200\"}" --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.out --stderr_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.err --head --num_prestart_python_workers=288 "--dashboard_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/dashboard/agent.py --node-id=adfa7d858f44a9d99380389fe2b9a2b5e82a4f7b5188552156
+0: 02599c --node-ip-address=172.28.35.240 --metrics-export-port=0 --grpc-port=0 --listen-port=52365 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --temp-dir=/tmp/ray --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --session-name=session_2026-08-22_00-27-11_818797_127226 --gcs-address=172.28.35.240:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.err --logging-filename=dashboard_agent.log --head" "--runtime_env_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-ve
+0: nv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/runtime_env/agent/main.py --node-id=adfa7d858f44a9d99380389fe2b9a2b5e82a4f7b518855215602599c --node-ip-address=172.28.35.240 --runtime-env-agent-port=0 --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --gcs-address=172.28.35.240:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --runtime-env-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --temp-dir=/tmp/ray --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.err --logging-filename=runtime_env_agent.log"[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:31,294	INFO scripts.py:1448 -- 1/1 stopped.
+0: 2026-08-22 00:39:31,619	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/autoscaler/_private/monitor.py --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --gcs-address=172.28.35.240:30399 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/monitor.err --monitor-ip=172.28.35.240[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:31,619	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=172.28.35.240:30399 --node-ip-address=172.28.35.240 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:31,621	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -m ray.util.client.server --address=172.28.35.240:30399 --host=172.28.35.240 --port=10001 --mode=proxy --runtime-env-agent-address=http://172.28.35.240:0 --node-id=adfa7d858f44a9d99380389fe2b9a2b5e82a4f7b518855215602599c[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:31,626	VINFO scripts.py:1426 -- Attempted to stop `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=172.28.35.240:30399 --node-ip-address=172.28.35.240 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m`, but process was already dead.
+0: 2026-08-22 00:39:31,628	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/dashboard/dashboard.py --host=127.0.0.1 --port=8265 --port-retries=0 --temp-dir=/tmp/ray --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --gcs-address=172.28.35.240:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --node-ip-address=172.28.35.240 --proxy-server-url= --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard.err --modules-to-load=UsageStatsHead --disable-frontend[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:31,631	INFO scripts.py:1448 -- 1/4 stopped.
+0: 2026-08-22 00:39:31,631	INFO scripts.py:1448 -- 2/4 stopped.
+0: 2026-08-22 00:39:31,631	INFO scripts.py:1448 -- 3/4 stopped.
+0: 2026-08-22 00:39:32,239	INFO scripts.py:1448 -- 4/4 stopped.
+0: 2026-08-22 00:39:32,589	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --config_list=eyJhdXRvbWF0aWNfb2JqZWN0X3NwaWxsaW5nX2VuYWJsZWQiOiB0cnVlLCAib2JqZWN0X3NwaWxsaW5nX2NvbmZpZyI6ICJ7XCJ0eXBlXCI6IFwiZmlsZXN5c3RlbVwiLCBcInBhcmFtc1wiOiB7XCJkaXJlY3RvcnlfcGF0aFwiOiBcIi90bXAvcmF5L3Nlc3Npb25fMjAyNi0wOC0yMl8wMC0yNy0xMV84MTg3OTdfMTI3MjI2XCJ9fSIsICJpc19leHRlcm5hbF9zdG9yYWdlX3R5cGVfZnMiOiB0cnVlfQ== --gcs_server_port=30399 --metrics-agent-port=0 --node-ip-address=172.28.35.240 --session-name=session_2026-08-22_00-27-11_818797_127226 --ray-commit=4464bbb6e21bce4893ed3396b2e33996188d511d --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --node-id=adfa7d858f44a9d99380389fe2b9a2b5e82a4f7b518855215602599c --stdout_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/gcs_server.out --stderr_filepath=/tmp/ray/
+0: session_2026-08-22_00-27-11_818797_127226/logs/gcs_server.err[22m[26m` [2m(via SIGTERM)[22m[26m
+3: 2026-08-22 00:39:32,701	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/core/src/ray/raylet/raylet --raylet_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --store_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --object_manager_port=0 --min_worker_port=10002 --max_worker_port=19999 --node_manager_port=0 --node_id=3733b7b23c005b391b079fa0faae5a8e699d9e2bb18f3ef0a5e40577 --node_ip_address=172.28.43.168 --maximum_startup_concurrency=288 --static_resource_list=node:172.28.43.168,1.0,accelerator_type:GH200,1,CPU,288,GPU,4,memory,337302500148,object_store_memory,144558214348 "--python_worker_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/workers/setup_worker.py -s /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/
+3: lib/python3.12/site-packages/ray/_private/workers/default_worker.py --node-ip-address=172.28.43.168 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --redis-address=None --metrics-agent-port=0 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --runtime-env-agent-port=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 --temp-dir=/tmp/ray --webui= --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER" --java_worker_command= --cpp_worker_command= --native_library_path=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/cpp/lib --temp_dir=/tmp/ray --session_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --resource_dir=/tmp/
+3: ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --metrics-agent-port=0 --metrics_export_port=0 --runtime_env_agent_port=0 --object_store_memory=144558214348 --plasma_directory=/dev/shm --fallback_directory=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --ray-debugger-external=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 "--labels={\"ray.io/accelerator-type\": \"GH200\"}" --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.out --stderr_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.err --num_prestart_python_workers=288 "--dashboard_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/dashboard/agent.py --node-id=3733b7b23c005b391b079fa0faae5a8e699d9e2bb18f3ef0a5e40577 --node-ip-address=172.28.43.168 --m
+3: etrics-export-port=0 --grpc-port=0 --listen-port=52365 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --temp-dir=/tmp/ray --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --session-name=session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.err --logging-filename=dashboard_agent.log" "--runtime_env_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vll
+3: m-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/runtime_env/agent/main.py --node-id=3733b7b23c005b391b079fa0faae5a8e699d9e2bb18f3ef0a5e40577 --node-ip-address=172.28.43.168 --runtime-env-agent-port=0 --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --runtime-env-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --temp-dir=/tmp/ray --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.err --logging-filename=runtime_env_agent.log"[22m[26m` [2m(via SIGTERM)[22m[26m
+3: 2026-08-22 00:39:32,959	INFO scripts.py:1448 -- 1/1 stopped.
+2: 2026-08-22 00:39:33,058	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/core/src/ray/raylet/raylet --raylet_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --store_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --object_manager_port=0 --min_worker_port=10002 --max_worker_port=19999 --node_manager_port=0 --node_id=7b724b1d4ccf85622b861f07e90dde715ece7f705f8d2511de1ead5f --node_ip_address=172.28.40.124 --maximum_startup_concurrency=288 --static_resource_list=node:172.28.40.124,1.0,accelerator_type:GH200,1,CPU,288,GPU,4,memory,337245614900,object_store_memory,144533834956 "--python_worker_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/workers/setup_worker.py -s /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/
+2: lib/python3.12/site-packages/ray/_private/workers/default_worker.py --node-ip-address=172.28.40.124 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --redis-address=None --metrics-agent-port=0 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --runtime-env-agent-port=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 --temp-dir=/tmp/ray --webui= --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER" --java_worker_command= --cpp_worker_command= --native_library_path=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/cpp/lib --temp_dir=/tmp/ray --session_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --resource_dir=/tmp/
+2: ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --metrics-agent-port=0 --metrics_export_port=0 --runtime_env_agent_port=0 --object_store_memory=144533834956 --plasma_directory=/dev/shm --fallback_directory=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --ray-debugger-external=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 "--labels={\"ray.io/accelerator-type\": \"GH200\"}" --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.out --stderr_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.err --num_prestart_python_workers=288 "--dashboard_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/dashboard/agent.py --node-id=7b724b1d4ccf85622b861f07e90dde715ece7f705f8d2511de1ead5f --node-ip-address=172.28.40.124 --m
+2: etrics-export-port=0 --grpc-port=0 --listen-port=52365 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --temp-dir=/tmp/ray --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --session-name=session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.err --logging-filename=dashboard_agent.log" "--runtime_env_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vll
+2: m-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/runtime_env/agent/main.py --node-id=7b724b1d4ccf85622b861f07e90dde715ece7f705f8d2511de1ead5f --node-ip-address=172.28.40.124 --runtime-env-agent-port=0 --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --runtime-env-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --temp-dir=/tmp/ray --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.err --logging-filename=runtime_env_agent.log"[22m[26m` [2m(via SIGTERM)[22m[26m
+3: 2026-08-22 00:39:33,297	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.43.168 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m` [2m(via SIGTERM)[22m[26m
+3: 2026-08-22 00:39:33,302	VINFO scripts.py:1426 -- Attempted to stop `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.43.168 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m`, but process was already dead.
+3: 2026-08-22 00:39:33,306	INFO scripts.py:1448 -- 1/1 stopped.
+3: 2026-08-22 00:39:33,637	SUCC scripts.py:1493 -- [32mStopped all 2 Ray processes.[39m
+3: [0m
+1: 2026-08-22 00:39:34,086	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/core/src/ray/raylet/raylet --raylet_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --store_socket_name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --object_manager_port=0 --min_worker_port=10002 --max_worker_port=19999 --node_manager_port=0 --node_id=598485a7c270971e5e80566c51998d63361ebed9a141ee72821d217a --node_ip_address=172.28.35.244 --maximum_startup_concurrency=288 --static_resource_list=node:172.28.35.244,1.0,accelerator_type:GH200,1,CPU,288,GPU,4,memory,337328557261,object_store_memory,144569381683 "--python_worker_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/workers/setup_worker.py -s /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/
+1: lib/python3.12/site-packages/ray/_private/workers/default_worker.py --node-ip-address=172.28.35.244 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --redis-address=None --metrics-agent-port=0 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --runtime-env-agent-port=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 --temp-dir=/tmp/ray --webui= --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER" --java_worker_command= --cpp_worker_command= --native_library_path=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/cpp/lib --temp_dir=/tmp/ray --session_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log_dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --resource_dir=/tmp/
+1: ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --metrics-agent-port=0 --metrics_export_port=0 --runtime_env_agent_port=0 --object_store_memory=144569381683 --plasma_directory=/dev/shm --fallback_directory=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --ray-debugger-external=0 --gcs-address=nid006856:30399 --session-name=session_2026-08-22_00-27-11_818797_127226 "--labels={\"ray.io/accelerator-type\": \"GH200\"}" --cluster-id=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.out --stderr_filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/raylet.err --num_prestart_python_workers=288 "--dashboard_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/dashboard/agent.py --node-id=598485a7c270971e5e80566c51998d63361ebed9a141ee72821d217a --node-ip-address=172.28.35.244 --m
+1: etrics-export-port=0 --grpc-port=0 --listen-port=52365 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/plasma_store --raylet-name=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/sockets/raylet --temp-dir=/tmp/ray --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --session-name=session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/dashboard_agent.err --logging-filename=dashboard_agent.log" "--runtime_env_agent_command=/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vll
+1: m-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/runtime_env/agent/main.py --node-id=598485a7c270971e5e80566c51998d63361ebed9a141ee72821d217a --node-ip-address=172.28.35.244 --runtime-env-agent-port=0 --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --gcs-address=nid006856:30399 --cluster-id-hex=6120539e4ec02ac83fae535212f10375ba6065a7c0ec9ac1d30f24e4 --runtime-env-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/runtime_resources --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --log-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --temp-dir=/tmp/ray --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/runtime_env_agent.err --logging-filename=runtime_env_agent.log"[22m[26m` [2m(via SIGTERM)[22m[26m
+0: 2026-08-22 00:39:37,950	WARN scripts.py:1495 -- [33mStopped only 5 out of 6 Ray processes within the grace period 16 seconds. Set `[1m-v[22m[33m` to see more details. Remaining processes [psutil.Process(pid=127367, name='gcs_server', status='terminated')] will be forcefully terminated.[39m
+0: 2026-08-22 00:39:37,950	WARN scripts.py:1502 -- [33mYou can also use `[1m--force[22m[33m` to forcefully terminate processes or set higher `--grace-period` to wait longer time for proper termination.[39m
+0: [0m
+2: 2026-08-22 00:39:38,775	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.40.124 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m` [2m(via SIGTERM)[22m[26m
+2: 2026-08-22 00:39:38,781	VINFO scripts.py:1418 -- Send termination request to `[1mray::DashboardAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+2: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+2:  "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+2: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+2: 2026-08-22 00:39:38,781	VINFO scripts.py:1418 -- Send termination request to `[1mray::RuntimeEnvAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+2: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+2: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+2: 2026-08-22 00:39:38,784	VINFO scripts.py:1426 -- Attempted to stop `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.40.124 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m`, but process was already dead.
+2: 2026-08-22 00:39:38,786	VINFO scripts.py:1418 -- Send termination request to `[1mray::DashboardAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+2: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+2:  "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+2: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+2: 2026-08-22 00:39:38,789	VINFO scripts.py:1418 -- Send termination request to `[1mray::RuntimeEnvAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+2: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+2: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+2: 2026-08-22 00:39:38,791	INFO scripts.py:1448 -- 1/3 stopped.
+1: 2026-08-22 00:39:39,762	VINFO scripts.py:1418 -- Send termination request to `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.35.244 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m` [2m(via SIGTERM)[22m[26m
+1: 2026-08-22 00:39:39,767	VINFO scripts.py:1418 -- Send termination request to `[1mray::DashboardAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+1: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+1:  "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+1: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+1: 2026-08-22 00:39:39,767	VINFO scripts.py:1418 -- Send termination request to `[1mray::RuntimeEnvAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+1: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+1: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+1: 2026-08-22 00:39:39,770	VINFO scripts.py:1426 -- Attempted to stop `[1m/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/bin/python3 -u /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226 --logs-dir=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs --gcs-address=nid006856:30399 --node-ip-address=172.28.35.244 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.out --stderr-filepath=/tmp/ray/session_2026-08-22_00-27-11_818797_127226/logs/log_monitor.err[22m[26m`, but process was already dead.
+1: 2026-08-22 00:39:39,772	VINFO scripts.py:1418 -- Send termination request to `[1mray::DashboardAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+1: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+1:  "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+1: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+1: 2026-08-22 00:39:39,775	VINFO scripts.py:1418 -- Send termination request to `[1mray::RuntimeEnvAgent "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+1: "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "
+1: " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""[22m[26m` [2m(via SIGTERM)[22m[26m
+1: 2026-08-22 00:39:40,443	INFO scripts.py:1448 -- 1/3 stopped.
+2: 2026-08-22 00:39:44,500	WARN scripts.py:1495 -- [33mStopped only 1 out of 4 Ray processes within the grace period 16 seconds. Set `[1m-v[22m[33m` to see more details. Remaining processes [psutil.Process(pid=153005, name='raylet', status='terminated'), psutil.Process(pid=153110, name='ray::RuntimeEnvAgent', status='terminated'), psutil.Process(pid=153108, name='ray::DashboardAgent', status='terminated')] will be forcefully terminated.[39m
+2: 2026-08-22 00:39:44,500	WARN scripts.py:1502 -- [33mYou can also use `[1m--force[22m[33m` to forcefully terminate processes or set higher `--grace-period` to wait longer time for proper termination.[39m
+2: [0m
+1: 2026-08-22 00:39:45,483	WARN scripts.py:1495 -- [33mStopped only 1 out of 4 Ray processes within the grace period 16 seconds. Set `[1m-v[22m[33m` to see more details. Remaining processes [psutil.Process(pid=131974, name='raylet', status='terminated'), psutil.Process(pid=132045, name='ray::RuntimeEnvAgent', status='terminated'), psutil.Process(pid=132043, name='ray::DashboardAgent', status='terminated')] will be forcefully terminated.[39m
+1: 2026-08-22 00:39:45,483	WARN scripts.py:1502 -- [33mYou can also use `[1m--force[22m[33m` to forcefully terminate processes or set higher `--grace-period` to wait longer time for proper termination.[39m
+1: [0m
+END TIME   : 2026-08-22T00:39:46+02:00  rc=0

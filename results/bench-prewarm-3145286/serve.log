@@ -1,0 +1,670 @@
+INFO 08-22 00:15:35 [serve.py:123] Defaulting api_server_count to data_parallel_size (4).
+INFO 08-22 00:15:35 [api_utils.py:345] 
+INFO 08-22 00:15:35 [api_utils.py:345]        █     █     █▄   ▄█
+INFO 08-22 00:15:35 [api_utils.py:345]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.27.1
+INFO 08-22 00:15:35 [api_utils.py:345]   █▄█▀ █     █     █     █  model   Qwen/Qwen3-30B-A3B
+INFO 08-22 00:15:35 [api_utils.py:345]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+INFO 08-22 00:15:35 [api_utils.py:345] 
+INFO 08-22 00:15:35 [api_utils.py:273] non-default args: {'model_tag': 'Qwen/Qwen3-30B-A3B', 'api_server_count': 4, 'host': '127.0.0.1', 'port': 23286, 'model': 'Qwen/Qwen3-30B-A3B', 'tensor_parallel_size': 4, 'data_parallel_size': 4, 'data_parallel_size_local': 1, 'data_parallel_backend': 'ray', 'enable_expert_parallel': True, 'disable_custom_all_reduce': True}
+INFO 08-22 00:15:35 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+INFO 08-22 00:15:35 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+INFO 08-22 00:15:35 [model.py:1883] Using max model len 40960
+INFO 08-22 00:15:35 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+INFO 08-22 00:15:35 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:35 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+INFO 08-22 00:15:35 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-22 00:15:35 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+INFO 08-22 00:15:35 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+INFO 08-22 00:15:41 [compilation.py:329] Enabled custom fusions: allreduce_rms
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:41 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+INFO 08-22 00:15:50 [utils.py:1108] Started DP Coordinator process (PID: 4531)
+INFO 08-22 00:15:50 [utils.py:1113] Starting ray-based data parallel backend
+INFO 08-22 00:15:50 [ray_env.py:101] Env var prefixes to copy: ['FLASH_ATTENTION_', 'HF_', 'HUGGING_FACE_', 'LMCACHE_', 'NCCL_', 'UCX_', 'VLLM_']
+INFO 08-22 00:15:50 [ray_env.py:102] Copying the following environment variables to DPMoEEngineCoreActor: ['HF_DATASETS_OFFLINE', 'HF_HOME', 'HF_HUB_OFFLINE', 'HF_TOKEN', 'LD_LIBRARY_PATH', 'NCCL_CROSS_NIC', 'NCCL_NCHANNELS_PER_NET_PEER', 'NCCL_NET', 'NCCL_NET_GDR_C2C', 'NCCL_NET_GDR_LEVEL', 'NCCL_NET_GDR_READ', 'NCCL_NET_PLUGIN', 'NCCL_P2P_LEVEL', 'NCCL_PROTO', 'NCCL_PXN_DISABLE', 'NCCL_SOCKET_IFNAME', 'VLLM_ALLREDUCE_USE_SYMM_MEM', 'VLLM_BUILD_COMMIT', 'VLLM_BUILD_PIPELINE', 'VLLM_BUILD_URL', 'VLLM_CACHE_ROOT', 'VLLM_ENABLE_CUDA_COMPATIBILITY', 'VLLM_IMAGE_TAG', 'VLLM_PORT', 'VLLM_USAGE_SOURCE', 'VLLM_WORKER_MULTIPROC_METHOD']
+INFO 08-22 00:15:50 [ray_env.py:112] To exclude env vars from copying, add them to /users/mvasilev/.config/vllm/ray_non_carry_over_env_vars.json
+2026-08-22 00:15:51,012	INFO worker.py:1833 -- Connecting to existing Ray cluster at address: 172.28.43.112:30286...
+2026-08-22 00:15:51,204	INFO worker.py:2024 -- Connected to Ray cluster.
+INFO 08-22 00:15:51 [utils.py:528] Creating placement groups for data parallel
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:   0% Completed | 0/16 [00:00<?, ?it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:   6% Completed | 1/16 [00:00<00:14,  1.02it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  12% Completed | 2/16 [00:01<00:07,  1.89it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  19% Completed | 3/16 [00:01<00:05,  2.55it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  25% Completed | 4/16 [00:01<00:03,  3.09it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  31% Completed | 5/16 [00:02<00:04,  2.26it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  38% Completed | 6/16 [00:03<00:05,  1.78it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  44% Completed | 7/16 [00:03<00:05,  1.62it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  50% Completed | 8/16 [00:04<00:05,  1.49it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  56% Completed | 9/16 [00:05<00:05,  1.39it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  62% Completed | 10/16 [00:06<00:04,  1.36it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  69% Completed | 11/16 [00:07<00:03,  1.32it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  75% Completed | 12/16 [00:07<00:03,  1.30it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  81% Completed | 13/16 [00:08<00:02,  1.24it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  88% Completed | 14/16 [00:09<00:01,  1.24it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards:  94% Completed | 15/16 [00:10<00:00,  1.23it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards: 100% Completed | 16/16 [00:10<00:00,  1.53it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Loading safetensors checkpoint shards: 100% Completed | 16/16 [00:10<00:00,  1.51it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) 
+[36m(RayWorkerProc pid=266533, ip=172.28.43.140)[0m (Worker_DP2_TP1_EP9 pid=266533) 2026-08-22 00:17:51,075 - INFO - autotuner.py:829 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+[36m(RayWorkerProc pid=115008, ip=172.28.43.120)[0m (Worker_DP1_TP3_EP7 pid=115008) 2026-08-22 00:17:51,208 - INFO - autotuner.py:852 - flashinfer.jit: [Autotuner]: Autotuning process ends
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) 2026-08-22 00:17:51,259 - INFO - autotuner.py:2269 - flashinfer.jit: [Autotuner]: Saved 0 configs to /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/flashinfer_autotune_cache/0.6.16.post3/90a/ea44374fc5a4019c6954a73be06c5e27cc64f16987825969b49e012db229a48d/autotune_configs.json (0 new, 0 from previous config)
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:00<00:16,  2.96it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:11,  4.28it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:09,  4.88it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 4/51 [00:00<00:08,  5.24it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:01<00:08,  5.31it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:01<00:08,  5.39it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:01<00:08,  5.40it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:01<00:08,  5.02it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:01<00:08,  5.09it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:01<00:07,  5.23it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:02<00:07,  5.09it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▎       | 12/51 [00:02<00:09,  4.30it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:02<00:09,  3.98it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:03<00:09,  3.99it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:03<00:09,  3.93it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 16/51 [00:03<00:09,  3.89it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:04<00:14,  2.27it/s]
+[36m(RayWorkerProc pid=115005, ip=172.28.43.120)[0m (Worker_DP1_TP2_EP6 pid=115005) 2026-08-22 00:17:51,128 - INFO - autotuner.py:829 - flashinfer.jit: [Autotuner]: Autotuning process starts ...[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) 2026-08-22 00:17:51,212 - INFO - autotuner.py:852 - flashinfer.jit: [Autotuner]: Autotuning process ends[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  35%|███▌      | 18/51 [00:04<00:13,  2.53it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:05<00:11,  2.75it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:05<00:10,  2.94it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:05<00:10,  2.85it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 22/51 [00:05<00:09,  3.14it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:06<00:08,  3.20it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 24/51 [00:06<00:08,  3.24it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:06<00:08,  3.06it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 26/51 [00:07<00:07,  3.15it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:07<00:07,  3.22it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▍    | 28/51 [00:07<00:07,  3.04it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:08<00:07,  3.11it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:08<00:06,  3.25it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:08<00:06,  3.32it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:09<00:05,  3.40it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:09<00:07,  2.26it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 34/51 [00:10<00:06,  2.47it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:10<00:06,  2.66it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 36/51 [00:10<00:05,  2.77it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:11<00:05,  2.68it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 38/51 [00:11<00:04,  2.90it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:11<00:04,  2.94it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:12<00:03,  2.79it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:12<00:03,  2.81it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 42/51 [00:12<00:03,  2.84it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:13<00:02,  2.82it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:13<00:02,  2.85it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:14<00:03,  1.84it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 46/51 [00:15<00:03,  1.50it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:16<00:02,  1.37it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:17<00:02,  1.29it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:17<00:01,  1.56it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 50/51 [00:17<00:00,  1.84it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:18<00:00,  2.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:18<00:00,  2.79it/s]
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):   2%|▏         | 1/51 [00:00<00:15,  3.31it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):   4%|▍         | 2/51 [00:00<00:13,  3.60it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):   6%|▌         | 3/51 [00:00<00:13,  3.64it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):   8%|▊         | 4/51 [00:01<00:13,  3.60it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  10%|▉         | 5/51 [00:01<00:12,  3.61it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  12%|█▏        | 6/51 [00:01<00:12,  3.67it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  14%|█▎        | 7/51 [00:01<00:12,  3.60it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  16%|█▌        | 8/51 [00:02<00:11,  3.60it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  18%|█▊        | 9/51 [00:02<00:11,  3.57it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  20%|█▉        | 10/51 [00:02<00:11,  3.51it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  22%|██▏       | 11/51 [00:03<00:11,  3.54it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  24%|██▎       | 12/51 [00:03<00:10,  3.59it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  25%|██▌       | 13/51 [00:03<00:10,  3.54it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  27%|██▋       | 14/51 [00:03<00:11,  3.29it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  29%|██▉       | 15/51 [00:04<00:10,  3.35it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  31%|███▏      | 16/51 [00:04<00:10,  3.46it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  33%|███▎      | 17/51 [00:04<00:09,  3.43it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  35%|███▌      | 18/51 [00:05<00:09,  3.45it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  37%|███▋      | 19/51 [00:05<00:09,  3.48it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  39%|███▉      | 20/51 [00:05<00:08,  3.47it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  41%|████      | 21/51 [00:05<00:08,  3.54it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  43%|████▎     | 22/51 [00:06<00:08,  3.51it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  45%|████▌     | 23/51 [00:06<00:07,  3.57it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  47%|████▋     | 24/51 [00:06<00:07,  3.49it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  49%|████▉     | 25/51 [00:07<00:07,  3.49it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  51%|█████     | 26/51 [00:07<00:07,  3.49it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 27/51 [00:07<00:06,  3.49it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  55%|█████▍    | 28/51 [00:07<00:06,  3.48it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 29/51 [00:08<00:06,  3.37it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  59%|█████▉    | 30/51 [00:08<00:06,  3.37it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  61%|██████    | 31/51 [00:08<00:05,  3.41it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 32/51 [00:09<00:05,  3.36it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  65%|██████▍   | 33/51 [00:09<00:05,  3.38it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 34/51 [00:09<00:05,  3.39it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 35/51 [00:10<00:04,  3.27it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  71%|███████   | 36/51 [00:10<00:04,  3.32it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 37/51 [00:10<00:04,  3.33it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  75%|███████▍  | 38/51 [00:10<00:03,  3.38it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  76%|███████▋  | 39/51 [00:11<00:03,  3.44it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  78%|███████▊  | 40/51 [00:11<00:03,  3.48it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  80%|████████  | 41/51 [00:11<00:02,  3.44it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 42/51 [00:12<00:02,  3.43it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 43/51 [00:12<00:02,  3.44it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  86%|████████▋ | 44/51 [00:12<00:02,  3.45it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 45/51 [00:12<00:01,  3.46it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  90%|█████████ | 46/51 [00:13<00:01,  3.46it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  92%|█████████▏| 47/51 [00:13<00:01,  3.47it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 48/51 [00:13<00:00,  3.50it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 49/51 [00:14<00:00,  3.54it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL):  98%|█████████▊| 50/51 [00:14<00:00,  3.19it/s]
+[36m(RayWorkerProc pid=6245)[0m Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:14<00:00,  3.31it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:14<00:00,  3.45it/s]
+INFO 08-22 00:18:31 [coordinator.py:250] All engine subscriptions received by DP coordinator
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:16:18 [core.py:121] Initializing a V1 LLM engine (v0.27.1) with config: model='/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39', speculative_config=None, tokenizer='/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=4, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [512, 8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': True, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto')
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:16:18 [ray_utils.py:571] Ray is already initialized. Skipping Ray initialization.
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:16:18 [ray_utils.py:602] Using the existing placement group
+[36m(RayWorkerProc pid=6244)[0m WARNING 08-22 00:16:36 [worker_base.py:306] Missing `shared_worker_lock` argument from executor. This argument is needed for mm_processor_cache_type='shm'.
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:16:18 [core.py:121] Initializing a V1 LLM engine (v0.27.1) with config: model='/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39', speculative_config=None, tokenizer='/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=4, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [512, 8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': True, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto')[32m [repeated 3x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:16:18 [ray_utils.py:571] Ray is already initialized. Skipping Ray initialization.[32m [repeated 3x across cluster][0m
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:16:18 [ray_utils.py:602] Using the existing placement group[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:36 [parallel_state.py:1640] world_size=16 rank=0 local_rank=0 distributed_init_method=tcp://172.28.43.112:23289 backend=nccl
+[36m(RayWorkerProc pid=266533, ip=172.28.43.140)[0m WARNING 08-22 00:16:41 [worker_base.py:306] Missing `shared_worker_lock` argument from executor. This argument is needed for mm_processor_cache_type='shm'.[32m [repeated 8x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker pid=94501) INFO 08-22 00:16:40 [parallel_state.py:1640] world_size=16 rank=12 local_rank=0 distributed_init_method=tcp://172.28.43.112:23289 backend=nccl[32m [repeated 4x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:42 [pynccl.py:113] vLLM is using nccl==2.30.7
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:46 [cuda_communicator.py:266] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'tp:0' out of potential backends: ['NCCL_SYMM_MEM', 'QUICK_REDUCE', 'FLASHINFER', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+[36m(RayWorkerProc pid=115005, ip=172.28.43.120)[0m WARNING 08-22 00:16:41 [worker_base.py:306] Missing `shared_worker_lock` argument from executor. This argument is needed for mm_processor_cache_type='shm'.[32m [repeated 7x across cluster][0m
+[36m(RayWorkerProc pid=115005, ip=172.28.43.120)[0m (Worker pid=115005) INFO 08-22 00:16:41 [parallel_state.py:1640] world_size=16 rank=6 local_rank=2 distributed_init_method=tcp://172.28.43.112:23289 backend=nccl[32m [repeated 11x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:47 [cuda_communicator.py:266] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'dp:0' out of potential backends: ['NCCL_SYMM_MEM', 'QUICK_REDUCE', 'FLASHINFER', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker pid=266534) INFO 08-22 00:16:48 [parallel_state.py:1977] rank 8 in world size 16 is assigned as DP rank 2, PP rank 0, PCP rank 0, TP rank 0, EP rank 8, EPLB rank N/A
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker pid=94501) INFO 08-22 00:16:42 [pynccl.py:113] vLLM is using nccl==2.30.7[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:48 [cuda_communicator.py:266] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'ep:0' out of potential backends: ['NCCL_SYMM_MEM', 'QUICK_REDUCE', 'FLASHINFER', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:48 [cuda_communicator.py:203] Using AgRsAll2AllManager all2all manager.
+[36m(RayWorkerProc pid=6245)[0m (Worker pid=6245) INFO 08-22 00:16:48 [topk_topp_sampler.py:62] Using FlashInfer for top-p & top-k sampling.
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:48 [gpu_model_runner.py:5308] Starting to load model /iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39...
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:49 [cuda.py:482] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:49 [flash_attn.py:789] Using FlashAttention version 3
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:49 [expert_map_manager.py:245] [EP Rank 0/16] Expert parallelism is enabled. Expert placement strategy: linear. Local/global number of experts: 8/128. Experts local to global index map: 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->7.
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:49 [unquantized.py:304] Using TRITON Unquantized MoE backend out of potential backends: ['TRITON', 'BATCHED_TRITON', 'FlashInfer TRTLLM', 'FlashInfer CUTLASS'].
+[36m(RayWorkerProc pid=6244)[0m (Worker_DP0_TP2_EP2 pid=6244) INFO 08-22 00:16:49 [weight_utils.py:829] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:16:49 [weight_utils.py:867] Filesystem type for checkpoints: LUSTRE. Checkpoint size: 56.87 GiB. Available RAM: 402.39 GiB.
+[36m(RayWorkerProc pid=94498, ip=172.28.51.209)[0m (Worker_DP3_TP3_EP15 pid=94498) INFO 08-22 00:16:50 [weight_utils.py:801] Prefetching checkpoint files: 10% (1/1)
+[36m(RayWorkerProc pid=94498, ip=172.28.51.209)[0m (Worker_DP3_TP3_EP15 pid=94498) INFO 08-22 00:16:50 [weight_utils.py:824] Prefetching checkpoint files into page cache finished in 0.49s
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:16:59 [default_loader.py:430] Loading weights took 10.35 seconds
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:16:59 [unquantized.py:383] Using MoEPrepareAndFinalizeNaiveDPEPModular
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:16:59 [unquantized.py:384] Using TritonExperts MoE backend
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker pid=115006) INFO 08-22 00:16:48 [parallel_state.py:1977] rank 4 in world size 16 is assigned as DP rank 1, PP rank 0, PCP rank 0, TP rank 0, EP rank 4, EPLB rank N/A[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:16:49 [cuda.py:482] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:16:49 [flash_attn.py:789] Using FlashAttention version 3[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:16:49 [expert_map_manager.py:245] [EP Rank 12/16] Expert parallelism is enabled. Expert placement strategy: linear. Local/global number of experts: 8/128. Experts local to global index map: 0->96, 1->97, 2->98, 3->99, 4->100, 5->101, 6->102, 7->103.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:16:49 [unquantized.py:304] Using TRITON Unquantized MoE backend out of potential backends: ['TRITON', 'BATCHED_TRITON', 'FlashInfer TRTLLM', 'FlashInfer CUTLASS'].[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94498, ip=172.28.51.209)[0m (Worker_DP3_TP3_EP15 pid=94498) INFO 08-22 00:16:49 [weight_utils.py:829] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:16:49 [weight_utils.py:867] Filesystem type for checkpoints: LUSTRE. Checkpoint size: 56.87 GiB. Available RAM: 425.98 GiB.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:16:50 [weight_utils.py:801] Prefetching checkpoint files: 10% (1/1)[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:16:50 [weight_utils.py:824] Prefetching checkpoint files into page cache finished in 1.19s[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:17:00 [gpu_model_runner.py:5405] Model loading took 4.12 GiB memory and 10.761941 seconds
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:01 [dp_utils.py:28] Using CPU all reduce to synchronize DP padding between ranks.
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:17:12 [backends.py:1094] Using cache directory: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/torch_compile_cache/d172b9d444/rank_0_1/backbone for vLLM's torch.compile
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:17:12 [backends.py:1155] Dynamo bytecode transform time: 9.50 s
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) WARNING 08-22 00:17:12 [flashinfer_all_reduce.py:78] Failed to initialize FlashInfer All Reduce workspace: [SymmDeviceMemory] Device does not support multicasting.. This is expected on GPUs without NVSwitch (e.g., NVLink bridge-only or PCIe topologies).
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) WARNING 08-22 00:17:12 [flashinfer_all_reduce.py:191] Failed to initialize FlashInfer Allreduce norm fusion workspace with backend=mnnvl
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) WARNING 08-22 00:17:12 [allreduce_rms_fusion.py:1051] Failed to initialize Flashinfer allreduce workspace. Flashinfer allreduce-norm fusion will be disabled.
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:00 [default_loader.py:430] Loading weights took 10.43 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:00 [unquantized.py:383] Using MoEPrepareAndFinalizeNaiveDPEPModular[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:00 [unquantized.py:384] Using TritonExperts MoE backend[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:01 [gpu_model_runner.py:5405] Model loading took 4.12 GiB memory and 11.001988 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:17:01 [dp_utils.py:28] Using CPU all reduce to synchronize DP padding between ranks.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) WARNING 08-22 00:17:13 [allreduce_rms_fusion.py:1136] AllReduce fusion pass is disabled.
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:33 [backends.py:393] Compiling a graph for compile range (1, 512) takes 7.33 s
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:13 [backends.py:1094] Using cache directory: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/torch_compile_cache/d172b9d444/rank_0_3/backbone for vLLM's torch.compile[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:13 [backends.py:1155] Dynamo bytecode transform time: 9.63 s[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) WARNING 08-22 00:17:13 [flashinfer_all_reduce.py:78] Failed to initialize FlashInfer All Reduce workspace: [SymmDeviceMemory] Device does not support multicasting.. This is expected on GPUs without NVSwitch (e.g., NVLink bridge-only or PCIe topologies).[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) WARNING 08-22 00:17:13 [flashinfer_all_reduce.py:191] Failed to initialize FlashInfer Allreduce norm fusion workspace with backend=mnnvl[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) WARNING 08-22 00:17:13 [allreduce_rms_fusion.py:1051] Failed to initialize Flashinfer allreduce workspace. Flashinfer allreduce-norm fusion will be disabled.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) WARNING 08-22 00:17:14 [allreduce_rms_fusion.py:1136] AllReduce fusion pass is disabled.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=115005, ip=172.28.43.120)[0m (Worker_DP1_TP2_EP6 pid=115005) INFO 08-22 00:17:38 [backends.py:920] collected artifacts: 98 entries, 7 artifacts, 13167871 bytes total
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:34 [backends.py:393] Compiling a graph for compile range (513, 8192) takes 7.88 s[32m [repeated 7x across cluster][0m
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:38 [decorators.py:708] saved AOT compiled function to /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/torch_compile_cache/torch_aot_compile/10846470f2abff2c4f07d456fef83eba50e46f79c7f3083532880731d0da2259/rank_0_0/model
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:38 [monitor.py:53] torch.compile took 35.91 s in total
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) WARNING 08-22 00:17:40 [fused_moe.py:1161] Using default MoE config. Performance might be sub-optimal! Config file not found at /usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=768,device_name=NVIDIA_GH200_120GB.json
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:40 [monitor.py:81] Initial profiling/warmup run took 1.81 s
+[36m(RayWorkerProc pid=266533, ip=172.28.43.140)[0m (Worker_DP2_TP1_EP9 pid=266533) INFO 08-22 00:17:46 [gpu_model_runner.py:6681] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=51 (largest=512)
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:17:39 [backends.py:920] collected artifacts: 98 entries, 7 artifacts, 12361390 bytes total[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:39 [decorators.py:708] saved AOT compiled function to /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/torch_compile_cache/torch_aot_compile/10846470f2abff2c4f07d456fef83eba50e46f79c7f3083532880731d0da2259/rank_0_3/model[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:39 [monitor.py:53] torch.compile took 35.96 s in total[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) WARNING 08-22 00:17:40 [fused_moe.py:1161] Using default MoE config. Performance might be sub-optimal! Config file not found at /usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=768,device_name=NVIDIA_GH200_120GB.json[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:17:40 [monitor.py:81] Initial profiling/warmup run took 1.36 s[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=94499, ip=172.28.51.209)[0m (Worker_DP3_TP2_EP14 pid=94499) INFO 08-22 00:17:49 [gpu_model_runner.py:6806] Estimated CUDA graph memory: 3.64 GiB total
+[36m(RayWorkerProc pid=94499, ip=172.28.51.209)[0m (Worker_DP3_TP2_EP14 pid=94499) INFO 08-22 00:17:49 [gpu_worker.py:578] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8817 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9583. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:17:49 [kv_cache_utils.py:2235] GPU KV cache size: 3,274,864 tokens
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:17:49 [kv_cache_utils.py:2236] Maximum concurrency for 40,960 tokens per request: 79.95x
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:49 [gpu_worker.py:563] Available KV cache memory: 74.99 GiB
+[36m(RayWorkerProc pid=6244)[0m (Worker_DP0_TP2_EP2 pid=6244) INFO 08-22 00:17:49 [gpu_worker.py:707] Compile and warming up model for size 8192
+[36m(RayWorkerProc pid=6245)[0m (Worker_DP0_TP0_EP0 pid=6245) INFO 08-22 00:17:50 [kernel_warmup.py:256] Using FlashInfer autotune cache file: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm_cache_std/flashinfer_autotune_cache/0.6.16.post3/90a/ea44374fc5a4019c6954a73be06c5e27cc64f16987825969b49e012db229a48d/autotune_configs.json
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:17:51 [gpu_model_runner.py:6867] Rank 0: Torch profiler disabled for CUDA graph capture
+[36m(RayWorkerProc pid=6243)[0m (Worker_DP0_TP3_EP3 pid=6243) INFO 08-22 00:18:25 [gpu_worker.py:726] CUDA graph pool memory: 3.57 GiB (actual), 3.64 GiB (estimated), difference: 0.07 GiB (1.9%).
+[36m(RayWorkerProc pid=6243)[0m (Worker_DP0_TP3_EP3 pid=6243) INFO 08-22 00:18:25 [gpu_worker.py:789] Free memory on device (91.6/95.0 GiB) on startup. Desired GPU memory utilization is (0.92, 87.4 GiB). Actual usage is 6.72 GiB for consumed memory (weights + non-torch), 5.71 GiB for peak activation, and 3.57 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=76507175322` (71.25 GiB) to fit into requested memory, or `--kv-cache-memory=81016995840` (75.45 GiB) to fully utilize gpu memory. Current kv cache memory in use is 74.97 GiB.
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:17:46 [gpu_model_runner.py:6681] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=51 (largest=512)[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:17:49 [gpu_model_runner.py:6806] Estimated CUDA graph memory: 3.64 GiB total[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:17:49 [gpu_worker.py:578] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8817 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9583. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.[32m [repeated 15x across cluster][0m
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:17:49 [kv_cache_utils.py:2235] GPU KV cache size: 3,274,880 tokens[32m [repeated 3x across cluster][0m
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:17:49 [kv_cache_utils.py:2236] Maximum concurrency for 40,960 tokens per request: 79.95x[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:17:49 [gpu_worker.py:563] Available KV cache memory: 74.99 GiB[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266536, ip=172.28.43.140)[0m (Worker_DP2_TP2_EP10 pid=266536) INFO 08-22 00:17:49 [gpu_worker.py:707] Compile and warming up model for size 8192[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=115006, ip=172.28.43.120)[0m (Worker_DP1_TP0_EP4 pid=115006) INFO 08-22 00:17:51 [gpu_model_runner.py:6867] Rank 0: Torch profiler disabled for CUDA graph capture[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266534, ip=172.28.43.140)[0m (Worker_DP2_TP0_EP8 pid=266534) INFO 08-22 00:18:25 [gpu_model_runner.py:6913] Graph capturing finished in 34 secs, took 3.57 GiB
+[36m(RayWorkerProc pid=6244)[0m (Worker_DP0_TP2_EP2 pid=6244) INFO 08-22 00:18:27 [jit_monitor.py:79] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+[36m(DPMoEEngineCoreActor pid=5179)[0m INFO 08-22 00:18:28 [core.py:348] init engine (profile, create kv cache, warmup model) took 86.72 s (compilation: 36.32 s)
+INFO 08-22 00:18:31 [utils.py:241] Started 4 API server processes
+INFO 08-22 00:18:31 [utils.py:536] Waiting for API servers to complete ...
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [model.py:1883] Using max model len 40960
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [network_utils.py:205] Port 23289 is already in use, trying port 23290
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [network_utils.py:205] Port 23290 is already in use, trying port 23291
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+(ApiServer_1 pid=11539) INFO 08-22 00:18:42 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [model.py:1883] Using max model len 40960
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [model.py:1883] Using max model len 40960
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [network_utils.py:205] Port 23289 is already in use, trying port 23290
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [network_utils.py:205] Port 23290 is already in use, trying port 23291
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [network_utils.py:205] Port 23289 is already in use, trying port 23290
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [network_utils.py:205] Port 23290 is already in use, trying port 23291
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [arg_utils.py:805] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-30B-A3B] to model_path [/iopsstor/scratch/cscs/mvasilev/vllm-play/hf_home_std/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39]
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [model.py:645] Resolved architecture: Qwen3MoeForCausalLM
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [model.py:1883] Using max model len 40960
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [arg_utils.py:2168] Using host IP 172.28.43.112 as ray-based data parallel address
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [network_utils.py:205] Port 23286 is already in use, trying port 23287
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [network_utils.py:205] Port 23289 is already in use, trying port 23290
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [network_utils.py:205] Port 23290 is already in use, trying port 23291
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [parallel.py:936] Using ray distributed inference because data_parallel_backend is ray
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [vllm.py:1150] Disabling NCCL for DP synchronization when using async scheduling.
+(ApiServer_0 pid=11538) INFO 08-22 00:18:42 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(ApiServer_2 pid=11540) INFO 08-22 00:18:42 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(ApiServer_3 pid=11541) INFO 08-22 00:18:42 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(ApiServer_1 pid=11539) INFO 08-22 00:18:43 [compilation.py:329] Enabled custom fusions: allreduce_rms
+(ApiServer_0 pid=11538) INFO 08-22 00:18:44 [compilation.py:329] Enabled custom fusions: allreduce_rms
+(ApiServer_3 pid=11541) INFO 08-22 00:18:44 [compilation.py:329] Enabled custom fusions: allreduce_rms
+(ApiServer_2 pid=11540) INFO 08-22 00:18:44 [compilation.py:329] Enabled custom fusions: allreduce_rms
+(ApiServer_1 pid=11539) Process ApiServer_1:
+(ApiServer_1 pid=11539) Traceback (most recent call last):
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(ApiServer_1 pid=11539)     self.run()
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(ApiServer_1 pid=11539)     self._target(*self._args, **self._kwargs)
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 512, in run_api_server_worker_proc
+(ApiServer_1 pid=11539)     uvloop.run(
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(ApiServer_1 pid=11539)     return __asyncio.run(
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(ApiServer_1 pid=11539)     return runner.run(main)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(ApiServer_1 pid=11539)     return self._loop.run_until_complete(task)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(ApiServer_1 pid=11539)     return await main
+(ApiServer_1 pid=11539)            ^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(ApiServer_1 pid=11539)     async with build_async_engine_client(
+(ApiServer_1 pid=11539)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_1 pid=11539)     return await anext(self.gen)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(ApiServer_1 pid=11539)     async with build_async_engine_client_from_engine_args(
+(ApiServer_1 pid=11539)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_1 pid=11539)     return await anext(self.gen)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(ApiServer_1 pid=11539)     async_llm = AsyncLLM.from_vllm_config(
+(ApiServer_1 pid=11539)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(ApiServer_1 pid=11539)     return cls(
+(ApiServer_1 pid=11539)            ^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(ApiServer_1 pid=11539)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(ApiServer_1 pid=11539)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_1 pid=11539)     return func(*args, **kwargs)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 138, in make_async_mp_client
+(ApiServer_1 pid=11539)     return DPLBAsyncMPClient(*client_args)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1452, in __init__
+(ApiServer_1 pid=11539)     super().__init__(
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1264, in __init__
+(ApiServer_1 pid=11539)     super().__init__(
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_1 pid=11539)     return func(*args, **kwargs)
+(ApiServer_1 pid=11539)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(ApiServer_1 pid=11539)     super().__init__(
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 561, in __init__
+(ApiServer_1 pid=11539)     self.resources.output_socket = make_zmq_socket(
+(ApiServer_1 pid=11539)                                    ^^^^^^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/vllm/utils/network_utils.py", line 338, in make_zmq_socket
+(ApiServer_1 pid=11539)     socket.bind(path)
+(ApiServer_1 pid=11539)   File "/usr/local/lib/python3.12/dist-packages/zmq/sugar/socket.py", line 320, in bind
+(ApiServer_1 pid=11539)     super().bind(addr)
+(ApiServer_1 pid=11539)   File "zmq/backend/cython/_zmq.py", line 1009, in zmq.backend.cython._zmq.Socket.bind
+(ApiServer_1 pid=11539)     _check_rc(rc)
+(ApiServer_1 pid=11539)     ^^^^^^^^^^^
+(ApiServer_1 pid=11539)   File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+(ApiServer_1 pid=11539)     raise ZMQError(errno)
+(ApiServer_1 pid=11539)     ^^^^^^^^^^^
+(ApiServer_1 pid=11539) zmq.error.ZMQError: Address already in use (addr='tcp://172.28.43.112:23287')
+(ApiServer_2 pid=11540) Process ApiServer_2:
+(ApiServer_2 pid=11540) Traceback (most recent call last):
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(ApiServer_2 pid=11540)     self.run()
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(ApiServer_2 pid=11540)     self._target(*self._args, **self._kwargs)
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 512, in run_api_server_worker_proc
+(ApiServer_2 pid=11540)     uvloop.run(
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(ApiServer_2 pid=11540)     return __asyncio.run(
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(ApiServer_2 pid=11540)     return runner.run(main)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(ApiServer_2 pid=11540)     return self._loop.run_until_complete(task)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(ApiServer_2 pid=11540)     return await main
+(ApiServer_2 pid=11540)            ^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(ApiServer_2 pid=11540)     async with build_async_engine_client(
+(ApiServer_2 pid=11540)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_2 pid=11540)     return await anext(self.gen)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(ApiServer_2 pid=11540)     async with build_async_engine_client_from_engine_args(
+(ApiServer_2 pid=11540)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_2 pid=11540)     return await anext(self.gen)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(ApiServer_2 pid=11540)     async_llm = AsyncLLM.from_vllm_config(
+(ApiServer_2 pid=11540)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(ApiServer_2 pid=11540)     return cls(
+(ApiServer_2 pid=11540)            ^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(ApiServer_2 pid=11540)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(ApiServer_2 pid=11540)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_2 pid=11540)     return func(*args, **kwargs)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 138, in make_async_mp_client
+(ApiServer_2 pid=11540)     return DPLBAsyncMPClient(*client_args)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1452, in __init__
+(ApiServer_2 pid=11540)     super().__init__(
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1264, in __init__
+(ApiServer_2 pid=11540)     super().__init__(
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_2 pid=11540)     return func(*args, **kwargs)
+(ApiServer_2 pid=11540)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(ApiServer_2 pid=11540)     super().__init__(
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 561, in __init__
+(ApiServer_2 pid=11540)     self.resources.output_socket = make_zmq_socket(
+(ApiServer_2 pid=11540)                                    ^^^^^^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/vllm/utils/network_utils.py", line 338, in make_zmq_socket
+(ApiServer_2 pid=11540)     socket.bind(path)
+(ApiServer_2 pid=11540)   File "/usr/local/lib/python3.12/dist-packages/zmq/sugar/socket.py", line 320, in bind
+(ApiServer_2 pid=11540)     super().bind(addr)
+(ApiServer_2 pid=11540)   File "zmq/backend/cython/_zmq.py", line 1009, in zmq.backend.cython._zmq.Socket.bind
+(ApiServer_2 pid=11540)     _check_rc(rc)
+(ApiServer_2 pid=11540)     ^^^^^^^^^^^
+(ApiServer_2 pid=11540)   File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+(ApiServer_2 pid=11540)     raise ZMQError(errno)
+(ApiServer_2 pid=11540)     ^^^^^^^^^^^
+(ApiServer_2 pid=11540) zmq.error.ZMQError: Address already in use (addr='tcp://172.28.43.112:23287')
+(ApiServer_0 pid=11538) Process ApiServer_0:
+(ApiServer_0 pid=11538) Traceback (most recent call last):
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(ApiServer_0 pid=11538)     self.run()
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(ApiServer_0 pid=11538)     self._target(*self._args, **self._kwargs)
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 512, in run_api_server_worker_proc
+(ApiServer_0 pid=11538)     uvloop.run(
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(ApiServer_0 pid=11538)     return __asyncio.run(
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(ApiServer_0 pid=11538)     return runner.run(main)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(ApiServer_0 pid=11538)     return self._loop.run_until_complete(task)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(ApiServer_0 pid=11538)     return await main
+(ApiServer_0 pid=11538)            ^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(ApiServer_0 pid=11538)     async with build_async_engine_client(
+(ApiServer_0 pid=11538)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_0 pid=11538)     return await anext(self.gen)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(ApiServer_0 pid=11538)     async with build_async_engine_client_from_engine_args(
+(ApiServer_0 pid=11538)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_0 pid=11538)     return await anext(self.gen)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(ApiServer_0 pid=11538)     async_llm = AsyncLLM.from_vllm_config(
+(ApiServer_0 pid=11538)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(ApiServer_0 pid=11538)     return cls(
+(ApiServer_0 pid=11538)            ^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(ApiServer_0 pid=11538)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(ApiServer_0 pid=11538)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_0 pid=11538)     return func(*args, **kwargs)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 138, in make_async_mp_client
+(ApiServer_0 pid=11538)     return DPLBAsyncMPClient(*client_args)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1452, in __init__
+(ApiServer_0 pid=11538)     super().__init__(
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1264, in __init__
+(ApiServer_0 pid=11538)     super().__init__(
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_0 pid=11538)     return func(*args, **kwargs)
+(ApiServer_0 pid=11538)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(ApiServer_0 pid=11538)     super().__init__(
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 561, in __init__
+(ApiServer_0 pid=11538)     self.resources.output_socket = make_zmq_socket(
+(ApiServer_0 pid=11538)                                    ^^^^^^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/vllm/utils/network_utils.py", line 338, in make_zmq_socket
+(ApiServer_0 pid=11538)     socket.bind(path)
+(ApiServer_0 pid=11538)   File "/usr/local/lib/python3.12/dist-packages/zmq/sugar/socket.py", line 320, in bind
+(ApiServer_0 pid=11538)     super().bind(addr)
+(ApiServer_0 pid=11538)   File "zmq/backend/cython/_zmq.py", line 1009, in zmq.backend.cython._zmq.Socket.bind
+(ApiServer_0 pid=11538)     _check_rc(rc)
+(ApiServer_0 pid=11538)     ^^^^^^^^^^^
+(ApiServer_0 pid=11538)   File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+(ApiServer_0 pid=11538)     raise ZMQError(errno)
+(ApiServer_0 pid=11538)     ^^^^^^^^^^^
+(ApiServer_0 pid=11538) zmq.error.ZMQError: Address already in use (addr='tcp://172.28.43.112:23287')
+(ApiServer_3 pid=11541) Process ApiServer_3:
+(ApiServer_3 pid=11541) Traceback (most recent call last):
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(ApiServer_3 pid=11541)     self.run()
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(ApiServer_3 pid=11541)     self._target(*self._args, **self._kwargs)
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 512, in run_api_server_worker_proc
+(ApiServer_3 pid=11541)     uvloop.run(
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(ApiServer_3 pid=11541)     return __asyncio.run(
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(ApiServer_3 pid=11541)     return runner.run(main)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(ApiServer_3 pid=11541)     return self._loop.run_until_complete(task)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(ApiServer_3 pid=11541)     return await main
+(ApiServer_3 pid=11541)            ^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(ApiServer_3 pid=11541)     async with build_async_engine_client(
+(ApiServer_3 pid=11541)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_3 pid=11541)     return await anext(self.gen)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(ApiServer_3 pid=11541)     async with build_async_engine_client_from_engine_args(
+(ApiServer_3 pid=11541)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(ApiServer_3 pid=11541)     return await anext(self.gen)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(ApiServer_3 pid=11541)     async_llm = AsyncLLM.from_vllm_config(
+(ApiServer_3 pid=11541)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(ApiServer_3 pid=11541)     return cls(
+(ApiServer_3 pid=11541)            ^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(ApiServer_3 pid=11541)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(ApiServer_3 pid=11541)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_3 pid=11541)     return func(*args, **kwargs)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 138, in make_async_mp_client
+(ApiServer_3 pid=11541)     return DPLBAsyncMPClient(*client_args)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1452, in __init__
+(ApiServer_3 pid=11541)     super().__init__(
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1264, in __init__
+(ApiServer_3 pid=11541)     super().__init__(
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(ApiServer_3 pid=11541)     return func(*args, **kwargs)
+(ApiServer_3 pid=11541)            ^^^^^^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(ApiServer_3 pid=11541)     super().__init__(
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 561, in __init__
+(ApiServer_3 pid=11541)     self.resources.output_socket = make_zmq_socket(
+(ApiServer_3 pid=11541)                                    ^^^^^^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/vllm/utils/network_utils.py", line 338, in make_zmq_socket
+(ApiServer_3 pid=11541)     socket.bind(path)
+(ApiServer_3 pid=11541)   File "/usr/local/lib/python3.12/dist-packages/zmq/sugar/socket.py", line 320, in bind
+(ApiServer_3 pid=11541)     super().bind(addr)
+(ApiServer_3 pid=11541)   File "zmq/backend/cython/_zmq.py", line 1009, in zmq.backend.cython._zmq.Socket.bind
+(ApiServer_3 pid=11541)     _check_rc(rc)
+(ApiServer_3 pid=11541)     ^^^^^^^^^^^
+(ApiServer_3 pid=11541)   File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+(ApiServer_3 pid=11541)     raise ZMQError(errno)
+(ApiServer_3 pid=11541)     ^^^^^^^^^^^
+(ApiServer_3 pid=11541) zmq.error.ZMQError: Address already in use (addr='tcp://172.28.43.112:23287')
+ERROR 08-22 00:18:47 [utils.py:584] Exception occurred while running API servers: Process ApiServer_1 (PID: 11539) died with exit code None
+ERROR 08-22 00:18:47 [utils.py:584] Traceback (most recent call last):
+ERROR 08-22 00:18:47 [utils.py:584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 571, in wait_for_completion_or_failure
+ERROR 08-22 00:18:47 [utils.py:584]     raise RuntimeError(
+ERROR 08-22 00:18:47 [utils.py:584] RuntimeError: Process ApiServer_1 (PID: 11539) died with exit code None
+INFO 08-22 00:18:47 [utils.py:612] [shutdown] Process manager: send sigterm to process ApiServer_0
+INFO 08-22 00:18:47 [utils.py:612] [shutdown] Process manager: send sigterm to process ApiServer_1
+INFO 08-22 00:18:47 [utils.py:612] [shutdown] Process manager: send sigterm to process ApiServer_2
+INFO 08-22 00:18:47 [utils.py:612] [shutdown] Process manager: send sigterm to process ApiServer_3
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] EngineCore encountered a fatal error.
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] Traceback (most recent call last):
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/threading.py", line 355, in wait
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     waiter.acquire()
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1060, in sigterm_handler
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     raise_sys_exit_with_custom_error_message(
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "python/ray/_raylet.pyx", line 714, in ray._raylet.raise_sys_exit_with_custom_error_message
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] SystemExit: 1
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] 
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] During handling of the above exception, another exception occurred:
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] 
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] Traceback (most recent call last):
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/queue.py", line 171, in get
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     self.not_empty.wait()
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/threading.py", line 364, in wait
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     self._acquire_restore(saved_state)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/threading.py", line 311, in _acquire_restore
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     def _acquire_restore(self, x):
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1060, in sigterm_handler
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     raise_sys_exit_with_custom_error_message(
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "python/ray/_raylet.pyx", line 714, in ray._raylet.raise_sys_exit_with_custom_error_message
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] SystemExit: 1
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] 
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] During handling of the above exception, another exception occurred:
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] 
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] Traceback (most recent call last):
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 2426, in run
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     self.run_busy_loop()  # type: ignore[attr-defined]
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     ^^^^^^^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/util/tracing/tracing_helper.py", line 487, in _resume_span
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     return method(self, *_args, **_kwargs)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/fault_tolerance/engine_core_sentinel.py", line 179, in run_with_fault_tolerance
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     busy_loop_func(self)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 2108, in run_busy_loop
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     self._process_input_queue()
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv/lib/python3.12/site-packages/ray/util/tracing/tracing_helper.py", line 487, in _resume_span
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     return method(self, *_args, **_kwargs)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1420, in _process_input_queue
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     req = self.input_queue.get(block=block)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/queue.py", line 165, in get
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     with self.not_empty:
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]          ^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]   File "/usr/lib/python3.12/threading.py", line 303, in __exit__
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]     return self._lock.__exit__(*args)
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431]            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(DPMoEEngineCoreActor pid=5179)[0m ERROR 08-22 00:18:47 [core.py:2431] RuntimeError: release unlocked lock
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:18:25 [gpu_worker.py:726] CUDA graph pool memory: 3.57 GiB (actual), 3.64 GiB (estimated), difference: 0.07 GiB (1.9%).[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=266535, ip=172.28.43.140)[0m (Worker_DP2_TP3_EP11 pid=266535) INFO 08-22 00:18:25 [gpu_worker.py:789] Free memory on device (90.67/95.0 GiB) on startup. Desired GPU memory utilization is (0.92, 87.4 GiB). Actual usage is 6.72 GiB for consumed memory (weights + non-torch), 5.71 GiB for peak activation, and 3.57 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=76507961754` (71.25 GiB) to fit into requested memory, or `--kv-cache-memory=80022618112` (74.53 GiB) to fully utilize gpu memory. Current kv cache memory in use is 74.97 GiB.[32m [repeated 15x across cluster][0m
+[36m(RayWorkerProc pid=94501, ip=172.28.51.209)[0m (Worker_DP3_TP0_EP12 pid=94501) INFO 08-22 00:18:25 [gpu_model_runner.py:6913] Graph capturing finished in 34 secs, took 3.57 GiB[32m [repeated 3x across cluster][0m
+[36m(RayWorkerProc pid=266536, ip=172.28.43.140)[0m (Worker_DP2_TP2_EP10 pid=266536) INFO 08-22 00:18:27 [jit_monitor.py:79] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.[32m [repeated 15x across cluster][0m
+[36m(DPMoEEngineCoreActor pid=266348, ip=172.28.43.140)[0m INFO 08-22 00:18:28 [core.py:348] init engine (profile, create kv cache, warmup model) took 87.24 s (compilation: 36.75 s)[32m [repeated 3x across cluster][0m
+INFO 08-22 00:18:47 [utils.py:612] [shutdown] Process manager: send sigterm to process VLLM_DP_Coordinator
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 103, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+    run_multi_api_server(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 382, in run_multi_api_server
+    wait_for_completion_or_failure(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/utils.py", line 571, in wait_for_completion_or_failure
+    raise RuntimeError(
+RuntimeError: Process ApiServer_1 (PID: 11539) died with exit code None

@@ -1,0 +1,186 @@
+=== nodes: nid[006857,007162]  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm-v0260-eval-multinode.toml  sweeps: 10 ===
+0: rank map: ['nid006857:g0', 'nid006857:g1', 'nid006857:g2', 'nid006857:g3', 'nid007162:g0', 'nid007162:g1', 'nid007162:g2', 'nid007162:g3']
+0: 10 sweeps x 10 ping-pong iters, random 64 MiB buffers
+0: [rank0]:[W821 21:18:22.081497412 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+1: [rank1]:[W821 21:18:22.081496356 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+0: [rank0]:[W821 21:18:22.185373370 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+1: [rank1]:[W821 21:18:22.185423128 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+0:   return func(*args, **kwargs)
+2: [rank2]:[W821 21:18:22.817360638 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+2: [rank2]:[W821 21:18:22.872497663 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+3: [rank3]:[W821 21:18:23.924370829 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+3: [rank3]:[W821 21:18:23.978527278 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+4: [rank4]:[W821 21:18:23.925135322 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+4: [rank4]:[W821 21:18:23.999520476 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+5: [rank5]:[W821 21:18:23.144440126 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+5: [rank5]:[W821 21:18:23.204866915 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+6: [rank6]:[W821 21:18:23.328900038 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+6: [rank6]:[W821 21:18:23.386232047 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+7: [rank7]:[W821 21:18:23.517658500 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+7: [rank7]:[W821 21:18:23.578537433 ProcessGroupNCCL.cpp:4173] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 8.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+0: sweep 1/10 done
+0: sweep 2/10 done
+0: sweep 3/10 done
+0: sweep 4/10 done
+0: sweep 5/10 done
+0: sweep 6/10 done
+0: sweep 7/10 done
+0: sweep 8/10 done
+0: sweep 9/10 done
+0: sweep 10/10 done
+0: 
+0: === 64 MiB bandwidth, SWEEP 1 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     113.29  113.81  113.18   23.76   23.78   23.75   23.78 
+0: r1     .       .     114.67  114.55   23.79   23.80   23.77   23.74 
+0: r2     .       .       .     114.09   23.01   23.78   23.79   23.80 
+0: r3     .       .       .       .      23.79   23.79   23.80   23.75 
+0: r4     .       .       .       .       .     112.93  113.38  114.99 
+0: r5     .       .       .       .       .       .     114.39  114.62 
+0: r6     .       .       .       .       .       .       .     115.38 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 2 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.40  113.81  114.07   23.80   23.79   23.75   23.78 
+0: r1     .       .     113.50  114.38   20.06   23.82   23.78   23.77 
+0: r2     .       .       .     114.17   23.77   23.80   23.81   23.78 
+0: r3     .       .       .       .      23.80   23.81   23.79   23.77 
+0: r4     .       .       .       .       .     113.46  114.29  113.01 
+0: r5     .       .       .       .       .       .     113.82  113.67 
+0: r6     .       .       .       .       .       .       .     114.42 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB ba
+0: ndwidth, SWEEP 3 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     114.66  114.40  113.61   23.73   23.80   23.75   23.43 
+0: r1     .       .     114.34  114.84   23.76   23.80   23.77   23.77 
+0: r2     .       .       .     114.13   23.78   23.78   23.78   23.77 
+0: r3     .       .       .       .      23.77   23.79   23.78   23.77 
+0: r4     .       .       .       .       .     113.78  113.79  114.15 
+0: r5     .       .       .       .       .       .     114.14  114.62 
+0: r6     .       .       .       .       .       .       .     115.56 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 4 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.35  114.60  113.71   23.76   23.80   23.76   23.41 
+0: r1     .       .     113.94  114.43   23.80   23.81   23.80   23.78 
+0: r2     .       .       .     114.57   23.81   23.79   23.79   23.77 
+0: r3     .       .       .       .      23.80   23.80   23.78   23.78 
+0: r4     .       .       .       .       .     114.44  114.07  114.41 
+0: r5     .       .       .       .       .       .     114.62  114.27 
+0: r6     .       .       .       .       .       .       .     114.59 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 5 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.49  114.45  112.76   23.79   23.80   23.72   23.29 
+0: r1     .       .     113.79  114.31   23.79   23.79   23.76   23.78 
+0: r2     .       .       .     114.58   23.79   23.79   23.76   23.78 
+0: r3     .       .       .       .      23.79   23.81   23.78   23.77 
+0: r4     .       .       .       .       .     114.61  113.69  114.08 
+0: r5     .       .       .       .       .       .     114.07  114.53 
+0: r6     .       .       .       .       .       .       .     115.33 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 6 (GB/s) ===
+0: 
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.31  113.93  114.06   23.80   23.79   23.74   23.70 
+0: r1     .       .     114.13  114.22   23.80   23.81   23.78   23.77 
+0: r2     .       .       .     114.70   23.81   23.79   23.79   23.77 
+0: r3     .       .       .       .      23.80   23.82   23.79   23.77 
+0: r4     .       .       .       .       .     113.47  114.12  114.04 
+0: r5     .       .       .       .       .       .     114.10  115.14 
+0: r6     .       .       .       .       .       .       .     115.40 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 7 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     114.80  114.41  113.79   23.81   23.80   23.75   23.78 
+0: r1     .       .     114.21  114.34   23.82   23.79   23.72   23.48 
+0: r2     .       .       .     114.78   23.80   23.80   23.79   23.78 
+0: r3     .       .       .       .      23.79   23.80   23.81   23.76 
+0: r4     .       .       .       .       .     113.63  113.92  113.80 
+0: r5     .       .       .       .       .       .     113.94  114.18 
+0: r6     .       .       .       .       .       .       .      69.94 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 8 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.12  113.99  113.62   23.81   23.80   23.73   23.78 
+0: r1     .       .     113.50  113.89   23.80   23.81   23.73   23.78 
+0: r2     .       .       .     114.46   23.81   23.77   23.77   23.77 
+0: r3     .       .       .       .      23.81   23.80   23.77   23.77 
+0: r4     .       .       .       .       .     114.02  114.46  114.50 
+0: r5     .       .       .       .       .       .     114.40  114.71 
+0: r6     .       .       .       .       .       .       .     114.31 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 9 (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     114.84  114.85  113.42   23.80   23.80   23.74   23.78 
+0: r1     .       .     114.08  114.14   23.80   23.81   23.77   23.77 
+0: r2     .       .       .     114.44   23.81   23.81   23.73   23.76 
+0: r3     .       .       .       .      23.79   23.81   23.78   23.78 
+0: r4     .       .       .       .       .     114.75  114.46  114.57 
+0: r5     .       .       .       .       .       .     114.04  113.86 
+0: r6     .       .       .       .       .       .       .     115.43 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, SWEEP 10 (GB/s) ===
+0: 
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     115.66  115.02  113.50   23.80   23.81   23.76   23.78 
+0: r1     .       .     114.64  113.86   23.81   23.81   23.79   23.76 
+0: r2     .       .       .     114.85   23.81   23.80   23.79   23.75 
+0: r3     .       .       .       .      20.73   23.80   23.79   23.77 
+0: r4     .       .       .       .       .     114.01  114.11  113.81 
+0: r5     .       .       .       .       .       .     114.35  114.60 
+0: r6     .       .       .       .       .       .       .     114.80 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, MEAN (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     114.99  114.33  113.57   23.79   23.80   23.75   23.65 
+0: r1     .       .     114.08  114.30   23.42   23.80   23.77   23.74 
+0: r2     .       .       .     114.48   23.72   23.79   23.78   23.77 
+0: r3     .       .       .       .      23.49   23.80   23.79   23.77 
+0: r4     .       .       .       .       .     113.91  114.03  114.14 
+0: r5     .       .       .       .       .       .     114.19  114.42 
+0: r6     .       .       .       .       .       .       .     110.52 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, STD (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .       0.68    0.43    0.40    0.03    0.01    0.01    0.19 
+0: r1     .       .       0.41    0.29    1.18    0.01    0.02    0.09 
+0: r2     .       .       .       0.27    0.25    0.01    0.02    0.01 
+0: r3     .       .       .       .       0.97    0.01    0.01    0.01 
+0: r4     .       .       .       .       .       0.57    0.34    0.54 
+0: r5     .       .       .       .       .       .       0.25    0.43 
+0: r6     .       .       .       .       .       .       .      14.26 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: === 64 MiB bandwidth, MIN (GB/s) ===
+0:         r0      r1      r2      r3      r4      r5      r6      r7    
+0: r0     .     113.29  113.81  112.76   23.73   23.78   23.72   23.29 
+0: r1     .       .     113.50  113.86   20.06   23.79   23.72   23.48 
+0: r2     .       .       .     114.09   23.01   23.77   23.73   23.75 
+0: r3     .       .       .       .      20.73   23.79   23.77   23.75 
+0: r4     .       .       .       .       .     112.93  113.38  113.01 
+0: r5     .       .       .       .       .       .     113.82  113.67 
+0: r6     .       .       .       .       .       .       .      69.94 
+0: r7     .       .       .       .       .       .       .       .    
+0: 
+0: flagged cells (all samples):
+0:   r1-r4: 23.8 20.1 23.8 23.8 23.8 23.8 23.8 23.8 23.8 23.8
+0:   r3-r4: 23.8 23.8 23.8 23.8 23.8 23.8 23.8 23.8 23.8 20.7
+0:   r6-r7: 115.4 114.4 115.6 114.6 115.3 115.4 69.9 114.3 115.4 114.8
+0: 
+0: rows/cols r0-r3 = first node GPUs 0-3, r4-r7 = second node
+0: P2P_REP_COMPLETE
+DONE: nid[006857,007162]

@@ -1,0 +1,307 @@
+START TIME: Fri Aug 21 22:13:53 CEST 2026
+0: === container versions (system) ===
+0: Python 3.12.13
+0: vllm 0.27.1 | torch 2.13.0+cu130
+0: no system ray CLI
+0: === venv + stock lm-eval ===
+0: Requirement already satisfied: lm_eval in /users/mvasilev/.local/lib/python3.12/site-packages (0.4.12)
+0: Collecting datasets>=2.16.0 (from lm_eval)
+0:   Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+0: Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from lm_eval) (2.2.6)
+0: Collecting evaluate>=0.4.0 (from lm_eval)
+0:   Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+0: Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from lm_eval) (3.1.6)
+0: Requirement already satisfied: pytablewriter in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (1.2.1)
+0: Requirement already satisfied: rouge-score>=0.0.4 in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (0.1.2)
+0: Requirement already satisfied: sacrebleu>=1.5.0 in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (2.6.0)
+0: Collecting scikit-learn>=0.24.1 (from lm_eval)
+0:   Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (11 kB)
+0: Requirement already satisfied: sqlitedict in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (2.1.0)
+0: Requirement already satisfied: dill in /usr/local/lib/python3.12/dist-packages (from lm_eval) (0.4.1)
+0: Requirement already satisfied: word2number in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (1.1)
+0: Requirement already satisfied: more_itertools in /users/mvasilev/.local/lib/python3.12/site-packages (from lm_eval) (11.1.0)
+0: Requirement already satisfied: typing_extensions in /usr/local/lib/python3.12/dist-packages (from lm_eval) (4.16.0)
+0: Requirement already satisfied: tqdm>=4.59.0 in /usr/local/lib/python3.12/dist-packages (from lm_eval) (4.70.0)
+0: Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (3.32.2)
+0: Collecting pyarrow>=21.0.0 (from datasets>=2.16.0->lm_eval)
+0:   Using cached pyarrow-25.0.1-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (3.0 kB)
+0: Collecting pandas (from datasets>=2.16.0->lm_eval)
+0:   Using cached pandas-3.0.5-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (79 kB)
+0: Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (2.34.2)
+0: Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (0.28.1)
+0: Collecting xxhash (from datasets>=2.16.0->lm_eval)
+0:   Using cached xxhash-4.0.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (17 kB)
+0: Collecting multiprocess<0.70.20 (from datasets>=2.16.0->lm_eval)
+0:   Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+0: Collecting fsspec<=2026.6.0,>=2023.1.0 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval)
+0:   Using cached fsspec-2026.6.0-py3-none-any.whl.metadata (10 kB)
+0: Requirement already satisfied: huggingface-hub<2.0,>=0.25.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (1.27.0)
+0: Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (26.3)
+0: Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.16.0->lm_eval) (6.0.3)
+0: Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (3.14.3)
+0: Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (4.14.2)
+0: Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (2026.7.22)
+0: Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (1.0.9)
+0: Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval) (3.18)
+0: Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm_eval) (0.16.0)
+0: Requirement already satisfied: click<9.0.0,>=8.4.2 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm_eval) (8.4.2)
+0: Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm_eval) (1.6.0)
+0: Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (2.7.1)
+0: Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.4.0)
+0: Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (26.1.0)
+0: Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.8.0)
+0: Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (6.7.1)
+0: Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (0.5.2)
+0: Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm_eval) (1.24.5)
+0: Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval) (3.4.9)
+0: Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval) (2.7.0)
+0: Collecting absl-py (from rouge-score>=0.0.4->lm_eval)
+0:   Downloading absl_py-2.5.0-py3-none-any.whl.metadata (3.3 kB)
+0: Requirement already satisfied: nltk in /users/mvasilev/.local/lib/python3.12/site-packages (from rouge-score>=0.0.4->lm_eval) (3.10.0)
+0: Requirement already satisfied: six>=1.14.0 in /usr/local/lib/python3.12/dist-packages (from rouge-score>=0.0.4->lm_eval) (1.17.0)
+0: Requirement already satisfied: portalocker in /users/mvasilev/.local/lib/python3.12/site-packages (from sacrebleu>=1.5.0->lm_eval) (3.2.0)
+0: Requirement already satisfied: regex in /usr/local/lib/python3.12/dist-packages (from sacrebleu>=1.5.0->lm_eval) (2026.7.19)
+0: Requirement already satisfied: tabulate>=0.8.9 in /usr/local/lib/python3.12/dist-packages (from sacrebleu>=1.5.0->lm_eval) (0.10.0)
+0: Requirement already satisfied: colorama in /users/mvasilev/.local/lib/python3.12/site-packages (from sacrebleu>=1.5.0->lm_eval) (0.4.6)
+0: Requirement already satisfied: lxml in /users/mvasilev/.local/lib/python3.12/site-packages (from sacrebleu>=1.5.0->lm_eval) (6.1.1)
+0: Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm_eval)
+0:   Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+0: Collecting joblib>=1.4.0 (from scikit-learn>=0.24.1->lm_eval)
+0:   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+0: Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm_eval)
+0:   Downloading narwhals-2.25.0-py3-none-any.whl.metadata (15 kB)
+0: Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm_eval)
+0:   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+0: Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2->lm_eval) (3.0.3)
+0: Collecting defusedxml (from nltk->rouge-score>=0.0.4->lm_eval)
+0:   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+0: Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas->datasets>=2.16.0->lm_eval) (2.9.0.post0)
+0: Requirement already satisfied: setuptools>=38.3.0 in /usr/local/lib/python3.12/dist-packages (from pytablewriter->lm_eval) (80.10.2)
+0: Requirement already satisfied: DataProperty<2,>=1.1.0 in /users/mvasilev/.local/lib/python3.12/site-packages (from pytablewriter->lm_eval) (1.1.1)
+0: Requirement already satisfied: mbstrdecoder<2,>=1.0.0 in /users/mvasilev/.local/lib/python3.12/site-packages (from pytablewriter->lm_eval) (1.1.5)
+0: Requirement already satisfied: pathvalidate<4,>=2.3.0 in /users/mvasilev/.local/lib/python3.12/site-packages (from pytablewriter->lm_eval) (3.3.1)
+0: Requirement already satisfied: tabledata<2,>=1.3.1 in /users/mvasilev/.local/lib/python3.12/site-packages (from pytablewriter->lm_eval) (1.3.5)
+0: Requirement already satisfied: tcolorpy<1,>=0.0.5 in /users/mvasilev/.local/lib/python3.12/site-packages (from pytablewriter->lm_eval) (0.1.7)
+0: Requirement already satisfied: typepy<2,>=1.3.2 in /users/mvasilev/.local/lib/python3.12/site-packages (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval) (1.3.5)
+0: Requirement already satisfied: chardet<7,>=3.0.4 in /users/mvasilev/.local/lib/python3.12/site-packages (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm_eval) (6.0.0.post1)
+0: Requirement already satisfied: pytz>=2018.9 in /users/mvasilev/.local/lib/python3.12/site-packages (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval) (2026.3.post1)
+0: Downloading datasets-5.0.1-py3-none-any.whl (559 kB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/559.1 kB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m559.1/559.1 kB[0m [31m8.5 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Using cached fsspec-2026.6.0-py3-none-any.whl (203 kB)
+0: Downloading multiprocess-0.70.19-py312-none-any.whl (150 kB)
+0: Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+0: Using cached pyarrow-25.0.1-cp312-cp312-manylinux_2_28_aarch64.whl (46.8 MB)
+0: Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (8.8 MB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/8.8 MB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.8/8.8 MB[0m [31m75.0 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+0: Downloading narwhals-2.25.0-py3-none-any.whl (467 kB)
+0: Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (34.0 MB)
+0: [?25l
+0:    [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/34.0 MB[0m [31m?[0m eta [36m-:--:--[0m
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m [32m33.8/34.0 MB[0m [31m213.9 MB/s[0m eta [36m0:00:01[0m
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m34.0/34.0 MB[0m [31m153.9 MB/s[0m  [33m0:00:00[0m
+0: [?25h
+0: Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+0: Downloading absl_py-2.5.0-py3-none-any.whl (137 kB)
+0: Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+0: Using cached pandas-3.0.5-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (10.5 MB)
+0: Using cached xxhash-4.0.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (276 kB)
+0: Installing collected packages: xxhash, threadpoolctl, scipy, pyarrow, narwhals, multiprocess, joblib, fsspec, defusedxml, absl-py, scikit-learn, pandas, datasets, evaluate
+0: [?25l
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 2/14[0m [scipy]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 3/14[0m [pyarrow]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/14[0m [narwhals]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/14[0m [narwhals]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/14[0m [narwhals]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/14[0m [narwhals]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 4/14[0m [narwhals]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 5/14[0m [multiprocess]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K  Attempting uninstall: fsspec
+0:    [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K    Found existing installation: fsspec 2026.7.0
+0:    [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K    Not uninstalling fsspec at /usr/local/lib/python3.12/dist-packages, outside environment /iopsstor/scratch/cscs/mvasilev/vllm-play/lmeval-std-venv
+0:    [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K    Can't uninstall 'fsspec'. No files were found to uninstall.
+0:    [38;2;249;38;114m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 6/14[0m [joblib]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 7/14[0m [fsspec]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m 7/14[0m [fsspec]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m [32m 9/14[0m [absl-py]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━[0m [32m10/14[0m [scikit-learn]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m11/14[0m [pandas]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m [32m12/14[0m [datasets]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m [32m12/14[0m [datasets]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m [32m12/14[0m [datasets]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m [32m12/14[0m [datasets]
+0: [2K   [38;2;249;38;114m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m [32m13/14[0m [evaluate]
+0: [2K   [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m14/14[0m [evaluate]
+0: [?25h[1A[2K
+0: ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+0: torch 2.13.0+cu130 requires nvidia-nccl-cu13==2.29.7; platform_system == "Linux", but you have nvidia-nccl-cu13 2.30.7 which is incompatible.
+0: Successfully installed absl-py-2.5.0 datasets-5.0.1 defusedxml-0.7.1 evaluate-0.4.6 fsspec-2026.6.0 joblib-1.5.3 multiprocess-0.70.19 narwhals-2.25.0 pandas-3.0.5 pyarrow-25.0.1 scikit-learn-1.9.0 scipy-1.18.0 threadpoolctl-3.6.0 xxhash-4.0.1
+0: Name: lm_eval
+0: Version: 0.4.12
+0: OK: lm_eval 0.4.12 | vllm 0.27.1 | torch 2.13.0+cu130
+0: === model download: Qwen/Qwen3-30B-A3B ===
+0: Traceback (most recent call last):
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 797, in hf_raise_for_status
+0:     response.raise_for_status()
+0:   File "/usr/local/lib/python3.12/dist-packages/httpx/_models.py", line 829, in raise_for_status
+0:     raise HTTPStatusError(message, request=request, response=self)
+0: httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://huggingface.co/api/models/Qwen/Qwen3-30B-A3B/revision/main'
+0: For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+0: 
+0: The above exception was the direct cause of the following exception:
+0: 
+0: Traceback (most recent call last):
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_snapshot_download.py", line 268, in snapshot_download
+0:     repo_info = api.repo_info(repo_id=repo_id, repo_type=repo_type, revision=revision)
+0:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+0:     return fn(*args, **kwargs)
+0:            ^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 3648, in repo_info
+0:     return method(
+0:            ^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+0:     return fn(*args, **kwargs)
+0:            ^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 3328, in model_info
+0:     hf_raise_for_status(r)
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 917, in hf_raise_for_status
+0:     raise _format(HfHubHTTPError, message, response) from e
+0: huggingface_hub.errors.HfHubHTTPError: (Request ID: Root=1-6a88b1b1-6eaa2203015c3440021f99a1;2791a82d-4d44-4f56-9ccb-ecd86dadfd57)
+0: 
+0: 429 Too Many Requests: you have reached your 'api' rate limit.
+0: Retry after 127 seconds (0/500 requests remaining in current 300s window).
+0: Url: https://huggingface.co/api/models/Qwen/Qwen3-30B-A3B/revision/main.
+0: We had to rate limit your IP (148.187.0.208). To continue using our service, create a HF account or login to your existing account, and make sure you pass a HF_TOKEN if you're using the API.
+0: 
+0: The above exception was the direct cause of the following exception:
+0: 
+0: Traceback (most recent call last):
+0:   File "<stdin>", line 3, in <module>
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+0:     return fn(*args, **kwargs)
+0:            ^^^^^^^^^^^^^^^^^^^
+0:   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_snapshot_download.py", line 372, in snapshot_download
+0:     raise LocalEntryNotFoundError(
+0: huggingface_hub.errors.LocalEntryNotFoundError: Got: HfHubHTTPError: (Request ID: Root=1-6a88b1b1-6eaa2203015c3440021f99a1;2791a82d-4d44-4f56-9ccb-ecd86dadfd57)
+0: 
+0: 429 Too Many Requests: you have reached your 'api' rate limit.
+0: Retry after 127 seconds (0/500 requests remaining in current 300s window).
+0: Url: https://huggingface.co/api/models/Qwen/Qwen3-30B-A3B/revision/main.
+0: We had to rate limit your IP (148.187.0.208). To continue using our service, create a HF account or login to your existing account, and make sure you pass a HF_TOKEN if you're using the API.
+0: An error happened while trying to locate the files on the Hub, and we cannot find the appropriate snapshot folder for the specified revision on the local disk. Please check your internet connection and try again.
+srun: error: nid005398: task 0: Exited with exit code 1
+srun: Terminating StepId=3144227.0

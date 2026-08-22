@@ -1,0 +1,61 @@
+START TIME: Fri Aug 21 22:12:38 CEST 2026
+CSCS_2026_05_1
+[INFO] Querying registry for permission grant
+[INFO] Authenticating with user: <anonymous>
+[INFO] Authentication succeeded
+[INFO] Fetching image manifest list
+[INFO] Fetching image manifest
+[INFO] Downloading 28 missing layers...
+[INFO] Extracting image layers...
+[INFO] Converting whiteouts...
+[INFO] Creating squashfs filesystem...
+Parallel mksquashfs: Using 64 processors
+Creating 4.0 filesystem on /iopsstor/scratch/cscs/mvasilev/.edf_imagestore/vllm+vllm-openai+v0.27.1.aarch64.sqsh.tmp.3144226, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, zstd compressed, data block size 131072
+	uncompressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 16150811.26 Kbytes (15772.28 Mbytes)
+	80.80% of uncompressed filesystem size (19988486.79 Kbytes)
+Inode table size 1195840 bytes (1167.81 Kbytes)
+	20.85% of uncompressed inode table size (5735232 bytes)
+Directory table size 1697373 bytes (1657.59 Kbytes)
+	18.14% of uncompressed directory table size (9358356 bytes)
+Number of duplicate files found 33478
+Number of inodes 144698
+Number of files 130694
+Number of fragments 16392
+Number of symbolic links 1716
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 12288
+Number of hard-links 47
+Number of ids (unique uids + gids) 1
+Number of uids 1
+	root (0)
+Number of gids 1
+	root (0)
+enroot import exited 0
+Found a valid SQUASHFS 4:0 superblock on /iopsstor/scratch/cscs/mvasilev/.edf_imagestore/vllm+vllm-openai+v0.27.1.aarch64.sqsh.tmp.3144226.
+Creation or last append time Fri Aug 21 22:13:38 2026
+Filesystem size 16538430730 bytes (16150811.26 Kbytes / 15772.28 Mbytes)
+Compression zstd
+	compression-level 1
+Block size 131072
+Filesystem is exportable via NFS
+Inodes are compressed
+Data is uncompressed
+Uids/Gids (Id table) are compressed
+Fragments are compressed
+Always-use-fragments option is not specified
+Xattrs are compressed
+Duplicates are removed
+Number of fragments 16392
+Number of inodes 144698
+Number of ids 1
+Number of xattr ids 0
+-rw-r-----+ 1 mvasilev infra01 16538468352 Aug 21 22:13 /iopsstor/scratch/cscs/mvasilev/.edf_imagestore/vllm+vllm-openai+v0.27.1.aarch64.sqsh
+IMPORT OK: /iopsstor/scratch/cscs/mvasilev/.edf_imagestore/vllm+vllm-openai+v0.27.1.aarch64.sqsh
+END TIME: Fri Aug 21 22:13:39 CEST 2026
