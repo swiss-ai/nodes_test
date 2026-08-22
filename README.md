@@ -52,6 +52,10 @@ qwen3-bench/             standard-stack workload repro (stock everything)
   qwen3_standard_setup.sbatch   one-time: stock lm-eval venv + dataset prefetch
   qwen3_standard_eval.sbatch    timed lm-eval, TP=8 + EP over 2 nodes
   qwen3_standard_bench.sbatch   vllm serve + vllm bench serve (TP/DP/len knobs)
+vllm-bench/              Apertus2 22B standard vLLM benchmarks (own README):
+                         `vllm bench throughput` + serve/bench-serve on
+                         ShareGPT, TP=4+EP single node, eval-overlay image
+                         d094597b; dataset fetched by download_sharegpt.sh
 results/                 per-job outputs (bench_pass*.json, serve.log, evals)
 logs/                    all Slurm job logs (nccl-* probes, qwen3-std-* runs)
 ```

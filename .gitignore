@@ -1,2 +1,7 @@
 # compiled in-container by probes/nccl_raw_rep.sh
 probes/nccl_raw_collrep
+
+# vllm-bench heavy artifacts (dataset via download_sharegpt.sh; caches at runtime)
+vllm-bench/ShareGPT_V3_unfiltered_cleaned_split.json
+vllm-bench/hf_home/
+vllm-bench/vllm-cache/

@@ -1,0 +1,17 @@
+# Container environment (EDF) for the vLLM benchmarks.
+# Same baked image as the eval pipeline: upstream vLLM v0.27.1 arm64
+# + swiss-ai/vllm@acb3dfe5d Apertus2 overlay (6 pure-python files).
+# Single-node only — no NCCL fabric annotations needed (mirror of
+# vllm-play/vllm-v0260-eval.toml).
+
+image = "/iopsstor/scratch/cscs/${USER}/.edf_imagestore/vllm-apertus2-eval+acb3dfe5+lm0788350b.aarch64.sqsh"
+mounts = ["/capstor:/capstor", "/users:/users", "/iopsstor:/iopsstor"]
+workdir = "/iopsstor/scratch/cscs/${USER}/node-health/vllm-bench"
+writable = true
+
+[env]
+PMIX_MCA_psec = "native"
+HF_HOME = "/iopsstor/scratch/cscs/${USER}/node-health/vllm-bench/hf_home"
+
+[annotations]
+com.hooks.cxi.enabled = "false"
