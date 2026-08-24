@@ -1,0 +1,13 @@
+0: Collecting data...
+0: Generating '/tmp/nsys-report-bd4e.qdstrm'
+0: Press Ctrl-C to stop symbol files downloading
+0: Symbol file download process is aborted by the user
+0: [1/1] [0%                          ] nsys-option-smoke.nsys-rep
+0: [1/1] [0%                          ] nsys-option-smoke.nsys-rep
+0: [1/1] [=====30%                    ] nsys-option-smoke.nsys-rep
+0: [1/1] [============57%             ] nsys-option-smoke.nsys-rep
+0: [1/1] [==================78%       ] nsys-option-smoke.nsys-rep
+0: [1/1] [========================99% ] nsys-option-smoke.nsys-rep[1/1] [========================100%] nsys-option-smoke.nsys-rep
+0: [1/1] [========================100%] nsys-option-smoke.nsys-rep
+0: Generated:
+0: 	/iopsstor/scratch/cscs/mvasilev/tmp/nsys-option-smoke.nsys-rep

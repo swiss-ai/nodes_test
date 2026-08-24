@@ -1,0 +1,768 @@
+=== nodes: A=nid007176 B=nid007195  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/megatron-v2601-multinode.toml  passes: 3 ===
+
+##### pass 1/3  MODE A  intra nid007176  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 197799 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 197800 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 197801 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 197802 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1    65.12  128.82  193.23       0    65.51  128.04  192.07       0
+0:     16777216       4194304     float     sum      -1   101.20  165.78  248.67       0    98.84  169.74  254.61       0
+0:     33554432       8388608     float     sum      -1   177.63  188.90  283.35       0   175.39  191.31  286.97       0
+0:     67108864      16777216     float     sum      -1   331.59  202.39  303.58       0   333.24  201.38  302.08       0
+0:    134217728      33554432     float     sum      -1   631.64  212.49  318.74       0   632.64  212.16  318.23       0
+0:    268435456      67108864     float     sum      -1  1220.29  219.98  329.97       0  1220.30  219.97  329.96       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 280.121 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE B  intra nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  17101 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  17102 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  17103 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  17104 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1   102.88   81.54  122.31       0    64.60  129.86  194.80       0
+0:     16777216       4194304     float     sum      -1   100.61  166.75  250.13       0    99.54  168.55  252.82       0
+0:     33554432       8388608     float     sum      -1   178.50  187.98  281.97       0   176.60  190.00  285.00       0
+0:     67108864      16777216     float     sum      -1   335.02  200.31  300.47       0   332.84  201.62  302.43       0
+0:    134217728      33554432     float     sum      -1   628.22  213.65  320.47       0   631.21  212.64  318.96       0
+0:    268435456      67108864     float     sum      -1  1224.37  219.24  328.87       0  1216.84  220.60  330.90       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 274.093 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE C  cross nid007176+nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 199000 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 199001 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 199002 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 199003 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  18227 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  18228 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  18229 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  18230 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1   459.73   18.25   31.93       0   296.96   28.25   49.43       0
+0:     16777216       4194304     float     sum      -1   432.13   38.82   67.94       0   438.69   38.24   66.93       0
+0:     33554432       8388608     float     sum      -1   638.55   52.55   91.96       0   641.22   52.33   91.58       0
+0:     67108864      16777216     float     sum      -1  1082.85   61.97  108.46       0  1140.85   58.82  102.94       0
+0:    134217728      33554432     float     sum      -1  2011.51   66.72  116.77       0  1853.70   72.41  126.71       0
+0:    268435456      67108864     float     sum      -1  3325.67   80.72  141.25       0  3328.36   80.65  141.14       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 94.7531 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE A  intra nid007176  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 200099 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 200100 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 200101 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 200102 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    40.83  205.47  154.10       0    40.73  205.95  154.46       0
+0:     16777216       1048576     float     sum      -1    61.74  271.76  203.82       0    61.08  274.69  206.02       0
+0:     33554432       2097152     float     sum      -1   103.88  323.03  242.27       0   102.95  325.93  244.45       0
+0:     67108864       4194304     float     sum      -1   190.90  351.54  263.66       0   188.99  355.09  266.32       0
+0:    134217728       8388608     float     sum      -1   351.96  381.34  286.00       0   350.25  383.21  287.40       0
+0:    268435456      16777216     float     sum      -1   676.00  397.09  297.82       0   674.66  397.89  298.41       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 242.061 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE B  intra nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  19384 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  19387 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  19390 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  19391 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    43.12  194.53  145.90       0    40.59  206.65  154.99       0
+0:     16777216       1048576     float     sum      -1    61.63  272.22  204.16       0    61.29  273.71  205.29       0
+0:     33554432       2097152     float     sum      -1   103.79  323.29  242.47       0   103.20  325.14  243.85       0
+0:     67108864       4194304     float     sum      -1   189.82  353.54  265.16       0   189.29  354.54  265.90       0
+0:    134217728       8388608     float     sum      -1   354.06  379.09  284.31       0   350.64  382.78  287.09       0
+0:    268435456      16777216     float     sum      -1   678.06  395.89  296.92       0   674.94  397.72  298.29       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 241.193 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE C  cross nid007176+nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 201264 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 201265 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 201266 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 201267 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  20533 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  20534 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  20535 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  20536 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float     sum      -1   282.59   29.68   25.97       0   273.50   30.67   26.84       0
+0:     16777216        524288     float     sum      -1   290.58   57.74   50.52       0   291.54   57.55   50.35       0
+0:     33554432       1048576     float     sum      -1   373.54   89.83   78.60       0   374.16   89.68   78.47       0
+0:     67108864       2097152     float     sum      -1   679.39   98.78   86.43       0   678.24   98.95   86.58       0
+0:    134217728       4194304     float     sum      -1  1318.57  101.79   89.07       0  1318.32  101.81   89.08       0
+0:    268435456       8388608     float     sum      -1  2591.58  103.58   90.63       0  2815.91   95.33   83.41       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 69.6632 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE A  intra nid007176  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 202414 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 202415 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 202416 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 202417 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    26.97  311.00  233.25       0    26.69  314.30  235.73       0
+0:     16777216       1048576     float    none       0    44.48  377.21  282.91       0    44.33  378.48  283.86       0
+0:     33554432       2097152     float    none       0    79.70  420.99  315.74       0    78.26  428.77  321.58       0
+0:     67108864       4194304     float    none       0   149.37  449.29  336.97       0   147.57  454.76  341.07       0
+0:    134217728       8388608     float    none       0   284.79  471.28  353.46       0   282.97  474.32  355.74       0
+0:    268435456      16777216     float    none       0   555.59  483.15  362.36       0   553.37  485.09  363.82       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 315.541 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE B  intra nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  21733 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  21734 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  21735 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  21736 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    26.97  311.01  233.26       0    26.66  314.65  235.99       0
+0:     16777216       1048576     float    none       0    44.27  378.94  284.20       0    44.01  381.22  285.91       0
+0:     33554432       2097152     float    none       0    79.39  422.65  316.99       0    78.15  429.34  322.01       0
+0:     67108864       4194304     float    none       0   148.67  451.39  338.54       0   148.44  452.09  339.07       0
+0:    134217728       8388608     float    none       0   288.11  465.85  349.39       0   283.31  473.75  355.31       0
+0:    268435456      16777216     float    none       0   555.52  483.22  362.41       0   553.21  485.24  363.93       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 315.584 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 1/3  MODE C  cross nid007176+nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 203595 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 203596 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 203597 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 203598 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  22840 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  22841 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  22842 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  22843 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float    none       0   126.40   66.36   58.07       0    70.20  119.49  104.56       0
+0:     16777216        524288     float    none       0   110.71  151.54  132.60       0   110.06  152.43  133.38       0
+0:     33554432       1048576     float    none       0   205.78  163.06  142.68       0   199.28  168.38  147.33       0
+0:     67108864       2097152     float    none       0   374.92  178.99  156.62       0   375.52  178.71  156.37       0
+0:    134217728       4194304     float    none       0   718.12  186.90  163.54       0   725.01  185.13  161.98       0
+0:    268435456       8388608     float    none       0  1406.12  190.91  167.04       0  1402.16  191.44  167.51       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 140.973 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE A  intra nid007176  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 204734 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 204735 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 204736 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 204737 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1    65.10  128.85  193.27       0    64.79  129.47  194.20       0
+0:     16777216       4194304     float     sum      -1   100.84  166.38  249.57       0    98.45  170.41  255.62       0
+0:     33554432       8388608     float     sum      -1   175.48  191.21  286.82       0   175.79  190.88  286.32       0
+0:     67108864      16777216     float     sum      -1   331.59  202.38  303.57       0   332.94  201.56  302.34       0
+0:    134217728      33554432     float     sum      -1   626.30  214.30  321.45       0   625.58  214.55  321.82       0
+0:    268435456      67108864     float     sum      -1  1219.44  220.13  330.20       0  1218.15  220.36  330.54       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 281.311 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE B  intra nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  23991 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  23992 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  23993 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  23994 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1    65.38  128.30  192.45       0    64.70  129.64  194.47       0
+0:     16777216       4194304     float     sum      -1   101.03  166.06  249.09       0    98.98  169.50  254.25       0
+0:     33554432       8388608     float     sum      -1   177.03  189.54  284.31       0   175.47  191.22  286.83       0
+0:     67108864      16777216     float     sum      -1   331.49  202.45  303.67       0   333.11  201.46  302.19       0
+0:    134217728      33554432     float     sum      -1   628.80  213.45  320.18       0   628.30  213.62  320.43       0
+0:    268435456      67108864     float     sum      -1  1219.46  220.13  330.19       0  1218.57  220.29  330.43       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 280.709 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE C  cross nid007176+nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 205894 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 205895 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 205896 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 205897 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  25109 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  25110 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  25111 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  25112 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1   480.79   17.45   30.53       0   301.48   27.83   48.69       0
+0:     16777216       4194304     float     sum      -1   434.46   38.62   67.58       0   436.37   38.45   67.28       0
+0:     33554432       8388608     float     sum      -1   639.68   52.46   91.80       0   646.44   51.91   90.84       0
+0:     67108864      16777216     float     sum      -1  1086.51   61.77  108.09       0  1090.75   61.53  107.67       0
+0:    134217728      33554432     float     sum      -1  1903.20   70.52  123.41       0  1855.40   72.34  126.59       0
+0:    268435456      67108864     float     sum      -1  3367.09   79.72  139.52       0  3367.07   79.72  139.52       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 95.1266 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE A  intra nid007176  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 207614 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 207615 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 207616 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 207617 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    40.62  206.53  154.90       0    40.43  207.46  155.59       0
+0:     16777216       1048576     float     sum      -1    61.09  274.65  205.99       0    61.07  274.70  206.03       0
+0:     33554432       2097152     float     sum      -1   104.78  320.24  240.18       0   103.35  324.66  243.49       0
+0:     67108864       4194304     float     sum      -1   191.12  351.13  263.35       0   189.77  353.63  265.22       0
+0:    134217728       8388608     float     sum      -1   351.64  381.69  286.27       0   353.31  379.89  284.92       0
+0:    268435456      16777216     float     sum      -1   677.60  396.15  297.12       0   678.55  395.60  296.70       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 241.646 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE B  intra nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  26301 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  26302 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  26303 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  26304 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    41.47  202.29  151.72       0    40.73  205.98  154.48       0
+0:     16777216       1048576     float     sum      -1    63.78  263.05  197.28       0    61.50  272.81  204.61       0
+0:     33554432       2097152     float     sum      -1   103.68  323.63  242.72       0   103.38  324.59  243.44       0
+0:     67108864       4194304     float     sum      -1   190.74  351.83  263.87       0   188.53  355.96  266.97       0
+0:    134217728       8388608     float     sum      -1   352.72  380.52  285.39       0   350.16  383.30  287.48       0
+0:    268435456      16777216     float     sum      -1   675.70  397.27  297.95       0   673.63  398.49  298.87       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 241.232 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE C  cross nid007176+nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 208803 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 208804 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 208805 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 208806 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  27417 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  27418 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  27419 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  27420 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float     sum      -1   452.61   18.53   16.22       0   274.67   30.54   26.72       0
+0:     16777216        524288     float     sum      -1   291.55   57.55   50.35       0   293.32   57.20   50.05       0
+0:     33554432       1048576     float     sum      -1   372.99   89.96   78.72       0   372.98   89.96   78.72       0
+0:     67108864       2097152     float     sum      -1   682.01   98.40   86.10       0   680.51   98.62   86.29       0
+0:    134217728       4194304     float     sum      -1  1834.05   73.18   64.03       0  1318.19  101.82   89.09       0
+0:    268435456       8388608     float     sum      -1  2591.25  103.59   90.64       0  2591.17  103.60   90.65       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 67.2982 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE A  intra nid007176  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 209944 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 209945 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 209946 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 209947 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    26.70  314.17  235.63       0    26.48  316.75  237.56       0
+0:     16777216       1048576     float    none       0    44.25  379.17  284.38       0    43.95  381.77  286.33       0
+0:     33554432       2097152     float    none       0    79.46  422.27  316.70       0    93.64  358.35  268.76       0
+0:     67108864       4194304     float    none       0   149.69  448.33  336.25       0   148.10  453.13  339.85       0
+0:    134217728       8388608     float    none       0   288.44  465.32  348.99       0   283.31  473.74  355.31       0
+0:    268435456      16777216     float    none       0   563.61  476.28  357.21       0   554.26  484.31  363.23       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 310.849 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE B  intra nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  28566 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  28567 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  28568 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  28569 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    27.24  307.96  230.97       0    26.48  316.80  237.60       0
+0:     16777216       1048576     float    none       0    44.06  380.80  285.60       0    43.89  382.23  286.68       0
+0:     33554432       2097152     float    none       0    79.35  422.89  317.17       0    78.17  429.26  321.95       0
+0:     67108864       4194304     float    none       0   149.83  447.89  335.92       0   147.55  454.83  341.13       0
+0:    134217728       8388608     float    none       0   286.78  468.02  351.02       0   282.75  474.68  356.01       0
+0:    268435456      16777216     float    none       0   561.11  478.40  358.80       0   552.68  485.70  364.28       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 315.592 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 2/3  MODE C  cross nid007176+nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 211285 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 211286 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 211287 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 211288 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  29664 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  29665 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  29666 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  29667 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float    none       0   183.86   45.63   39.92       0   175.17   47.89   41.90       0
+0:     16777216        524288     float    none       0   114.78  146.17  127.90       0   110.88  151.31  132.40       0
+0:     33554432       1048576     float    none       0   198.88  168.72  147.63       0   207.20  161.94  141.70       0
+0:     67108864       2097152     float    none       0   372.00  180.40  157.85       0   373.05  179.89  157.40       0
+0:    134217728       4194304     float    none       0   718.10  186.91  163.54       0   717.93  186.95  163.58       0
+0:    268435456       8388608     float    none       0  1414.52  189.77  166.05       0  1407.11  190.77  166.92       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 133.9 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE A  intra nid007176  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 212446 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 212447 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 212448 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 212449 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1    65.16  128.74  193.10       0    64.68  129.69  194.53       0
+0:     16777216       4194304     float     sum      -1   101.35  165.54  248.31       0    98.93  169.59  254.38       0
+0:     33554432       8388608     float     sum      -1   175.65  191.03  286.54       0   174.12  192.70  289.06       0
+0:     67108864      16777216     float     sum      -1   333.33  201.33  301.99       0   330.75  202.90  304.35       0
+0:    134217728      33554432     float     sum      -1   627.30  213.96  320.94       0   626.75  214.15  321.22       0
+0:    268435456      67108864     float     sum      -1  1218.43  220.31  330.47       0  1216.99  220.57  330.86       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 281.312 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE B  intra nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  30850 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  30851 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  30852 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  30853 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1    64.87  129.32  193.98       0    64.50  130.05  195.08       0
+0:     16777216       4194304     float     sum      -1   100.80  166.44  249.66       0    99.15  169.21  253.81       0
+0:     33554432       8388608     float     sum      -1   176.40  190.22  285.33       0   175.69  190.98  286.47       0
+0:     67108864      16777216     float     sum      -1   332.87  201.61  302.41       0   329.73  203.53  305.29       0
+0:    134217728      33554432     float     sum      -1   632.02  212.36  318.54       0   633.05  212.02  318.03       0
+0:    268435456      67108864     float     sum      -1  1220.10  220.01  330.02       0  1220.43  219.95  329.93       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 280.712 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE C  cross nid007176+nid007195  all_reduce_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: all_reduce_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 213720 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 213721 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 213722 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 213723 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  31967 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  31968 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  31969 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  31970 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608       2097152     float     sum      -1   433.81   19.34   33.84       0   299.01   28.05   49.10       0
+0:     16777216       4194304     float     sum      -1   441.16   38.03   66.55       0   442.24   37.94   66.39       0
+0:     33554432       8388608     float     sum      -1   640.65   52.38   91.66       0   777.82   43.14   75.49       0
+0:     67108864      16777216     float     sum      -1  1084.33   61.89  108.31       0  1100.47   60.98  106.72       0
+0:    134217728      33554432     float     sum      -1  1863.31   72.03  126.06       0  1855.43   72.34  126.59       0
+0:    268435456      67108864     float     sum      -1  3349.85   80.13  140.23       0  3324.37   80.75  141.31       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 94.3536 
+0: #
+0: # Collective test concluded: all_reduce_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE A  intra nid007176  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 214893 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 214894 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 214895 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 214899 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    40.93  204.95  153.71       0    40.74  205.90  154.43       0
+0:     16777216       1048576     float     sum      -1    61.69  271.97  203.97       0    61.27  273.81  205.35       0
+0:     33554432       2097152     float     sum      -1   105.10  319.27  239.45       0   104.03  322.56  241.92       0
+0:     67108864       4194304     float     sum      -1   190.45  352.37  264.28       0   191.02  351.32  263.49       0
+0:    134217728       8388608     float     sum      -1   353.15  380.06  285.05       0   350.61  382.81  287.11       0
+0:    268435456      16777216     float     sum      -1   676.91  396.56  297.42       0   673.61  398.50  298.88       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 241.255 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE B  intra nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  33127 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  33128 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  33129 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  33130 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float     sum      -1    41.05  204.36  153.27       0    40.50  207.15  155.36       0
+0:     16777216       1048576     float     sum      -1    61.68  272.02  204.02       0    61.50  272.78  204.59       0
+0:     33554432       2097152     float     sum      -1   104.30  321.70  241.27       0   103.37  324.61  243.46       0
+0:     67108864       4194304     float     sum      -1   189.88  353.43  265.07       0   188.71  355.61  266.71       0
+0:    134217728       8388608     float     sum      -1   352.61  380.64  285.48       0   351.65  381.67  286.26       0
+0:    268435456      16777216     float     sum      -1   675.35  397.47  298.10       0   673.63  398.49  298.87       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 241.872 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE C  cross nid007176+nid007195  reduce_scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: reduce_scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 216198 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 216199 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 216203 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 216204 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  34226 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  34227 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  34228 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  34229 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float     sum      -1   758.88   11.05    9.67       0   270.59   31.00   27.13       0
+0:     16777216        524288     float     sum      -1   288.44   58.17   50.89       0   289.09   58.04   50.78       0
+0:     33554432       1048576     float     sum      -1   373.79   89.77   78.55       0   371.89   90.23   78.95       0
+0:     67108864       2097152     float     sum      -1   678.75   98.87   86.51       0   678.88   98.85   86.50       0
+0:    134217728       4194304     float     sum      -1  1318.00  101.83   89.11       0  1465.08   91.61   80.16       0
+0:    268435456       8388608     float     sum      -1  2592.26  103.55   90.61       0  2591.57  103.58   90.63       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 68.2902 
+0: #
+0: # Collective test concluded: reduce_scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE A  intra nid007176  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 217459 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 217460 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 217461 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 217462 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    88.75   94.52   70.89       0    26.49  316.63  237.47       0
+0:     16777216       1048576     float    none       0    44.11  380.37  285.28       0    43.84  382.68  287.01       0
+0:     33554432       2097152     float    none       0    80.09  418.96  314.22       0    78.38  428.09  321.07       0
+0:     67108864       4194304     float    none       0   148.51  451.88  338.91       0   147.40  455.29  341.47       0
+0:    134217728       8388608     float    none       0   285.67  469.83  352.37       0   282.08  475.81  356.86       0
+0:    268435456      16777216     float    none       0   560.24  479.14  359.36       0   553.59  484.90  363.67       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 302.382 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE B  intra nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid  35395 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid  35396 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid  35397 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid  35398 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        524288     float    none       0    28.71  292.21  219.15       0    26.67  314.54  235.90       0
+0:     16777216       1048576     float    none       0    44.36  378.20  283.65       0    44.23  379.35  284.51       0
+0:     33554432       2097152     float    none       0    79.31  423.08  317.31       0    78.48  427.53  320.65       0
+0:     67108864       4194304     float    none       0   148.43  452.13  339.09       0   147.86  453.87  340.40       0
+0:    134217728       8388608     float    none       0   288.32  465.51  349.13       0   283.56  473.34  355.00       0
+0:    268435456      16777216     float    none       0   557.82  481.22  360.91       0   552.26  486.06  364.55       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 314.189 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+##### pass 3/3  MODE C  cross nid007176+nid007195  scatter_perf_mpi
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: scatter_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 8388608 maxBytes 268435456 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 219623 on  nid007176 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 219627 on  nid007176 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  2 Group  0 Pid 219628 on  nid007176 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  3 Group  0 Pid 219629 on  nid007176 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #  Rank  4 Group  0 Pid  36504 on  nid007195 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  5 Group  0 Pid  36505 on  nid007195 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  6 Group  0 Pid  36506 on  nid007195 device  2 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  7 Group  0 Pid  36507 on  nid007195 device  3 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:      8388608        262144     float    none       0   242.95   34.53   30.21       0    91.14   92.04   80.54       0
+0:     16777216        524288     float    none       0   147.43  113.80   99.58       0   112.21  149.52  130.83       0
+0:     33554432       1048576     float    none       0   202.40  165.78  145.06       0   200.27  167.54  146.60       0
+0:     67108864       2097152     float    none       0   373.96  179.46  157.02       0   374.08  179.40  156.97       0
+0:    134217728       4194304     float    none       0   720.19  186.36  163.07       0   718.01  186.93  163.56       0
+0:    268435456       8388608     float    none       0  1411.47  190.18  166.41       0  1407.01  190.78  166.94       0
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 133.9 
+0: #
+0: # Collective test concluded: scatter_perf_mpi
+0: #
+0: 
+
+NCCL_TESTS_COMPLETE nid[007176,007195]

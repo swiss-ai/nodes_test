@@ -12,6 +12,9 @@
 #
 # RUN:  NCCL_BENCH_NODELIST=nidA,nidB ./nccl_p2p_matrix_rep.sh
 #
+# Launch layout follows Spellbook's slurm_tasks.sh.j2 convention: one Slurm
+# task per GPU, explicit world size, PMIx, and one distributed srun step.
+#
 #SBATCH --job-name=nccl-p2prep
 #SBATCH --time=00:15:00
 #SBATCH --partition=normal
@@ -19,6 +22,7 @@
 #SBATCH --ntasks-per-node=4
 #SBATCH --gpus-per-node=4
 #SBATCH --cpus-per-task=18
+#SBATCH --exclusive
 #SBATCH --no-requeue
 #SBATCH --account=infra01
 #SBATCH --output=%x-%j.log
@@ -35,13 +39,30 @@ if [ -z "${SLURM_JOB_ID:-}" ]; then
         "$0"
 fi
 
-set -u
+set -euo pipefail
+ulimit -c 0
 
 ROOT=/iopsstor/scratch/cscs/mvasilev
 RUN_ENV=${NCCL_BENCH_ENV:-$ROOT/vllm-play/vllm-v0260-eval-multinode.toml}
 PROBE_PYTHON=${NCCL_BENCH_PYTHON:-python3}
 SWEEPS=${NCCL_BENCH_SWEEPS:-10}
 WORK=$ROOT/tmp/nccl-p2prep-${SLURM_JOB_ID}
+GPUS_PER_NODE=4
+TOTAL_TASKS=$((SLURM_JOB_NUM_NODES * GPUS_PER_NODE))
+
+if [ "$SLURM_JOB_NUM_NODES" -ne 2 ] || [ "$TOTAL_TASKS" -ne 8 ]; then
+    echo "p2p matrix requires exactly 2 nodes x 4 GPUs (got ${SLURM_JOB_NUM_NODES} nodes)" >&2
+    exit 2
+fi
+
+export GPUS_PER_NODE
+export HOSTNAMES="$(scontrol show hostnames "$SLURM_JOB_NODELIST")"
+export MASTER_ADDR="$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n1)"
+export MASTER_PORT=${MASTER_PORT:-29519}
+export WORLD_SIZE=$TOTAL_TASKS
+export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
+export CUDA_CACHE_DISABLE=1
+export SLURM_NETWORK=${SLURM_NETWORK:-disable_rdzv_get}
 
 test -f "$RUN_ENV"
 mkdir -p "$WORK"
@@ -144,10 +165,8 @@ dist.barrier()
 dist.destroy_process_group()
 PYEOF
 
-export MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n1)
-export MASTER_PORT=29519
-
-srun -ul --ntasks-per-node=4 --environment="$RUN_ENV" \
+srun -ul --ntasks="$TOTAL_TASKS" --ntasks-per-node="$GPUS_PER_NODE" \
+    --mpi=pmix --network="$SLURM_NETWORK" --environment="$RUN_ENV" \
     env MASTER_ADDR="$MASTER_ADDR" MASTER_PORT="$MASTER_PORT" SWEEPS="$SWEEPS" \
     "$PROBE_PYTHON" "$WORK/p2prep.py"
 

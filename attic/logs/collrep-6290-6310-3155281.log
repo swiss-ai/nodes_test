@@ -1,0 +1,80 @@
+=== nodes: nid[006290,006310]  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm-v0260-eval-multinode.toml  sweeps: 20 ===
+0: rank map: ['nid006290:g0', 'nid006290:g1', 'nid006290:g2', 'nid006290:g3', 'nid006310:g0', 'nid006310:g1', 'nid006310:g2', 'nid006310:g3']
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+0:   return func(*args, **kwargs)
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+0:   return func(*args, **kwargs)
+1: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+1:   return func(*args, **kwargs)
+2: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+2:   return func(*args, **kwargs)
+3: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+3:   return func(*args, **kwargs)
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+0:   return func(*args, **kwargs)
+1: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+1:   return func(*args, **kwargs)
+2: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+2:   return func(*args, **kwargs)
+3: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+3:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+4:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+4:   return func(*args, **kwargs)
+5: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+5:   return func(*args, **kwargs)
+7: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+7:   return func(*args, **kwargs)
+6: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+6:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+4:   return func(*args, **kwargs)
+5: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+5:   return func(*args, **kwargs)
+6: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+6:   return func(*args, **kwargs)
+7: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+7:   return func(*args, **kwargs)
+0: sweep 1/20 done
+0: sweep 2/20 done
+0: sweep 3/20 done
+0: sweep 4/20 done
+0: sweep 5/20 done
+0: sweep 6/20 done
+0: sweep 7/20 done
+0: sweep 8/20 done
+0: sweep 9/20 done
+0: sweep 10/20 done
+0: sweep 11/20 done
+0: sweep 12/20 done
+0: sweep 13/20 done
+0: sweep 14/20 done
+0: sweep 15/20 done
+0: sweep 16/20 done
+0: sweep 17/20 done
+0: sweep 18/20 done
+0: sweep 19/20 done
+0: sweep 20/20 done
+0: 
+0: group              collective         mean     std      min      max  (busbw GB/s, 20 samples)
+0: intra nid006290    allreduce        284.85    2.61   279.50   288.61
+0: intra nid006290    allgather        244.12    5.55   229.47   250.07
+0: intra nid006290    reducescatter    235.84   41.25    60.90   248.93  <-- FLAG
+0: intra nid006310    allreduce        277.07   25.97   172.90   292.23  <-- FLAG
+0: intra nid006310    allgather        222.00   35.48   102.28   250.20  <-- FLAG
+0: intra nid006310    reducescatter    232.82   16.34   183.54   249.40  <-- FLAG
+0: all-node (8)       allreduce         65.15   11.66    55.10   105.89
+0: all-node (8)       allgather         70.00   24.71    20.92    84.40  <-- FLAG
+0: all-node (8)       reducescatter     75.73   21.08    18.83    84.81  <-- FLAG
+0: 
+0: flagged metrics (all samples):
+0:   intra nid006290 / reducescatter: 243.4 60.9 242.2 246.6 245.4 241.7 238.6 248.7 244.7 246.1 246.3 247.9 242.6 244.8 245.0 246.6 246.2 244.6 245.6 248.9
+0:   intra nid006310 / allreduce: 289.7 172.9 282.6 290.8 290.4 288.6 288.4 290.4 279.1 291.6 292.2 265.0 271.9 273.3 275.5 281.2 283.2 283.3 264.8 286.6
+0:   intra nid006310 / allgather: 247.2 102.3 244.7 245.3 170.1 248.7 197.5 247.6 235.6 250.2 219.9 228.8 216.2 225.1 224.7 233.8 238.2 239.1 187.3 237.7
+0:   intra nid006310 / reducescatter: 247.1 244.2 244.9 242.8 249.4 206.8 243.1 247.1 235.3 248.9 226.7 213.1 228.8 226.5 228.0 237.9 235.8 233.6 183.5 233.0
+0:   all-node (8) / allgather: 29.6 84.1 83.4 34.5 83.8 82.3 83.9 83.9 84.0 32.0 84.0 83.6 84.1 25.4 20.9 84.0 84.1 83.7 84.4 84.2
+0:   all-node (8) / reducesca
+0: tter: 20.5 84.5 84.5 84.8 83.8 84.4 83.9 83.4 84.1 84.5 83.4 83.7 84.0 44.9 18.8 83.9 84.4 84.3 84.0 84.7
+0: COLLECTIVE_REP_COMPLETE
+DONE: nid[006290,006310]

@@ -1,0 +1,70 @@
+=== failing: nid006907  control: nid007313 ===
+=== allocation: nid[006907,007313]  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/megatron-v2601-multinode.toml ===
+=== raw sweeps: 1  NCCL sweeps: 1 ===
+=== size: 64 MiB  iterations/sample: 2 ===
+=== trace artifacts: /iopsstor/scratch/cscs/mvasilev/tmp/nccl-path-trace-3174200 ===
+
+=== PHASE 1: raw directed CUDA P2P, all four contexts resident ===
+1: Collecting data...
+1: RAW_CONFIG {"bytes": 67108864, "host": "nid007313", "iters": 2, "role": "control", "sweeps": 1, "visible_gpus": 4}
+1: RAW_SAMPLE {"elapsed_s": 0.0010947538539767265, "gbps": 122.6008, "host": "nid007313", "path": "g0->g1", "role": "control", "sweep": 1, "time_ns": 1787583103377292381}
+1: RAW_SAMPLE {"elapsed_s": 0.0010779215954244137, "gbps": 124.5153, "host": "nid007313", "path": "g1->g0", "role": "control", "sweep": 1, "time_ns": 1787583103393529215}
+1: RAW_SAMPLE {"elapsed_s": 0.001074210274964571, "gbps": 124.9455, "host": "nid007313", "path": "g0->g2", "role": "control", "sweep": 1, "time_ns": 1787583103422487331}
+1: RAW_SAMPLE {"elapsed_s": 0.001073474995791912, "gbps": 125.0311, "host": "nid007313", "path": "g2->g0", "role": "control", "sweep": 1, "time_ns": 1787583103438618183}
+1: RAW_SAMPLE {"elapsed_s": 0.0011150729842483997, "gbps": 120.3668, "host": "nid007313", "path": "g0->g3", "role": "control", "sweep": 1, "time_ns": 1787583103467584203}
+1: RAW_SAMPLE {"elapsed_s": 0.001066658180207014, "gbps": 125.8301, "host": "nid007313", "path": "g3->g0", "role": "control", "sweep": 1, "time_ns": 1787583103483741423}
+1: RAW_SAMPLE {"elapsed_s": 0.001075522042810917, "gbps": 124.7931, "host": "nid007313", "path": "g1->g2", "role": "control", "sweep": 1, "time_ns": 1787583103512554519}
+1: RAW_SAMPLE {"elapsed_s": 0.001066531054675579, "gbps": 125.8451, "host": "nid007313", "path": "g2->g1", "role": "control", "sweep": 1, "time_ns": 1787583103528851095}
+1: RAW_SAMPLE {"elapsed_s": 0.001114369835704565, "gbps": 120.4427, "host": "nid007313", "path": "g1->g3", "role": "control", "sweep": 1, "time_ns": 1787583103557307593}
+1: RAW_SAMPLE {"elapsed_s": 0.001071810256689787, "gbps": 125.2253, "host": "nid007313", "path": "g3->g1", "role": "control", "sweep": 1, "time_ns": 1787583103573377327}
+1: RAW_SAMPLE {"elapsed_s": 0.0011315210722386837, "gbps": 118.6171, "host": "nid007313", "path": "g2->g3", "role": "control", "sweep": 1, "time_ns": 1787583103604083971}
+1: RAW_SAMPLE {"elapsed_s": 0.0011158091947436333, "gbps": 120.2873, "host": "nid007313", "path": "g3->g2", "role": "control", "sweep": 1, "time_ns": 1787583103620334436}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 122.6008, "mean_gbps": 122.6008, "min_gbps": 122.6008, "path": "g0->g1", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 124.9455, "mean_gbps": 124.9455, "min_gbps": 124.9455, "path": "g0->g2", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 120.3668, "mean_gbps": 120.3668, "min_gbps": 120.3668, "path": "g0->g3", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 124.5153, "mean_gbps": 124.5153, "min_gbps": 124.5153, "path": "g1->g0", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 124.7931, "mean_gbps": 124.7931, "min_gbps": 124.7931, "path": "g1->g2", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 120.4427, "mean_gbps": 120.4427, "min_gbps": 120.4427, "path": "g1->g3", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 125.0311, "mean_gbps": 125.0311, "min_gbps": 125.0311, "path": "g2->g0", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 125.8451, "mean_gbps": 125.8451, "min_gbps": 125.8451, "path": "g2->g1", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 118.6171, "mean_gbps": 118.6171, "min_gbps": 118.6171, "path": "g2->g3", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 125.8301, "mean_gbps": 125.8301, "min_gbps": 125.8301, "path": "g3->g0", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 125.2253, "mean_gbps": 125.2253, "min_gbps": 125.2253, "path": "g3->g1", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_SUMMARY {"host": "nid007313", "max_gbps": 120.2873, "mean_gbps": 120.2873, "min_gbps": 120.2873, "path": "g3->g2", "role": "control", "samples": 1, "std_gbps": 0.0}
+1: RAW_P2P_COMPLETE nid007313 control
+1: Generating '/tmp/nsys-report-a59a.qdstrm'
+1: Press Ctrl-C to stop symbol files downloading
+0: Collecting data...
+0: RAW_CONFIG {"bytes": 67108864, "host": "nid006907", "iters": 2, "role": "failing", "sweeps": 1, "visible_gpus": 4}
+0: RAW_SAMPLE {"elapsed_s": 0.0011070710024796426, "gbps": 121.2368, "host": "nid006907", "path": "g0->g1", "role": "failing", "sweep": 1, "time_ns": 1787583116341068293}
+0: RAW_SAMPLE {"elapsed_s": 0.0010593609767965972, "gbps": 126.6969, "host": "nid006907", "path": "g1->g0", "role": "failing", "sweep": 1, "time_ns": 1787583116357133103}
+0: RAW_SAMPLE {"elapsed_s": 0.0011054069909732789, "gbps": 121.4193, "host": "nid006907", "path": "g0->g2", "role": "failing", "sweep": 1, "time_ns": 1787583116386675533}
+0: RAW_SAMPLE {"elapsed_s": 0.0010869120014831424, "gbps": 123.4854, "host": "nid006907", "path": "g2->g0", "role": "failing", "sweep": 1, "time_ns": 1787583116402892562}
+0: RAW_SAMPLE {"elapsed_s": 0.0011005119886249304, "gbps": 121.9594, "host": "nid006907", "path": "g0->g3", "role": "failing", "sweep": 1, "time_ns": 1787583116433363893}
+0: RAW_SAMPLE {"elapsed_s": 0.0010805450147017837, "gbps": 124.213, "host": "nid006907", "path": "g3->g0", "role": "failing", "sweep": 1, "time_ns": 1787583116449736982}
+0: RAW_SAMPLE {"elapsed_s": 0.0010853440035134554, "gbps": 123.6638, "host": "nid006907", "path": "g1->g2", "role": "failing", "sweep": 1, "time_ns": 1787583116478758372}
+0: RAW_SAMPLE {"elapsed_s": 0.0010748810018412769, "gbps": 124.8675, "host": "nid006907", "path": "g2->g1", "role": "failing", "sweep": 1, "time_ns": 1787583116495051655}
+0: RAW_SAMPLE {"elapsed_s": 0.0011249590024817735, "gbps": 119.309, "host": "nid006907", "path": "g1->g3", "role": "failing", "sweep": 1, "time_ns": 1787583116524315373}
+0: RAW_SAMPLE {"elapsed_s": 0.0010755840048659593, "gbps": 124.7859, "host": "nid006907", "path": "g3->g1", "role": "failing", "sweep": 1, "time_ns": 1787583116540898952}
+0: RAW_SAMPLE {"elapsed_s": 0.0011156789842061698, "gbps": 120.3014, "host": "nid006907", "path": "g2->g3", "role": "failing", "sweep": 1, "time_ns": 1787583116571596581}
+0: RAW_SAMPLE {"elapsed_s": 0.0010863039933610708, "gbps": 123.5545, "host": "nid006907", "path": "g3->g2", "role": "failing", "sweep": 1, "time_ns": 1787583116587763243}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 121.2368, "mean_gbps": 121.2368, "min_gbps": 121.2368, "path": "g0->g1", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 121.4193, "mean_gbps": 121.4193, "min_gbps": 121.4193, "path": "g0->g2", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 121.9594, "mean_gbps": 121.9594, "min_gbps": 121.9594, "path": "g0->g3", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 126.6969, "mean_gbps": 126.6969, "min_gbps": 126.6969, "path": "g1->g0", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 123.6638, "mean_gbps": 123.6638, "min_gbps": 123.6638, "path": "g1->g2", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY
+0:  {"host": "nid006907", "max_gbps": 119.309, "mean_gbps": 119.309, "min_gbps": 119.309, "path": "g1->g3", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 123.4854, "mean_gbps": 123.4854, "min_gbps": 123.4854, "path": "g2->g0", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 124.8675, "mean_gbps": 124.8675, "min_gbps": 124.8675, "path": "g2->g1", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 120.3014, "mean_gbps": 120.3014, "min_gbps": 120.3014, "path": "g2->g3", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 124.213, "mean_gbps": 124.213, "min_gbps": 124.213, "path": "g3->g0", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid006907", "max_gbps": 124.7859, "mean_gbps": 124.7859, "min_gbps": 124.7859, "path": "g3->g1", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_SUMMARY {"host": "nid00
+0: 6907", "max_gbps": 123.5545, "mean_gbps": 123.5545, "min_gbps": 123.5545, "path": "g3->g2", "role": "failing", "samples": 1, "std_gbps": 0.0}
+0: RAW_P2P_COMPLETE nid006907 failing
+0: Generating '/tmp/nsys-report-3a12.qdstrm'
+0: Press Ctrl-C to stop symbol files downloading
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: [2026-08-24T17:06:24.031] error: *** STEP 3174200.0 ON nid006907 CANCELLED AT 2026-08-24T17:06:24 DUE TO TIME LIMIT ***
+[2026-08-24T17:06:24.033] error: *** JOB 3174200 ON nid006907 CANCELLED AT 2026-08-24T17:06:24 DUE TO TIME LIMIT ***

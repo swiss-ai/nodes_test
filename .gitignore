@@ -1,5 +1,9 @@
 # compiled in-container by probes/nccl_raw_rep.sh
 probes/nccl_raw_collrep
+attic/probes/nccl_raw_collrep
+
+# Empty core placeholders emitted by failed/aborted container processes
+logs/core_*
 
 # vllm-bench heavy artifacts (dataset via download_sharegpt.sh; caches at runtime)
 vllm-bench/ShareGPT_V3_unfiltered_cleaned_split.json

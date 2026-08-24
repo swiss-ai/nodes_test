@@ -1,0 +1,74 @@
+=== nodes: nid[006857,007313]  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/vllm-v0260-eval-multinode.toml  sweeps: 20 ===
+0: rank map: ['nid006857:g0', 'nid006857:g1', 'nid006857:g2', 'nid006857:g3', 'nid007313:g0', 'nid007313:g1', 'nid007313:g2', 'nid007313:g3']
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+0:   return func(*args, **kwargs)
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+0:   return func(*args, **kwargs)
+3: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+3:   return func(*args, **kwargs)
+1: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+1:   return func(*args, **kwargs)
+2: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+2:   return func(*args, **kwargs)
+0: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+0:   return func(*args, **kwargs)
+1: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+1:   return func(*args, **kwargs)
+2: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+2:   return func(*args, **kwargs)
+3: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+3:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+4:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+4:   return func(*args, **kwargs)
+5: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+5:   return func(*args, **kwargs)
+7: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+7:   return func(*args, **kwargs)
+6: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+6:   return func(*args, **kwargs)
+5: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+5:   return func(*args, **kwargs)
+6: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+6:   return func(*args, **kwargs)
+7: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+7:   return func(*args, **kwargs)
+4: /usr/local/lib/python3.12/dist-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+4:   return func(*args, **kwargs)
+0: sweep 1/20 done
+0: sweep 2/20 done
+0: sweep 3/20 done
+0: sweep 4/20 done
+0: sweep 5/20 done
+0: sweep 6/20 done
+0: sweep 7/20 done
+0: sweep 8/20 done
+0: sweep 9/20 done
+0: sweep 10/20 done
+0: sweep 11/20 done
+0: sweep 12/20 done
+0: sweep 13/20 done
+0: sweep 14/20 done
+0: sweep 15/20 done
+0: sweep 16/20 done
+0: sweep 17/20 done
+0: sweep 18/20 done
+0: sweep 19/20 done
+0: sweep 20/20 done
+0: 
+0: group              collective         mean     std      min      max  (busbw GB/s, 20 samples)
+0: intra nid006857    allreduce        284.44    2.16   280.73   287.60
+0: intra nid006857    allgather        249.18    1.67   245.91   252.56
+0: intra nid006857    reducescatter    245.53    1.71   242.06   248.42
+0: intra nid007313    allreduce        293.31    1.32   290.89   295.75
+0: intra nid007313    allgather        250.53    1.66   246.69   253.47
+0: intra nid007313    reducescatter    250.70    1.26   247.04   252.76
+0: all-node (8)       allreduce         95.76    8.35    61.25    98.72  <-- FLAG
+0: all-node (8)       allgather         83.45    0.93    79.59    83.92
+0: all-node (8)       reducescatter     83.78    0.20    83.46    84.31
+0: 
+0: flagged metrics (all samples):
+0:   all-node (8) / allreduce: 97.7 61.3 98.3 97.6 98.1 89.6 98.2 97.7 97.1 98.3 97.4 98.7 98.6 97.8 98.3 98.0 98.5 97.7 98.5 97.9
+0: COLLECTIVE_REP_COMPLETE
+DONE: nid[006857,007313]

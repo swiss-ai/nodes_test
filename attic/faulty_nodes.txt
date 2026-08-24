@@ -1,0 +1,49 @@
+# Faulty nodes convicted by node-health probes (updated 2026-08-24).
+# Conviction standard: repeated-sweep 64 MiB p2p matrix (nccl_p2p_matrix_rep.sh)
+# PLUS collective-level confirmation (nccl_collective_rep.sh), each with a
+# clean-pair control arm.  Logs in node-health/logs/.
+#
+# Use:  sbatch --exclude=$(grep -v '^#' faulty_nodes.txt | paste -sd,) ...
+#
+# --- convicted 2026-08-22/23 sweep of colleague's exclude_slow_ep.txt ---
+# nid006290: own intra RS collapse 60.9 (job 3155281); p2p g0-g1 62.6 (3153532)
+# nid006310: intra AR 172.9 / AG 102.3 / RS 183.5 with sustained drift; p2p
+#            g2-g3 76-79 + g1 ingress collapse from all remotes (3155281/3153532)
+# nid006907: intra AR 76.8 / AG 83.8 / RS 51.7 beside clean anchor (3153679);
+#            p2p g1-g3 cell reproduced with two partners 83.5/59.5 (3153530/677)
+nid006290
+nid006310
+nid006907
+#
+# --- previously convicted, nid007195 RE-CONVICTED 2026-08-23 ---
+# nid007195: world AR mean ~65 / min 48.3, AG min 38.3, RS min 19.3 while both
+#            intra groups near-clean (3153545); p2p g3 ingress 19.0 (3153544)
+# nid007162: flaky intra NVLink 45-78 GB/s + sub-line-rate ingress (Aug 21)
+# nid007434: flaky intra NVLink + sub-line-rate ingress (Aug 21)
+nid007195
+nid007162
+nid007434
+#
+# --- convicted 2026-08-24 ---
+# nid006887: own intra RS collapse 29.0 + drift (218-250 band, std 47), AG
+#            drift to 213, beside fully clean nid006833 (3166513); world AG
+#            six collapse samples 15.8-33.6; earlier four cross dips with
+#            g3 twice (3153546) now attributed here; anchor-split p2p
+#            localizes intra g0-g2 stutter 79.6 (3168053)
+nid006887
+# nid006890: intra collapses in all three collectives beside clean anchor
+#            (3166506): AR 91.2/157.4, AG 33.2/86.8 + drift, RS 18.1; world
+#            AR BIMODAL (~half the samples at ~62 vs ~107); p2p fingerprint
+#            was intra g0-g3 58.0 + ingress into g3 16.2 (3153543)
+nid006890
+#
+# --- explicitly CLEARED (do not exclude) ---
+# nid007313 (p2p + collective clean, 3153787/3153788)
+# nid006889 (formally cleared vs anchor, 3153678 -- was over-excluded)
+# nid006571 (collective probe fully clean incl. world groups, 3166507;
+#            the single p2p 79.0 sample does not recur)
+# nid006833 (cleared vs anchor 6857, 3168425 -- world groups pristine,
+#            one intra AG 175.9 one-off = artifact band, watch only;
+#            its 3153546 cross dips attributed to 6887)
+# clean at p2p: 6314 6316 6569 6570 6576 6802 6803 6810 6811 6816 6821 6831
+#               6834 7070 7076 7576 7578 7579 7580
