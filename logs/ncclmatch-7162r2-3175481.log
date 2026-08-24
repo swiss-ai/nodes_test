@@ -1,0 +1,185 @@
+=== node: nid007162  EDF: /iopsstor/scratch/cscs/mvasilev/vllm-play/megatron-v2601-multinode.toml ===
+=== 2 MPI ranks, 1 GPU/rank, size: 64M, samples: 10, iters/sample: 1 ===
+=== each PAIR_SAMPLES line below uses the out-of-place algbw column ===
+
+##### pair g0-g1: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 156735 on  nid007162 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 156736 on  nid007162 device  1 [0019:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   824.26   81.42   81.42    N/A   841.57   79.74   79.74    N/A
+0:     67108864      16777216     float     sum      -1   830.82   80.77   80.77    N/A   852.65   78.71   78.71    N/A
+0:     67108864      16777216     float     sum      -1   826.15   81.23   81.23    N/A   894.37   75.03   75.03    N/A
+0:     67108864      16777216     float     sum      -1   829.83   80.87   80.87    N/A   847.88   79.15   79.15    N/A
+0:     67108864      16777216     float     sum      -1   839.72   79.92   79.92    N/A   813.99   82.44   82.44    N/A
+0:     67108864      16777216     float     sum      -1   811.37   82.71   82.71    N/A   834.25   80.44   80.44    N/A
+0:     67108864      16777216     float     sum      -1   833.48   80.52   80.52    N/A   832.81   80.58   80.58    N/A
+0:     67108864      16777216     float     sum      -1   836.17   80.26   80.26    N/A   835.85   80.29   80.29    N/A
+0:     67108864      16777216     float     sum      -1   836.26   80.25   80.25    N/A   826.18   81.23   81.23    N/A
+0:     67108864      16777216     float     sum      -1   829.16   80.94   80.94    N/A  1154.97   58.10   58.10    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 79.2301 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g0-g1 out-of-place GB/s: 81.42 80.77 81.23 80.87 79.92 82.71 80.52 80.26 80.25 80.94
+
+##### pair g0-g2: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 157870 on  nid007162 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 157871 on  nid007162 device  1 [0029:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   857.54   78.26   78.26    N/A   831.33   80.72   80.72    N/A
+0:     67108864      16777216     float     sum      -1   825.99   81.25   81.25    N/A   837.09   80.17   80.17    N/A
+0:     67108864      16777216     float     sum      -1   813.83   82.46   82.46    N/A   824.81   81.36   81.36    N/A
+0:     67108864      16777216     float     sum      -1   827.40   81.11   81.11    N/A   817.86   82.05   82.05    N/A
+0:     67108864      16777216     float     sum      -1   832.13   80.65   80.65    N/A   809.83   82.87   82.87    N/A
+0:     67108864      16777216     float     sum      -1   821.35   81.71   81.71    N/A   810.79   82.77   82.77    N/A
+0:     67108864      16777216     float     sum      -1   827.49   81.10   81.10    N/A   819.49   81.89   81.89    N/A
+0:     67108864      16777216     float     sum      -1   825.16   81.33   81.33    N/A   836.20   80.25   80.25    N/A
+0:     67108864      16777216     float     sum      -1   829.73   80.88   80.88    N/A   854.82   78.51   78.51    N/A
+0:     67108864      16777216     float     sum      -1   812.29   82.62   82.62    N/A   817.22   82.12   82.12    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 81.2033 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g0-g2 out-of-place GB/s: 78.26 81.25 82.46 81.11 80.65 81.71 81.10 81.33 80.88 82.62
+
+##### pair g0-g3: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 158959 on  nid007162 device  0 [0009:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 158960 on  nid007162 device  1 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   849.99   78.95   78.95    N/A   828.97   80.95   80.95    N/A
+0:     67108864      16777216     float     sum      -1   838.37   80.05   80.05    N/A   856.33   78.37   78.37    N/A
+0:     67108864      16777216     float     sum      -1   845.67   79.36   79.36    N/A   860.01   78.03   78.03    N/A
+0:     67108864      16777216     float     sum      -1   841.73   79.73   79.73    N/A   821.86   81.65   81.65    N/A
+0:     67108864      16777216     float     sum      -1   833.13   80.55   80.55    N/A   840.87   79.81   79.81    N/A
+0:     67108864      16777216     float     sum      -1   858.12   78.20   78.20    N/A   826.92   81.16   81.16    N/A
+0:     67108864      16777216     float     sum      -1   848.97   79.05   79.05    N/A   845.45   79.38   79.38    N/A
+0:     67108864      16777216     float     sum      -1   834.89   80.38   80.38    N/A   843.17   79.59   79.59    N/A
+0:     67108864      16777216     float     sum      -1   839.75   79.92   79.92    N/A   844.17   79.50   79.50    N/A
+0:     67108864      16777216     float     sum      -1   837.45   80.14   80.14    N/A   861.06   77.94   77.94    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 79.6347 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g0-g3 out-of-place GB/s: 78.95 80.05 79.36 79.73 80.55 78.20 79.05 80.38 79.92 80.14
+
+##### pair g1-g2: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 160040 on  nid007162 device  0 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 160041 on  nid007162 device  1 [0029:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   845.57   79.36   79.36    N/A   843.65   79.55   79.55    N/A
+0:     67108864      16777216     float     sum      -1   826.69   81.18   81.18    N/A  2036.29   32.96   32.96    N/A
+0:     67108864      16777216     float     sum      -1  1070.30   62.70   62.70    N/A   850.21   78.93   78.93    N/A
+0:     67108864      16777216     float     sum      -1   823.21   81.52   81.52    N/A   834.37   80.43   80.43    N/A
+0:     67108864      16777216     float     sum      -1   841.99   79.70   79.70    N/A   853.64   78.62   78.62    N/A
+0:     67108864      16777216     float     sum      -1   830.60   80.80   80.80    N/A   828.97   80.95   80.95    N/A
+0:     67108864      16777216     float     sum      -1   830.31   80.82   80.82    N/A   847.05   79.23   79.23    N/A
+0:     67108864      16777216     float     sum      -1   825.67   81.28   81.28    N/A   820.10   81.83   81.83    N/A
+0:     67108864      16777216     float     sum      -1   830.69   80.79   80.79    N/A   849.64   78.99   78.99    N/A
+0:     67108864      16777216     float     sum      -1   846.85   79.24   79.24    N/A   815.43   82.30   82.30    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 77.0586 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g1-g2 out-of-place GB/s: 79.36 81.18 62.70 81.52 79.70 80.80 80.82 81.28 80.79 79.24
+
+##### pair g1-g3: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 161102 on  nid007162 device  0 [0019:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 161103 on  nid007162 device  1 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   827.40   81.11   81.11    N/A   821.80   81.66   81.66    N/A
+0:     67108864      16777216     float     sum      -1   832.58   80.60   80.60    N/A   844.39   79.48   79.48    N/A
+0:     67108864      16777216     float     sum      -1   837.73   80.11   80.11    N/A   823.65   81.48   81.48    N/A
+0:     67108864      16777216     float     sum      -1   830.57   80.80   80.80    N/A   827.72   81.08   81.08    N/A
+0:     67108864      16777216     float     sum      -1   823.65   81.48   81.48    N/A   826.15   81.23   81.23    N/A
+0:     67108864      16777216     float     sum      -1   817.13   82.13   82.13    N/A   851.46   78.82   78.82    N/A
+0:     67108864      16777216     float     sum      -1   835.62   80.31   80.31    N/A   851.52   78.81   78.81    N/A
+0:     67108864      16777216     float     sum      -1   842.02   79.70   79.70    N/A   849.03   79.04   79.04    N/A
+0:     67108864      16777216     float     sum      -1   831.46   80.71   80.71    N/A   829.51   80.90   80.90    N/A
+0:     67108864      16777216     float     sum      -1   835.17   80.35   80.35    N/A   833.09   80.55   80.55    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 80.5172 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g1-g3 out-of-place GB/s: 81.11 80.60 80.11 80.80 81.48 82.13 80.31 79.70 80.71 80.35
+
+##### pair g2-g3: 10 independent printed samples
+0: # nccl-tests version 2.17.8 nccl-headers=22902 nccl-library=22903
+0: # Collective test starting: sendrecv_perf_mpi
+0: # nThread 1 nGpus 1 minBytes 67108864 maxBytes 67108864 step: 1048576(bytes) warmup iters: 10 iters: 1 agg iters: 1 validation: 0 graph: 0
+0: #
+0: # Using devices
+0: #  Rank  0 Group  0 Pid 162184 on  nid007162 device  0 [0029:01:00] NVIDIA GH200 120GB
+0: #  Rank  1 Group  0 Pid 162185 on  nid007162 device  1 [0039:01:00] NVIDIA GH200 120GB
+0: #
+0: #                                                              out-of-place                       in-place          
+0: #       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+0: #        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+0:     67108864      16777216     float     sum      -1   812.65   82.58   82.58    N/A   829.41   80.91   80.91    N/A
+0:     67108864      16777216     float     sum      -1   832.55   80.61   80.61    N/A   829.13   80.94   80.94    N/A
+0:     67108864      16777216     float     sum      -1   840.93   79.80   79.80    N/A   821.38   81.70   81.70    N/A
+0:     67108864      16777216     float     sum      -1   840.13   79.88   79.88    N/A   809.80   82.87   82.87    N/A
+0:     67108864      16777216     float     sum      -1   835.88   80.29   80.29    N/A   815.56   82.29   82.29    N/A
+0:     67108864      16777216     float     sum      -1   850.79   78.88   78.88    N/A   861.41   77.91   77.91    N/A
+0:     67108864      16777216     float     sum      -1   844.68   79.45   79.45    N/A   819.78   81.86   81.86    N/A
+0:     67108864      16777216     float     sum      -1   835.94   80.28   80.28    N/A   818.18   82.02   82.02    N/A
+0:     67108864      16777216     float     sum      -1   841.99   79.70   79.70    N/A   813.86   82.46   82.46    N/A
+0:     67108864      16777216     float     sum      -1   820.33   81.81   81.81    N/A   817.51   82.09   82.09    N/A
+0: # Out of bounds values : 0 OK
+0: # Avg bus bandwidth    : 80.9158 
+0: #
+0: # Collective test concluded: sendrecv_perf_mpi
+0: #
+0: 
+PAIR_SAMPLES g2-g3 out-of-place GB/s: 82.58 80.61 79.80 79.88 80.29 78.88 79.45 80.28 79.70 81.81
+
+NCCL_TESTS_INTRA_MATCH_COMPLETE nid007162
